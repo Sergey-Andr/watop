@@ -1,7 +1,7 @@
 import React, { FC, memo, ReactElement } from "react";
 import Image from "next/image";
 import shoppingCart from "../../../../../public/shoppingCart.svg";
-import { ICakes } from "@/app/tempInfo";
+import { ICake } from "@/app/tempInfo";
 import { handleInputChange } from "@/components/Header/feature";
 import { motion, Variants } from "framer-motion";
 import {
@@ -19,7 +19,7 @@ interface ISearchedCakesList {
     React.SetStateAction<TDebounceRequestName>
   >;
   setDebounceTimer: React.Dispatch<React.SetStateAction<TDebounceTimer>>;
-  searchedCakes: ICakes[];
+  searchedCakes: ICake[];
 }
 
 const itemVariantsLi: Variants = {
@@ -90,8 +90,7 @@ const SearchedCakesList: FC<ISearchedCakesList> = ({
               </span>
               <h2 className="first-letter:uppercase truncate">{cake.name}</h2>
             </div>
-            <h3 className="text-sm">{cake.weight} КГ</h3>
-            <h4 className="text-sm">{cake.cost} ГРН</h4>
+            <h4 className="text-sm">{cake.price}$</h4>
             <button
               className="group/buy w-fit h-fit relative z-50 mr-2"
               onClick={(e) => {

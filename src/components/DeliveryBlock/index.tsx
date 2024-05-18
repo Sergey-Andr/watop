@@ -3,7 +3,7 @@ import delivery from "@/../public/delivery-block.jpg";
 
 export default async function DeliveryBlock() {
   return (
-    <section className="flex w-full h-fit relative mb-96">
+    <section id="delivery" className="flex w-full h-fit relative mb-96">
       <section className="h-fit">
         <h2 className="text-7xl mb-12">Delivery terms</h2>
         <ul className="max-w-lg w-full text-lg font-sans font-medium text-black/60">

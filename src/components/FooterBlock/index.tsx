@@ -1,11 +1,11 @@
 import Image from "next/image";
-import logo from "@/../public/logo.jpg";
+import logo from "../../../public/logo.jpg";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
 import { PiInstagramLogoFill } from "react-icons/pi";
 
 export default async function FooterBlock() {
   return (
-    <section className="flex justify-around items-start mb-32">
+    <section id="contacts" className="flex justify-around items-start mb-32">
       <section className="flex flex-col">
         <div className="mb-8 flex items-center">
           <h2 className="text-3xl font-medium mr-5">WATOP</h2>

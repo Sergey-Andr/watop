@@ -1,17 +1,17 @@
 "use client";
 import { createStore } from "@/store/createStore";
-import { ICakes } from "@/app/tempInfo";
+import { ICake } from "@/app/tempInfo";
 
 interface IUseSearchCakesStore extends IUseSearchCakesContent {
   actions: IUseSearchCakesActions;
 }
 
 export interface IUseSearchCakesContent {
-  searchedCakes: ICakes[];
+  searchedCakes: ICake[];
 }
 
 export interface IUseSearchCakesActions {
-  setSearchCakes: (searchedCakes: ICakes[]) => void;
+  setSearchCakes: (searchedCakes: ICake[]) => void;
 }
 
 const useSearchCakesStore = createStore(
@@ -23,7 +23,7 @@ const useSearchCakesStore = createStore(
   }),
 );
 
-export const selectSearchCakes = (): ICakes[] =>
+export const selectSearchCakes = (): ICake[] =>
   useSearchCakesStore((state: IUseSearchCakesStore) => state.searchedCakes);
 
 export const useSetSearchCakesActions = (): IUseSearchCakesActions =>

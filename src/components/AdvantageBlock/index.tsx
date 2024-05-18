@@ -1,4 +1,3 @@
-"use server";
 import Image from "next/image";
 import quality from "@/../public/advantage-quality.jpg";
 import gift from "@/../public/advantage-gift.jpg";

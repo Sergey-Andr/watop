@@ -3,7 +3,7 @@ import order from "@/../public/order-cake.png";
 
 export default async function OrderBlock() {
   return (
-    <section className="flex mb-72">
+    <section id="order" className="flex mb-72">
       <Image src={order} alt={"How to order"} className="w-1/2 mr-32" />
       <section className="w-96">
         <h2 className="text-6xl flex flex-col">

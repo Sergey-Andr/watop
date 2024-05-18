@@ -1,6 +1,6 @@
 "use server";
 import Image from "next/image";
-import icon from "@/../public/logo.jpg";
+import icon from "../../../public/logo.jpg";
 import search from "@/../public/zoom.svg";
 import account from "@/../public/account.svg";
 import shoppingCart from "@/../public/shoppingCart.svg";

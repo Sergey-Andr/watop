@@ -2,6 +2,7 @@
 import { Fragment, memo, ReactElement, useState } from "react";
 import { cakes } from "@/app/tempInfo";
 import Image from "next/image";
+import Link from "next/link";
 
 const Catalog = (): ReactElement => {
   const [headAndTail, setHeadAndTail] = useState([0, 4]);
@@ -14,12 +15,14 @@ const Catalog = (): ReactElement => {
               key={cake.name}
               className="w-72 h-fit flex flex-col items-start justify-center odd:mr-8 first:mb-8"
             >
-              <Image
-                width={288}
-                src={cake.image}
-                alt={cake.name}
-                className="h-96 overflow-hidden mb-4"
-              />
+              <Link href={`/cake/${cake.id}`}>
+                <Image
+                  width={288}
+                  src={cake.image}
+                  alt={cake.name}
+                  className="h-96 overflow-hidden mb-4"
+                />
+              </Link>
               <div className="font-sans w-full h-fit flex items-center justify-between px-2">
                 <div>
                   <p className="first-letter:uppercase font-bold">
@@ -27,7 +30,7 @@ const Catalog = (): ReactElement => {
                   </p>
                   <p>{cake.taste}</p>
                 </div>
-                <p className="font-bold">{cake.price}$</p>
+                <strong>{cake.price}$</strong>
               </div>
             </li>
           ))}
@@ -36,13 +39,15 @@ const Catalog = (): ReactElement => {
         <li className="max-w-xl w-full h-fit flex flex-col items-start justify-center relative">
           {cakes.slice(headAndTail[1], headAndTail[1] + 1).map((cake) => (
             <Fragment key={cake.name}>
-              <Image
-                width={576}
-                height={928}
-                src={cake.image}
-                alt={cake.name}
-                className="mb-4 h-full"
-              />
+              <Link href={`/cake/${cake.id}`}>
+                <Image
+                  width={576}
+                  height={928}
+                  src={cake.image}
+                  alt={cake.name}
+                  className="mb-4 h-full"
+                />
+              </Link>
               <div className="font-sans w-full h-fit flex items-center justify-between px-2">
                 <div>
                   <p className="first-letter:uppercase font-bold">
@@ -50,7 +55,7 @@ const Catalog = (): ReactElement => {
                   </p>
                   <p className="first-letter:uppercase ">{cake.taste}</p>
                 </div>
-                <p className="font-bold">{cake.price}$</p>
+                <strong>{cake.price}$</strong>
               </div>
             </Fragment>
           ))}

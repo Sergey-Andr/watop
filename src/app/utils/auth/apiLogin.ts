@@ -3,6 +3,7 @@
 import { cookies } from "next/headers";
 import { customInterceptor } from "@/app/utils/api";
 import { EMAIL } from "@/features/getEmail";
+import { redirect } from "next/navigation";
 
 export async function fetchLogin(formData: FormData) {
   try {
@@ -42,7 +43,7 @@ export async function fetchLogin(formData: FormData) {
       path: "/",
     });
 
-    return data;
+    redirect("/");
   } catch (error) {
     return { status: 500, message: "Internal Server Error" };
   }

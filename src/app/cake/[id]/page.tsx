@@ -2,7 +2,7 @@ import CakesSwiper from "@/app/cake/[id]/components/Swiper";
 import Cake from "@/app/cake/[id]/components/Cake";
 
 import type { Metadata, ResolvingMetadata } from "next";
-import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
+import { fetchCakeById } from "@/service/fetchCakeById";
 
 type Props = {
   params: { id: string };

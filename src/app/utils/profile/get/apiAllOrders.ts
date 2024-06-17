@@ -1,7 +1,7 @@
 "use server";
 
 import { customInterceptor, IPersonalInfo } from "@/app/utils/api";
-import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
+import { fetchCakeById } from "@/service/fetchCakeById";
 
 interface IResponse {
   id: { id: number; quantity: number }[];

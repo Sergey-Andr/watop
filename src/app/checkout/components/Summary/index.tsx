@@ -4,8 +4,8 @@ import {
   useSelectShoppingCart,
   useSetShoppingCartActions,
 } from "@/app/cake/[id]/store/useShoppingCartStore";
-import { ICake } from "@/app/utils/cakes/fetchAllCakes";
-import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
+import { ICake } from "@/service/fetchAllCakes";
+import { fetchCakeById } from "@/service/fetchCakeById";
 import { DELIVERY_COST } from "@/app/checkout/components/Delivery";
 import { fetchOrder } from "@/app/utils/profile/set/apiOrder";
 import { useSelectCheckout } from "@/app/checkout/store/useCheckoutStore";

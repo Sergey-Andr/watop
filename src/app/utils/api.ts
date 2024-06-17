@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { ICake } from "@/app/utils/cakes/fetchAllCakes";
+import { ICake } from "@/service/fetchAllCakes";
 
 export interface IOrder {
   id?: { id: number; quantity: number }[];

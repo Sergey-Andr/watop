@@ -3,26 +3,10 @@ import { memo, ReactElement } from "react";
 import { fetchLogin } from "@/app/utils/auth/apiLogin";
 
 const Form = (): ReactElement => {
-  const handleSubmit = async (formData: FormData) => {
-    const response = await fetchLogin(formData);
-
-    // if (response) {
-    //   const month = new Date().setTime(
-    //     new Date().getTime() + 30 * 24 * 60 * 60 * 1000,
-    //   );
-    //   const hour = new Date().setTime(new Date().getTime() + 60 * 60 * 1000);
-    //   document.cookie = `refreshToken=${response.refreshToken}; expires=${month}; path=/; SameSite=Strict"`;
-    //   document.cookie = `accessToken=${response.accessToken}; expires=${hour}; path=/; SameSite=Strict"`;
-    //   document.cookie = `email=${response.user.email}; expires=${month}; path=/; SameSite=Strict"`;
-    // }
-
-    window.location.href = "/";
-  };
-
   return (
     <form
       className="flex flex-col w-96 bg-stone-50 border border-stone-200 rounded-xl p-4 mb-4"
-      action={handleSubmit}
+      action={fetchLogin}
     >
       <label className="text-xl mb-4">Username or email address</label>
       <input

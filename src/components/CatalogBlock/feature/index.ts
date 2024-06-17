@@ -1,5 +1,5 @@
 import { TCategory } from "@/components/CatalogBlock/store/useCategoriesStore";
-import { ICake } from "@/app/utils/cakes/fetchAllCakes";
+import { ICake } from "@/service/fetchAllCakes";
 
 export const sortCakes = (sortCakes: ICake[], category: TCategory) => {
   if (!sortCakes) return [];

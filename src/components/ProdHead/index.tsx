@@ -1,7 +1,7 @@
 "use client";
 import { memo, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
+import { fetchCakeById } from "@/service/fetchCakeById";
 import { fetchCheckAuth } from "@/app/utils/auth/apiCheckIsAuth";
 
 const ProdHead = (): null => {
@@ -15,7 +15,7 @@ const ProdHead = (): null => {
 
   useEffect(() => {
     cake.then(() => {
-      // scrollTo({ top: 0, behavior: "instant" });
+      scrollTo({ top: 0, behavior: "instant" });
     });
   }, [cake]);
 

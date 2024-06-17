@@ -7,7 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { ICake } from "@/app/utils/cakes/fetchAllCakes";
+import { ICake } from "@/service/fetchAllCakes";
 import process from "process";
 import { ITotalQuantity } from "@/app/cake/[id]/components/Cake/components/Popover/components/Products";
 import { SlOptionsVertical } from "react-icons/sl";

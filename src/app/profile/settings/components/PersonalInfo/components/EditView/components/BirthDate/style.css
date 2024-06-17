@@ -1,0 +1,20 @@
+.rdp-caption_dropdowns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rdp-vhidden {
+    display: none;
+}
+
+.rdp-dropdown_month {
+    width: fit-content;
+}
+
+.rdp-dropdown_month .text-sm {
+    display: none;
+}
+
+.rdp-dropdown_year .text-sm {
+    display: none;
+}

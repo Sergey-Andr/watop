@@ -1,8 +1,8 @@
 "use client";
 import { memo, ReactElement, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { fetchCakeById } from "@/service/fetchCakeById";
-import { ICake } from "@/service/fetchAllCakes";
+import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
+import { ICake } from "@/app/utils/cakes/fetchAllCakes";
 import BreadCrumb from "@/app/cake/[id]/components/Cake/components/BreadCrumb";
 import {
   useSelectShoppingCart,

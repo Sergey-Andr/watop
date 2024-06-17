@@ -1,7 +1,7 @@
 "use client";
 import { memo, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { fetchCakeById } from "@/service/fetchCakeById";
+import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
 import { fetchCheckAuth } from "@/app/utils/auth/apiCheckIsAuth";
 
 const ProdHead = (): null => {

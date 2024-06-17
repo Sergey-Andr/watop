@@ -1,13 +1,11 @@
-"use server";
-
+//@ts-ignore
 import { customInterceptor } from "@/app/utils/api";
 
-export async function fetchCheckAuth(token: string) {
+export async function fetchCakesByName(name: string) {
   try {
     const response = await customInterceptor({
-      url: "/auth/refresh",
-      method: "POST",
-      body: { refreshToken: token },
+      url: `/cakes/${name}`,
+      method: "GET",
     });
 
     if (!response.ok) {
@@ -17,8 +15,8 @@ export async function fetchCheckAuth(token: string) {
 
     const data = await response.json();
 
-    return { status: 200, message: "User login successfully", data: data };
+    return { status: 200, data: data };
   } catch (error) {
-    return { status: 500, message: "Internal Server Error" };
+    return { status: 500, message: error };
   }
 }

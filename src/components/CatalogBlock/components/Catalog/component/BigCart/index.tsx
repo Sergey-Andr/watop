@@ -3,7 +3,7 @@ import Link from "next/link";
 import process from "process";
 import { AnimationControls, motion } from "framer-motion";
 import { variants } from "@/components/CatalogBlock/components/Catalog";
-import { ICake } from "@/service/fetchAllCakes";
+import { ICake } from "@/app/utils/cakes/fetchAllCakes";
 import Heart from "@/components/CatalogBlock/components/Catalog/component/Heart";
 import { useSelectWishList } from "@/components/CatalogBlock/store/useWishListStore";
 

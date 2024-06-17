@@ -2,7 +2,7 @@
 
 import { memo, ReactElement, useEffect, useState } from "react";
 import { useSelectWishList } from "@/components/CatalogBlock/store/useWishListStore";
-import { fetchCakeById } from "@/service/fetchCakeById";
+import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
 import Link from "next/link";
 import Heart from "@/components/CatalogBlock/components/Catalog/component/Heart";
 import EmptyWishList from "@/app/profile/wish-list/components/EmptyWishList";

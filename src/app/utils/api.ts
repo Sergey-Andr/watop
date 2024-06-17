@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { ICake } from "@/service/fetchAllCakes";
+import { ICake } from "@/app/utils/cakes/fetchAllCakes";
 
 export interface IOrder {
   id?: { id: number; quantity: number }[];
@@ -41,9 +41,8 @@ export interface IPersonalInfo {
 }
 
 type TUrls =
-  | "/cake"
   | "/cakes"
-  | `/cake/${string}`
+  | `/cake/${number | string}`
   | "/auth/registration"
   | "/auth/login"
   | "/auth/logout"

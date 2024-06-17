@@ -9,8 +9,8 @@ import {
 } from "react";
 import Image from "next/image";
 import search from "../../../../../public/zoom.svg";
-import { fetchCakesByName } from "@/service/fetchCakesByName";
-import { fetchAllCakes, ICake } from "@/service/fetchAllCakes";
+import { fetchCakesByName } from "@/app/utils/cakes/fetchCakesByName";
+import { fetchAllCakes, ICake } from "@/app/utils/cakes/fetchAllCakes";
 import {
   Drawer,
   DrawerContent,

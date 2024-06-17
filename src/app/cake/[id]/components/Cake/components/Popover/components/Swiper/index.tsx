@@ -1,8 +1,8 @@
 "use client";
 import { memo, ReactElement, useEffect, useState } from "react";
 import { useSelectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
-import { ICake } from "@/service/fetchAllCakes";
-import { fetchCakeById } from "@/service/fetchCakeById";
+import { ICake } from "@/app/utils/cakes/fetchAllCakes";
+import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";

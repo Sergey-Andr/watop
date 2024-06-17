@@ -9,8 +9,8 @@ import {
   useState,
 } from "react";
 import { useSelectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
-import { ICake } from "@/service/fetchAllCakes";
-import { fetchCakeById } from "@/service/fetchCakeById";
+import { ICake } from "@/app/utils/cakes/fetchAllCakes";
+import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
 import Product from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/Product";
 import NoCakes from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/NoCakes";
 import Link from "next/link";

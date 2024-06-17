@@ -1,8 +1,8 @@
 "use client";
 import { memo, ReactElement, useEffect, useState } from "react";
 import { useSelectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
-import { fetchCakeById } from "@/service/fetchCakeById";
-import { ICake } from "@/service/fetchAllCakes";
+import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
+import { ICake } from "@/app/utils/cakes/fetchAllCakes";
 import process from "process";
 import Popover from "@/app/cake/[id]/components/Cake/components/Popover";
 import {

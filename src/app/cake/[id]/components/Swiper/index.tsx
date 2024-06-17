@@ -4,11 +4,11 @@ import { useParams } from "next/navigation";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./custom-arrows.css";
-import { fetchCakeById } from "@/service/fetchCakeById";
+import { fetchCakeById } from "@/app/utils/cakes/fetchCakeById";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import Link from "next/link";
-import { ICake } from "@/service/fetchAllCakes";
+import { ICake } from "@/app/utils/cakes/fetchAllCakes";
 
 const CakesSwiper = (): ReactElement => {
   const { id } = useParams();

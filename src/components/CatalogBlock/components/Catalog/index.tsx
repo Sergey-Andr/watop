@@ -11,7 +11,7 @@ import {
 import { useAnimation } from "framer-motion";
 import { useSelectCategory } from "@/components/CatalogBlock/store/useCategoriesStore";
 import { sortCakes } from "@/components/CatalogBlock/feature";
-import { fetchAllCakes, ICake } from "@/service/fetchAllCakes";
+import { fetchAllCakes, ICake } from "@/app/utils/cakes/fetchAllCakes";
 import Arrows from "@/components/CatalogBlock/components/Catalog/component/Arrows";
 import BigCart from "@/components/CatalogBlock/components/Catalog/component/BigCart";
 import SmallCart from "@/components/CatalogBlock/components/Catalog/component/SmallCart";

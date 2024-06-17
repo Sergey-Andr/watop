@@ -19,7 +19,7 @@ import NoCakes from "@/app/cake/[id]/components/Cake/components/Popover/componen
 export default async function MyOrders() {
   const { data } = await fetchAllOrders(cookies().get(EMAIL)?.value || null);
 
-  if (data?.length === 0) {
+  if (!data || data?.length === 0) {
     return <NoCakes />;
   }
 

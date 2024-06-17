@@ -45,6 +45,7 @@ export default async function MyOrders() {
                 <div className="flex">
                   {order.cakes.map((cake) => (
                     <img
+                      key={cake.image}
                       src={`${process.env.NEXT_API_URL}/${cake.image}`}
                       alt={`${cake.name} cake`}
                       itemProp="image"

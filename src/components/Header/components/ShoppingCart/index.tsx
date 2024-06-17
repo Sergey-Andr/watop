@@ -1,11 +1,11 @@
 "use client";
 import { memo, ReactElement, useState } from "react";
-import { selectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
+import { useSelectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
 import { FiShoppingCart } from "react-icons/fi";
 import Popover from "@/app/cake/[id]/components/Cake/components/Popover";
 
 const ShoppingCart = (): ReactElement => {
-  const shoppingCart = selectShoppingCart();
+  const shoppingCart = useSelectShoppingCart();
   const [isClicked, setIsClicked] = useState(false);
   return (
     <button

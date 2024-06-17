@@ -1,6 +1,6 @@
 "use client";
 import { memo, ReactElement, useEffect, useState } from "react";
-import { selectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
+import { useSelectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
 import { ICake } from "@/service/fetchAllCakes";
 import { fetchCakeById } from "@/service/fetchCakeById";
 import { Navigation } from "swiper/modules";
@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const SwiperCakes = (): ReactElement => {
-  const shoppingCart = selectShoppingCart();
+  const shoppingCart = useSelectShoppingCart();
   const [relatedCakes, setRelatedCakes] = useState<ICake[]>([]);
 
   useEffect(() => {

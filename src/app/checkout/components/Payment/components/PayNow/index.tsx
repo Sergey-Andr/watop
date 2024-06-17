@@ -6,12 +6,12 @@ import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalDat
 import { getEmail } from "@/features/getEmail";
 import { formatCardNumber } from "@/features/formatCardNumber";
 import {
-  selectCheckout,
+  useSelectCheckout,
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 
 const PayNow = (): ReactElement => {
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
   const [cardNumber, setCardNumber] = useState("");

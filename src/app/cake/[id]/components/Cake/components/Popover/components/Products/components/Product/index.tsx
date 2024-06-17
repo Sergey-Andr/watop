@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/popover";
 import { FaRegTrashAlt } from "react-icons/fa";
 import {
-  selectShoppingCart,
+  useSelectShoppingCart,
   useSetShoppingCartActions,
 } from "@/app/cake/[id]/store/useShoppingCartStore";
 
@@ -37,7 +37,7 @@ const Product: FC<IProduct> = ({
 }): ReactElement => {
   const [counter, setCounter] = useState(amount);
   const { setShoppingCart } = useSetShoppingCartActions();
-  const shoppingCart = selectShoppingCart();
+  const shoppingCart = useSelectShoppingCart();
 
   useEffect(() => {
     const targetIndex = totalQuantity.findIndex((item) => item.id === cake.id);

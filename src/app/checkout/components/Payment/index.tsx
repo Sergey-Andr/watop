@@ -4,13 +4,13 @@ import { getEmail } from "@/features/getEmail";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
 import {
   IOrder,
-  selectCheckout,
+  useSelectCheckout,
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 import PayNow from "@/app/checkout/components/Payment/components/PayNow";
 
 const Payment = (): ReactElement => {
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
   useEffect(() => {

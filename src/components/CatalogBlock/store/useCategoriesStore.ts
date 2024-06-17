@@ -32,7 +32,7 @@ const useCategoriesStore = createStore(
   "session",
 );
 
-export const selectCategory = (): TCategory =>
+export const useSelectCategory = (): TCategory =>
   useCategoriesStore((state: IUseCategoriesStore) => state.category);
 
 export const useSetCategoryActions = (): IUseCategoriesActions =>

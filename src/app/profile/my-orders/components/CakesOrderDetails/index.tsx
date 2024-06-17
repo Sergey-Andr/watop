@@ -4,7 +4,10 @@ export default async function CakesOrderDetails({ order }: { order: TOrders }) {
   return (
     <div className="w-[55%] ml-auto pr-8 mt-4">
       {order.cakes.map((cake) => (
-        <div className="flex items-center justify-between mb-4 last:mb-0">
+        <div
+          key={cake.name}
+          className="flex items-center justify-between mb-4 last:mb-0"
+        >
           <div className="relative">
             <img
               src={`${process.env.NEXT_API_URL}/${cake.image}`}

@@ -1,11 +1,11 @@
 "use client";
 import { memo, ReactElement } from "react";
-import { selectWishList } from "@/components/CatalogBlock/store/useWishListStore";
+import { useSelectWishList } from "@/components/CatalogBlock/store/useWishListStore";
 import Link from "next/link";
 import { FaRegHeart } from "react-icons/fa6";
 
 const WishList = (): ReactElement => {
-  const wishList = selectWishList();
+  const wishList = useSelectWishList();
   return (
     <Link
       role="link"

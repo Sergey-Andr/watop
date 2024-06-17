@@ -9,7 +9,7 @@ import {
 import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 import {
-  selectCheckout,
+  useSelectCheckout,
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 
@@ -19,7 +19,7 @@ interface IEditView {
 
 const EditView: FC<IEditView> = ({ setIsInfoClicked }): ReactElement => {
   const [errors, setErrors] = useState<TErrors>([]);
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
   return (
     <div

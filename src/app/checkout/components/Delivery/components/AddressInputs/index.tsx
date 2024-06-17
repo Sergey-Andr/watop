@@ -1,12 +1,12 @@
 import React, { memo, ReactElement } from "react";
 import ReactGoogleAutocomplete from "react-google-autocomplete";
 import {
-  selectCheckout,
+  useSelectCheckout,
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 
 const AddressInputs = (): ReactElement => {
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
   return (

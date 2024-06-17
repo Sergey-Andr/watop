@@ -30,7 +30,7 @@ const useShoppingCartStore = createStore(
   "locale",
 );
 
-export const selectShoppingCart = (): TShoppingCard[] =>
+export const useSelectShoppingCart = (): TShoppingCard[] =>
   useShoppingCartStore((state: IUseShoppingCartStore) => state.shoppingCart);
 
 export const useSetShoppingCartActions = (): IUseShoppingCartActions =>

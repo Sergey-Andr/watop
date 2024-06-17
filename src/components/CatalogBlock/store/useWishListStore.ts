@@ -27,7 +27,7 @@ const useWishListStore = createStore(
   "locale",
 );
 
-export const selectWishList = (): number[] =>
+export const useSelectWishList = (): number[] =>
   useWishListStore((state: IUseWishListStore) => state.wishList);
 
 export const useSetWishListActions = (): IUseWishListActions =>

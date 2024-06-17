@@ -1,7 +1,7 @@
 import React, { memo, ReactElement, useEffect, useState } from "react";
 import moment from "moment/moment";
 import {
-  selectCheckout,
+  useSelectCheckout,
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
@@ -14,7 +14,7 @@ const MAX_TIMEOUT = 5;
 const MULTIPLIER = 2;
 
 const DeliveryTime = (): ReactElement => {
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
   const [fiveDays, setFiveDays] = useState<TFiveDays>([]);

@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, ReactElement, useEffect, useState } from "react";
-import { selectWishList } from "@/components/CatalogBlock/store/useWishListStore";
+import { useSelectWishList } from "@/components/CatalogBlock/store/useWishListStore";
 import { fetchCakeById } from "@/service/fetchCakeById";
 import Link from "next/link";
 import Heart from "@/components/CatalogBlock/components/Catalog/component/Heart";
@@ -10,7 +10,7 @@ import EmptyWishList from "@/app/profile/wish-list/components/EmptyWishList";
 type TCake = { name: string; image: string; id: number };
 
 const WishList = (): ReactElement => {
-  const wishList = selectWishList();
+  const wishList = useSelectWishList();
   const [cakes, setCakes] = useState<TCake[]>([]);
 
   useEffect(() => {

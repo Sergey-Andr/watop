@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { useAnimation } from "framer-motion";
-import { selectCategory } from "@/components/CatalogBlock/store/useCategoriesStore";
+import { useSelectCategory } from "@/components/CatalogBlock/store/useCategoriesStore";
 import { sortCakes } from "@/components/CatalogBlock/feature";
 import { fetchAllCakes, ICake } from "@/service/fetchAllCakes";
 import Arrows from "@/components/CatalogBlock/components/Catalog/component/Arrows";
@@ -26,7 +26,7 @@ const Catalog = (): ReactElement => {
   const [headAndTail, setHeadAndTail] = useState<number[]>([0, 4]);
   const [cakes, setCakes] = useState<ICake[]>([]);
 
-  const category = selectCategory();
+  const category = useSelectCategory();
   const animation = useAnimation();
 
   useEffect(() => {

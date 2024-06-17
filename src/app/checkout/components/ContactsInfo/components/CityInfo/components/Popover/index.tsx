@@ -13,7 +13,7 @@ import ReactGoogleAutocomplete from "react-google-autocomplete";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 import {
-  selectCheckout,
+  useSelectCheckout,
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 
@@ -38,7 +38,7 @@ const Popover: FC<IPopover> = ({
   isCityClicked,
 }): ReactElement => {
   const [errors, setErrors] = useState<TErrors>([]);
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
   return (

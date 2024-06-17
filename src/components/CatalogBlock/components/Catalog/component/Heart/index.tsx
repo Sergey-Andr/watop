@@ -1,6 +1,6 @@
 import { FC, memo, ReactElement } from "react";
 import {
-  selectWishList,
+  useSelectWishList,
   useSetWishListActions,
 } from "@/components/CatalogBlock/store/useWishListStore";
 
@@ -12,7 +12,7 @@ interface IHeart {
 }
 
 const Heart: FC<IHeart> = ({ className, id, fill, stroke }): ReactElement => {
-  const wishList = selectWishList();
+  const wishList = useSelectWishList();
   const { setWishList } = useSetWishListActions();
 
   const handleClickedHeart = (e: any) => {

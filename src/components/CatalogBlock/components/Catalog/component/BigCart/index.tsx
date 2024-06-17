@@ -5,7 +5,7 @@ import { AnimationControls, motion } from "framer-motion";
 import { variants } from "@/components/CatalogBlock/components/Catalog";
 import { ICake } from "@/service/fetchAllCakes";
 import Heart from "@/components/CatalogBlock/components/Catalog/component/Heart";
-import { selectWishList } from "@/components/CatalogBlock/store/useWishListStore";
+import { useSelectWishList } from "@/components/CatalogBlock/store/useWishListStore";
 
 interface IBigCart {
   cake: ICake;
@@ -13,7 +13,7 @@ interface IBigCart {
 }
 
 const BigCart: FC<IBigCart> = ({ cake, animation }): ReactElement => {
-  const wishList = selectWishList();
+  const wishList = useSelectWishList();
   return (
     <motion.div
       variants={variants}

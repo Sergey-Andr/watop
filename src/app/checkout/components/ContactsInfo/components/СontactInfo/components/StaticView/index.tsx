@@ -1,13 +1,13 @@
 import { Dispatch, FC, memo, ReactElement, SetStateAction } from "react";
 import { GoPerson } from "react-icons/go";
-import { selectCheckout } from "@/app/checkout/store/useCheckoutStore";
+import { useSelectCheckout } from "@/app/checkout/store/useCheckoutStore";
 
 interface IStaticView {
   setIsInfoClicked: Dispatch<SetStateAction<boolean>>;
 }
 
 const StaticView: FC<IStaticView> = ({ setIsInfoClicked }): ReactElement => {
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   return (
     <>
       <div className="flex items-center align-text-top">

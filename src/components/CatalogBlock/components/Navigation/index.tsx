@@ -1,8 +1,8 @@
 "use client";
 import { memo } from "react";
 import {
-  selectCategory,
   TCategory,
+  useSelectCategory,
   useSetCategoryActions,
 } from "@/components/CatalogBlock/store/useCategoriesStore";
 
@@ -21,7 +21,7 @@ const navigation: INavigationItem[] = [
 
 const Navigation = () => {
   const { setCategory } = useSetCategoryActions();
-  const category = selectCategory();
+  const category = useSelectCategory();
 
   return (
     <nav className="flex justify-between max-w-3xl w-full font-sans text-xl mb-16">

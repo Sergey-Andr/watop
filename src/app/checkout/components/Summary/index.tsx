@@ -1,19 +1,19 @@
 "use client";
 import { memo, ReactElement, useEffect, useState } from "react";
 import {
-  selectShoppingCart,
+  useSelectShoppingCart,
   useSetShoppingCartActions,
 } from "@/app/cake/[id]/store/useShoppingCartStore";
 import { ICake } from "@/service/fetchAllCakes";
 import { fetchCakeById } from "@/service/fetchCakeById";
 import { DELIVERY_COST } from "@/app/checkout/components/Delivery";
 import { fetchOrder } from "@/app/utils/profile/set/apiOrder";
-import { selectCheckout } from "@/app/checkout/store/useCheckoutStore";
+import { useSelectCheckout } from "@/app/checkout/store/useCheckoutStore";
 import { getEmail } from "@/features/getEmail";
 
 const Summary = (): ReactElement => {
-  const shoppingCart = selectShoppingCart();
-  const order = selectCheckout();
+  const shoppingCart = useSelectShoppingCart();
+  const order = useSelectCheckout();
   const { setShoppingCart } = useSetShoppingCartActions();
 
   const [cost, setTotalCost] = useState<number>(0);

@@ -5,7 +5,7 @@ import { fetchCakeById } from "@/service/fetchCakeById";
 import { ICake } from "@/service/fetchAllCakes";
 import BreadCrumb from "@/app/cake/[id]/components/Cake/components/BreadCrumb";
 import {
-  selectShoppingCart,
+  useSelectShoppingCart,
   useSetShoppingCartActions,
 } from "@/app/cake/[id]/store/useShoppingCartStore";
 import Popover from "@/app/cake/[id]/components/Cake/components/Popover";
@@ -13,7 +13,7 @@ import { TbShoppingCartCopy } from "react-icons/tb";
 
 const Cake = (): ReactElement => {
   const { id } = useParams();
-  const shoppingCart = selectShoppingCart();
+  const shoppingCart = useSelectShoppingCart();
   const { setShoppingCart } = useSetShoppingCartActions();
 
   const [cake, setCake] = useState<ICake | null>(null);

@@ -3,14 +3,14 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import Popover from "@/app/checkout/components/ContactsInfo/components/CityInfo/components/Popover";
 import {
   IOrder,
-  selectCheckout,
+  useSelectCheckout,
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
 import { getEmail } from "@/features/getEmail";
 
 const CityInfo = (): ReactElement => {
-  const order = selectCheckout();
+  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
   const [isCityClicked, setIsCityClicked] = useState(false);

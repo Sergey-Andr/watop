@@ -8,7 +8,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { selectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
+import { useSelectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
 import { ICake } from "@/service/fetchAllCakes";
 import { fetchCakeById } from "@/service/fetchCakeById";
 import Product from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/Product";
@@ -28,7 +28,7 @@ export interface ITotalQuantity {
 
 const Products: FC<IProducts> = ({ setIsClicked }): ReactElement => {
   const path = usePathname();
-  const shoppingCart = selectShoppingCart();
+  const shoppingCart = useSelectShoppingCart();
   const [cakes, setCakes] = useState<ICake[]>([]);
   const [totalQuantity, setTotalQuantity] = useState<ITotalQuantity[]>([]);
   const [totalPrice, setTotalPrice] = useState<number>(1);

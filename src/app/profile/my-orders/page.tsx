@@ -14,9 +14,14 @@ import Loading from "@/app/profile/my-orders/loading";
 import moment from "moment/moment";
 import OrderDetails from "@/app/profile/my-orders/components/OrderDetails";
 import CakesOrderDetails from "@/app/profile/my-orders/components/CakesOrderDetails";
+import NoCakes from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/NoCakes";
 
 export default async function MyOrders() {
   const { data } = await fetchAllOrders(cookies().get(EMAIL)?.value || null);
+
+  if (data?.length === 0) {
+    return <NoCakes />;
+  }
 
   moment().locale("bg");
   return (

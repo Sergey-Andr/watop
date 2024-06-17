@@ -2,6 +2,7 @@
 import { cookies } from "next/headers";
 import { customInterceptor } from "@/app/utils/api";
 import { EMAIL } from "@/features/getEmail";
+import { redirect } from "next/navigation";
 
 export async function fetchRegistration(formData: FormData): Promise<any> {
   try {
@@ -39,7 +40,7 @@ export async function fetchRegistration(formData: FormData): Promise<any> {
       path: "/",
     });
 
-    return { status: 200, data: data };
+    redirect("/profile/my-orders");
   } catch (error) {
     return { status: 500, message: "Internal Server Error" };
   }

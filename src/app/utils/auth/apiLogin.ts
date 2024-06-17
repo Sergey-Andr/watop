@@ -43,7 +43,7 @@ export async function fetchLogin(formData: FormData) {
       path: "/",
     });
 
-    redirect("/");
+    redirect("/profile/my-orders");
   } catch (error) {
     return { status: 500, message: "Internal Server Error" };
   }

@@ -38,7 +38,7 @@ interface IUseCheckoutContent {
 }
 
 export interface IUseCheckoutActions {
-  setOrder: (order: IOrder, isParent?: "delivery" | "card") => void;
+  setOrder: (order: IOrder | string, isParent?: "delivery" | "card") => void;
 }
 
 const useCheckoutStore = createStore(
@@ -48,15 +48,25 @@ const useCheckoutStore = createStore(
   ): IUseCheckoutStore => ({
     order: null,
     actions: {
-      setOrder: (order, isParent) => {
-        set({
-          order: isParent
-            ? {
-                ...get().order,
-                delivery: { ...get().order?.delivery, street: order },
-              }
-            : { ...get().order, ...order },
-        });
+      setOrder: (newOrder, isParent) => {
+        if (isParent === "delivery") {
+          set({
+            order: {
+              ...get().order,
+              delivery: {
+                ...get().order?.delivery,
+                street: newOrder as string,
+              },
+            },
+          });
+        } else {
+          set({
+            order: {
+              ...get().order,
+              ...(newOrder as IOrder),
+            },
+          });
+        }
       },
     },
   }),
@@ -65,7 +75,7 @@ const useCheckoutStore = createStore(
   "session",
 );
 
-export const selectCheckout = (): IOrder | null =>
+export const useSelectCheckout = (): IOrder | null =>
   useCheckoutStore((state: IUseCheckoutStore) => state.order);
 
 export const useSetCheckoutActions = (): IUseCheckoutActions =>

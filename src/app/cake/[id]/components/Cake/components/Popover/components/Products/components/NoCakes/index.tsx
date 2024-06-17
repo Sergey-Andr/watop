@@ -9,7 +9,7 @@ const NoCakes = (): ReactElement => {
       <h2 className="flex flex-col text-4xl text-center">
         Кошницата е празна
         <sub className="mt-10 text-gray-600">
-          Но никога не е късно да я напълниш :)"
+          Но никога не е късно да я напълниш :)
         </sub>
       </h2>
     </section>

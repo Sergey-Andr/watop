@@ -7,6 +7,79 @@
     src: url("../../public/PlayfairDisplay-VariableFont_wght.ttf");
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+}
+
+
+.loader::before,
+.loader::after {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+}
+
+.loader::before {
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    animation: cubic-first 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+.loader::after {
+    top: 50%;
+    left: 50%;
+    animation: cubic-second 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+@keyframes cubic-first {
+    0%, 100% {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(100%);
+    }
+
+    50% {
+        transform: translateX(100%) translateY(100%);
+    }
+
+    75% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes cubic-second {
+    0%, 100% {
+        transform: none;
+    }
+
+    25% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(-100%) translateY(-100%);
+    }
+
+    75% {
+        transform: translateY(-100%);
+    }
+}
+
 @layer base {
     :root {
         --background: 0 0% 100%;

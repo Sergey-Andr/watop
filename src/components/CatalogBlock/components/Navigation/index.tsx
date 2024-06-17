@@ -1,30 +1,41 @@
 "use client";
-import { memo, useState } from "react";
+import { memo } from "react";
+import {
+  selectCategory,
+  TCategory,
+  useSetCategoryActions,
+} from "@/components/CatalogBlock/store/useCategoriesStore";
 
-const navigation = [
-  { label: "Popular cakes" },
-  { label: "Celebration cakes" },
-  { label: "Baby cakes" },
-  { label: "Wedding cakes" },
-  { label: "Special cakes" },
+interface INavigationItem {
+  label: string;
+  category: TCategory;
+}
+
+const navigation: INavigationItem[] = [
+  { label: "Popular cakes", category: "popular" },
+  { label: "Celebration cakes", category: "celebration" },
+  { label: "Baby cakes", category: "baby" },
+  { label: "Wedding cakes", category: "wedding" },
+  { label: "Special cakes", category: "special" },
 ];
 
 const Navigation = () => {
-  const [hash, setHash] = useState("");
+  const { setCategory } = useSetCategoryActions();
+  const category = selectCategory();
 
   return (
-    <ul className="flex justify-between max-w-3xl w-full font-sans text-xl mb-16">
+    <nav className="flex justify-between max-w-3xl w-full font-sans text-xl mb-16">
       {navigation.map((nav) => (
-        <li
+        <button
           id={`nav_${nav.label}`}
           key={nav.label}
-          onClick={() => setHash(nav.label)}
-          className={`cursor-pointer relative text-lg hover:text-black/50 duration-300 ${hash === nav.label ? "after:absolute after:h-0.5 after:w-full after:bg-red-600 after:translate-y-10 after:-translate-x-full" : ""}`}
+          onClick={() => setCategory(nav.category)}
+          className={`cursor-pointer relative text-lg hover:text-black/50 duration-300 ${category === nav.category ? "after:absolute after:h-0.5 after:w-full after:bg-red-600 after:translate-y-10 after:-translate-x-full" : ""}`}
         >
           {nav.label}
-        </li>
+        </button>
       ))}
-    </ul>
+    </nav>
   );
 };
 

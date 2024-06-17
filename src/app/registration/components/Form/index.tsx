@@ -1,6 +1,7 @@
 "use client";
 import { memo, ReactElement, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { fetchRegistration } from "@/app/utils/auth/apiRegister";
 
 const Form = (): ReactElement => {
   const [firstPass, setFirstPass] = useState("");
@@ -16,24 +17,10 @@ const Form = (): ReactElement => {
     }
   }, [secondPass, firstPass]);
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    console.log(e);
-    const email = e.target[0].value;
-    const password = e.target[1].value;
-
-    fetch(`${process.env.NEXT_API_URL}/api/auth/registration`, {
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-    });
-  };
-
   return (
     <form
       className="flex flex-col w-96 bg-stone-50 border border-stone-200 rounded-xl p-4 mb-4"
-      onSubmit={handleRegister}
+      action={fetchRegistration}
     >
       <label form="email">
         <h4 className="text-xl mb-4">Username or email address</h4>

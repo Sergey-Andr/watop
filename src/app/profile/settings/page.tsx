@@ -7,14 +7,14 @@ import {
 import { TbTruckDelivery } from "react-icons/tb";
 import { BsBoxSeam } from "react-icons/bs";
 import { CiCreditCard1 } from "react-icons/ci";
-import { dynamicImports } from "src/app/profile/components/settings/components/dynamicImports";
+import { dynamicImports } from "src/app/profile/settings/components/dynamicImports";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Logout from "src/app/profile/components/settings/components/Logout";
+import Logout from "src/app/profile/settings/components/Logout";
 
 export default async function Settings() {
   const {

@@ -1,7 +1,9 @@
-import Api from "@/api/Api";
+//@ts-ignore
+export async function fetchCakeById(id: number): any {
+  const data = await fetch(`${process.env.NEXT_API_URL}/api/cake/${id}`, {
+    method: "GET",
+  });
+  const cake = await data.json();
 
-export async function fetchCake({ id }) {
-  const res = await Api.get(`/api/cake/${id}`);
-
-  return { data: res };
+  return { data: cake };
 }

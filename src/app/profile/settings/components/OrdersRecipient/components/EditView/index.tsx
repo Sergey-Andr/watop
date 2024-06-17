@@ -1,5 +1,5 @@
 import { Dispatch, FC, memo, ReactElement, SetStateAction } from "react";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 
 interface IEditView {
   fullName: string;

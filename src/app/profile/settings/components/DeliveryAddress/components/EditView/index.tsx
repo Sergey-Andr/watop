@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, memo, ReactElement, SetStateAction } from "react";
 import ReactGoogleAutocomplete from "react-google-autocomplete";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 import PlaceResult = google.maps.places.PlaceResult;
 
 interface IEditView {

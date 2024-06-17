@@ -8,7 +8,7 @@ import React, {
   useState,
 } from "react";
 import { TbTruckDelivery } from "react-icons/tb";
-import City from "@/app/checkout/components/ContactsInfo/components/Popover/components/City";
+import City from "src/app/checkout/components/ContactsInfo/components/CityInfo/components/Popover/components/City";
 import ReactGoogleAutocomplete from "react-google-autocomplete";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
@@ -65,8 +65,12 @@ const Popover: FC<IPopover> = ({
           onClick={(e) => {
             setOrder({
               ...order,
-              //@ts-ignore
-              delivery: { city: e.target.dataset.value },
+
+              delivery: {
+                ...order?.delivery,
+                //@ts-ignore
+                city: e.target.dataset.value,
+              },
             });
           }}
           className="grid grid-cols-4 gap-4 text-rose-900 text-lg mb-8"
@@ -89,10 +93,8 @@ const Popover: FC<IPopover> = ({
                 setOrder({
                   ...order,
                   delivery: {
+                    ...order?.delivery,
                     city: place.formatted_address.split(",")[0],
-                    street: order?.delivery?.street,
-                    house: order?.delivery?.house,
-                    floor: order?.delivery?.floor,
                   },
                 });
               }

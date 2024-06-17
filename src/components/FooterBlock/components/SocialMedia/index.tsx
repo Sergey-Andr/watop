@@ -2,7 +2,7 @@ import { memo, ReactElement } from "react";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa6";
 import { PiInstagramLogoFill } from "react-icons/pi";
 
-const Navigation = (): ReactElement => {
+const SocialMedia = (): ReactElement => {
   return (
     <div className="flex">
       <a
@@ -30,4 +30,4 @@ const Navigation = (): ReactElement => {
   );
 };
 
-export default memo(Navigation);
+export default memo(SocialMedia);

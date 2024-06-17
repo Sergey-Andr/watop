@@ -2,9 +2,9 @@
 import React, { memo, ReactElement, useEffect, useState } from "react";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
 import { getEmail } from "@/features/getEmail";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
-import StaticView from "@/app/profile/components/settings/components/LinkCard/components/StaticView";
-import EditView from "@/app/profile/components/settings/components/LinkCard/components/EditView";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
+import StaticView from "@/app/profile/settings/components/LinkCard/components/StaticView";
+import EditView from "@/app/profile/settings/components/LinkCard/components/EditView";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 
 const LinkCard = (): ReactElement => {

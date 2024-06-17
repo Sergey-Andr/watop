@@ -1,10 +1,10 @@
 "use client";
 import { memo, ReactElement, useEffect, useState } from "react";
 import { getEmail } from "@/features/getEmail";
-import EditView from "@/app/profile/components/settings/components/Contacts/components/EditView";
-import StaticView from "@/app/profile/components/settings/components/Contacts/components/StaticView/intex";
+import EditView from "@/app/profile/settings/components/Contacts/components/EditView";
+import StaticView from "@/app/profile/settings/components/Contacts/components/StaticView/intex";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 import { formatPhoneNumber } from "@/features/formatPhoneNumber";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 

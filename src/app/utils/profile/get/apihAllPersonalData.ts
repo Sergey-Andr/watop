@@ -1,25 +1,44 @@
 "use server";
 
-import { customInterceptor } from "@/app/utils/api";
+import { customInterceptor, IResponse } from "@/app/utils/api";
 
-interface IFetchPersonalInfo {
-  email: string | null;
+interface IData {
+  firstName: string;
+  secondName: string;
+  birthDate: Date;
+  gender: string;
+  phone: string;
+  recipientEmail: string;
+  telegram: string;
+  deliveryAddress: {
+    city: string;
+    street: string;
+    house: string;
+    floor: string;
+  };
+  card: {
+    cardNumber: string;
+    expirationDate: string;
+    cvv: string;
+  };
 }
 
-export async function fetchAllPersonalData({ email }: IFetchPersonalInfo) {
+export async function fetchAllPersonalData(
+  email: string | null,
+): Promise<IResponse<IData | null>> {
   try {
     if (!email) {
-      return { status: 401, message: "User is now authorized" };
+      return { status: 401, message: "User is now authorized", data: null };
     }
 
     const response = await customInterceptor({
-      url: "/auth/refresh",
+      url: `/profile/allPersonalData?email=${encodeURIComponent(email)}`,
       method: "GET",
     });
 
     if (!response.ok) {
       const error = await response.text();
-      return { status: response.status, errors: error };
+      return { status: response.status, errors: error, data: null };
     }
 
     const data = await response.json();
@@ -28,6 +47,11 @@ export async function fetchAllPersonalData({ email }: IFetchPersonalInfo) {
       data: data,
     };
   } catch (error) {
-    return { status: 500, message: "Internal Server Error" };
+    return {
+      status: 500,
+      message: "Internal Server Error",
+      data: null,
+      errors: error as string,
+    };
   }
 }

@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
 import { getEmail } from "@/features/getEmail";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
-import EditView from "@/app/profile/components/settings/components/OrdersRecipient/components/EditView";
-import StaticView from "@/app/profile/components/settings/components/OrdersRecipient/components/StaticView";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
+import EditView from "@/app/profile/settings/components/OrdersRecipient/components/EditView";
+import StaticView from "@/app/profile/settings/components/OrdersRecipient/components/StaticView";
 import { formatPhoneNumber } from "@/features/formatPhoneNumber";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 

@@ -1,83 +1,88 @@
-import { memo, ReactElement, useEffect, useMemo, useState } from "react";
-import process from "process";
-import { selectWishList } from "@/app/cake/[id]/store/useWishListStore";
+import {
+  Dispatch,
+  FC,
+  Fragment,
+  memo,
+  ReactElement,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
+import { selectShoppingCart } from "@/app/cake/[id]/store/useShoppingCartStore";
 import { ICake } from "@/service/fetchAllCakes";
 import { fetchCakeById } from "@/service/fetchCakeById";
+import Product from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/Product";
+import NoCakes from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/NoCakes";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const Products = (): ReactElement => {
-  const wishList = selectWishList();
+interface IProducts {
+  setIsClicked: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface ITotalQuantity {
+  price: number;
+  quantity: number;
+  id: number;
+}
+
+const Products: FC<IProducts> = ({ setIsClicked }): ReactElement => {
+  const path = usePathname();
+  const shoppingCart = selectShoppingCart();
   const [cakes, setCakes] = useState<ICake[]>([]);
-  const [counter, setCounter] = useState(1);
+  const [totalQuantity, setTotalQuantity] = useState<ITotalQuantity[]>([]);
+  const [totalPrice, setTotalPrice] = useState<number>(1);
 
   useEffect(() => {
-    wishList.map(async (cakeId) => {
-      const { data } = await fetchCakeById(cakeId);
-      setCakes([...cakes, data]);
-    });
-  }, []);
+    (async () => {
+      const fetchedCakes: ICake[] = [];
+      for (const product of shoppingCart) {
+        const { data } = await fetchCakeById(product.id);
+        fetchedCakes.push(data);
+      }
+      setCakes(fetchedCakes);
 
-  const totalPrice = useMemo(() => {
-    let total = 0;
-    cakes.map((cake) => {
-      total += cake.price;
-    });
-    return total;
-  }, [cakes]);
+      const initialTotalQuantity = fetchedCakes.map((cake, i) => ({
+        price: cake.price,
+        quantity: shoppingCart[i].quantity ?? 1,
+        id: cake.id,
+      }));
+      setTotalQuantity(initialTotalQuantity);
+
+      setTotalPrice(
+        initialTotalQuantity.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        ),
+      );
+    })();
+  }, [shoppingCart]);
+
+  useEffect(() => {
+    setTotalPrice(
+      totalQuantity.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    );
+  }, [totalQuantity]);
 
   if (cakes.length === 0) {
-    return <></>;
+    return shoppingCart.length === 0 ? <NoCakes /> : <></>;
   }
 
   return (
     <>
-      <div className="mb-16">
-        {cakes.map((cake) => (
-          <div className="flex justify-between items-end">
-            <div className="flex">
-              <img
-                src={`${process.env.NEXT_API_URL}/${cake.image}`}
-                alt={`${cake.name} cake`}
-                itemProp="image"
-                className="w-40 h-56 overflow-hidden mr-8"
-              />
-              <h3 className="text-3xl">{cake.name}</h3>
-            </div>
-            <div className="flex items-center">
-              <span
-                onClick={() => {
-                  if (counter !== 1) setCounter(counter - 1);
-                }}
-                className={`text-5xl mr-3 pb-2 ${counter === 1 ? "text-gray-300" : "cursor-pointer"} select-none`}
-              >
-                -
-              </span>
-              <input
-                type="text"
-                value={counter}
-                onChange={(e) => {
-                  if (+e.target.value <= 10 && +e.target.value >= 1)
-                    setCounter(+e.target.value);
-                }}
-                max={10}
-                maxLength={2}
-                className="w-14 h-10 rounded-xl outline outline-1 outline-black text-center mr-2 text-xl font-sans"
-              />
-              <span
-                onClick={() => {
-                  if (counter !== 10) setCounter(counter + 1);
-                }}
-                className={`text-5xl pb-2 ${counter === 10 ? "text-gray-300" : "cursor-pointer"} select-none`}
-              >
-                +
-              </span>
-            </div>
-            <span className="text-3xl text-rose-600 text-end pb-4">
-              {cake.price} лв
-            </span>
-          </div>
+      <div className="mb-16 flex flex-col">
+        {cakes.map((cake, i) => (
+          <Fragment key={cake.id}>
+            <Product
+              cake={cake}
+              setTotalQuantity={setTotalQuantity}
+              totalQuantity={totalQuantity}
+              amount={totalQuantity[i].quantity}
+            />
+          </Fragment>
         ))}
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mb-8">
         <button
           onClick={() => setIsClicked(false)}
           className="py-2 px-4 h-fit text-sky-600 border rounded-xl font-sans"
@@ -85,10 +90,24 @@ const Products = (): ReactElement => {
           Продължи с пазаруването
         </button>
         <nav className="px-8 py-4 flex items-center border border-rose-500 bg-rose-200 w-fit">
-          <span className="text-2xl pb-1 mr-4 font-sans">{totalPrice} лв</span>
-          <a className="bg-rose-600 text-xl text-white rounded-xl py-2 px-4 font-sans">
-            Оформи поръчката
-          </a>
+          <span className="text-3xl pb-1 mr-8 font-sans">{totalPrice} лв</span>
+          {path === "/checkout" ? (
+            <button
+              onClick={() => {
+                setIsClicked(false);
+              }}
+              className="bg-rose-600 text-xl text-white rounded-xl py-4 px-8 font-sans"
+            >
+              Оформи поръчката
+            </button>
+          ) : (
+            <Link
+              href="/checkout"
+              className="bg-rose-600 text-xl text-white rounded-xl py-4 px-8 font-sans"
+            >
+              Оформи поръчката
+            </Link>
+          )}
         </nav>
       </div>
     </>

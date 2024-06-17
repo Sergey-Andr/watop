@@ -1,19 +1,49 @@
 "use client";
-import { memo, ReactElement, useEffect } from "react";
+import { memo, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { cakes } from "@/app/tempInfo";
+import { fetchCakeById } from "@/service/fetchCakeById";
+import { fetchCheckAuth } from "@/app/utils/auth/apiCheckIsAuth";
 
-const ProdHead = (): ReactElement => {
+const ProdHead = (): null => {
   const { id } = useParams();
-  const name = cakes.find((cake) => cake.id === +id)?.name as string;
+  let cake = (async () => {
+    if (id) {
+      return await fetchCakeById(+id);
+    }
+    return null;
+  })();
 
   useEffect(() => {
-    document.title = `${name ?? "WATOP"} | Cakes shop`;
-    document.textContent = `delicious ${name} cakes and much more. The widest selection and fast delivery`;
-    scrollTo({ top: 0, behavior: "instant" });
-  }, [name]);
+    cake.then(() => {
+      // scrollTo({ top: 0, behavior: "instant" });
+    });
+  }, [cake]);
 
   useEffect(() => {
+    (async () => {
+      const cookies = document.cookie?.split("; ");
+      const refreshToken = cookies
+        ?.find((cookie) => {
+          return cookie.slice(0, 12) === "refreshToken";
+        })
+        ?.slice(13);
+
+      if (refreshToken) {
+        const response = await fetchCheckAuth(refreshToken);
+
+        if (response.data) {
+          const month = new Date().setTime(
+            new Date().getTime() + 30 * 24 * 60 * 60 * 1000,
+          );
+          const hour = new Date().setTime(
+            new Date().getTime() + 60 * 60 * 1000,
+          );
+          document.cookie = `refreshToken=${response.data.refreshToken}; expires=${new Date(month).toUTCString()}; path=/; SameSite=Strict"`;
+          document.cookie = `accessToken=${response.data.accessToken}; expires=${new Date(hour).toUTCString()}; path=/; SameSite=Strict"`;
+        }
+      }
+    })();
+
     const handleClick = (e: Event) => {
       try {
         const target = e.target as HTMLLinkElement;
@@ -33,9 +63,11 @@ const ProdHead = (): ReactElement => {
             const targetElement = document.getElementById(
               targetId,
             ) as HTMLElement;
-            const targetHeight = targetElement.offsetTop;
 
-            scrollTo({ top: targetHeight, behavior: "smooth" });
+            if (targetElement) {
+              const targetHeight = targetElement.offsetTop;
+              scrollTo({ top: targetHeight, behavior: "smooth" });
+            }
           }, 300);
         }
       } catch (e) {
@@ -56,9 +88,9 @@ const ProdHead = (): ReactElement => {
         link.removeEventListener("click", handleClick);
       });
     };
-  });
+  }, []);
 
-  return <></>;
+  return null;
 };
 
 export default memo(ProdHead);

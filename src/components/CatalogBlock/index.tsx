@@ -1,3 +1,4 @@
+"use server";
 import Navigation from "@/components/CatalogBlock/components/Navigation";
 import Catalog from "@/components/CatalogBlock/components/Catalog";
 

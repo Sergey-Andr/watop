@@ -1,8 +1,8 @@
 import Image from "next/image";
-import logo from "../../../public/logo.jpg";
-import Form from "@/app/signup/components/Form";
+import logo from "@/../public/logo.jpg";
+import Form from "@/app/registration/components/Form";
 
-export default async function SingUp() {
+export default async function Registration() {
   return (
     <section className="w-4/5 m-auto flex flex-col justify-center items-center mt-8">
       <header className="flex justify-between items-center w-full mb-16">

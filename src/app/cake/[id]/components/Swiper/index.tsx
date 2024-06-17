@@ -1,55 +1,77 @@
 "use client";
-import { memo, ReactElement } from "react";
+import { memo, ReactElement, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { cakes, ICake } from "@/app/tempInfo";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Link from "next/link";
-import Image from "next/image";
-import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "./custom-arrows.css";
+import { fetchCakeById } from "@/service/fetchCakeById";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import Link from "next/link";
+import { ICake } from "@/service/fetchAllCakes";
 
 const CakesSwiper = (): ReactElement => {
   const { id } = useParams();
-  const relatedCakes = cakes
-    .find((cake) => cake.id === +id)
-    ?.related.map((id) => cakes.find((cake) => cake.id === id)) as ICake[];
+  const [cake, setCake] = useState<ICake | null>(null);
+  const [relatedCakes, setRelatedCakes] = useState<ICake[] | []>([]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await fetchCakeById(+id);
+      setCake(data);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      if (cake) {
+        const abc = cake.related.map((id) => fetchCakeById(id));
+        const results = await Promise.all(abc);
+
+        setRelatedCakes(results.map((res) => res.data));
+      }
+    })();
+  }, [cake]);
+
+  if (!cake) {
+    return <></>;
+  }
 
   return (
-    <section className="max-w-6xl w-full m-auto">
+    <section className="max-w-6xl w-full m-auto mb-40">
       <Swiper
-        modules={[Navigation, Autoplay]}
+        modules={[Autoplay, Navigation]}
         spaceBetween={0}
         slidesPerView={3}
-        loop
         navigation
         autoplay={{ delay: 3000 }}
       >
         {relatedCakes.map((cake) => (
           <SwiperSlide
+            key={cake.id}
+            itemScope
+            itemType="http://schema.org/Product"
             className="w-fit h-full flex flex-col items-start justify-center relative"
-            key={cake.name}
           >
             <div className="w-72 h-fit">
-              <Link href={`/cake/${cake.id}`}>
-                <Image
-                  width={288}
-                  height={360}
-                  src={cake.image}
-                  alt={cake.name}
+              <Link role="link" href={`/cake/${cake.id}`}>
+                <img
+                  src={`${process.env.NEXT_API_URL}/${cake.image}`}
+                  alt={`${cake.name} cake`}
                   className="mb-4 w-72 h-96 overflow-hidden select-none"
                 />
               </Link>
               <div className="font-sans w-full h-fit flex items-center justify-between px-2 select-none">
                 <div>
-                  <p className="first-letter:uppercase font-bold">
+                  <h3 itemProp="name" className="font-bold">
                     {cake.name}
-                  </p>
-                  <p className="first-letter:uppercase">{cake.taste}</p>
+                  </h3>
+                  <p>{cake.taste}</p>
                 </div>
-                <strong>{cake.price}$</strong>
+                <strong itemProp="offers" className="font-sans">
+                  <span itemProp="price">{cake.price} лв</span>
+                  <meta itemProp="priceCurrency" content="USD" />
+                </strong>
               </div>
             </div>
           </SwiperSlide>

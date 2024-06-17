@@ -11,7 +11,7 @@ export const navigationHash = [
 ];
 
 const Navigation = () => {
-  const [hash, setHash] = useState(document.location.hash);
+  const [hash, setHash] = useState("");
   return (
     <>
       {navigationHash.map((link) => (

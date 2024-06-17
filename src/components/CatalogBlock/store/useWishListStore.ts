@@ -1,32 +1,34 @@
 "use client";
 import { createStore } from "@/store/createStore";
 
-interface IUseShoppingCartStore extends IUseShoppingCartContent {
-  actions: IUseShoppingCartActions;
+export const WISH_LIST = "wishList";
+
+interface IUseWishListStore extends IUseWishListContent {
+  actions: IUseWishListActions;
 }
 
-export interface IUseShoppingCartContent {
+export interface IUseWishListContent {
   wishList: number[];
 }
 
-export interface IUseShoppingCartActions {
-  setShoppingCart: (wishList: number[]) => void;
+export interface IUseWishListActions {
+  setWishList: (wishList: number[]) => void;
 }
 
-const useShoppingCartStore = createStore(
-  (set: (actions: IUseShoppingCartContent) => void): IUseShoppingCartStore => ({
+const useWishListStore = createStore(
+  (set: (actions: IUseWishListContent) => void): IUseWishListStore => ({
     wishList: [],
     actions: {
-      setShoppingCart: (wishList) => set({ wishList }),
+      setWishList: (wishList) => set({ wishList }),
     },
   }),
-  "shoppingCart",
+  WISH_LIST,
   true,
   "locale",
 );
 
-export const selectShoppingCart = (): number[] =>
-  useShoppingCartStore((state: IUseShoppingCartStore) => state.wishList);
+export const selectWishList = (): number[] =>
+  useWishListStore((state: IUseWishListStore) => state.wishList);
 
-export const useSetShoppingCartActions = (): IUseShoppingCartActions =>
-  useShoppingCartStore((state: IUseShoppingCartStore) => state.actions);
+export const useSetWishListActions = (): IUseWishListActions =>
+  useWishListStore((state: IUseWishListStore) => state.actions);

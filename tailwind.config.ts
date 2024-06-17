@@ -73,27 +73,49 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "clicked-heart": {
-          "0%": { backgroundColor: "#fde047" },
-          "25%": { backgroundColor: "#dc2626" },
-          "50%": { backgroundColor: "#16a34a" },
-          "75%": { backgroundColor: "#2563eb" },
-          "100%": { backgroundColor: "#fde047" },
-        },
-        "watched-item": {
-          from: { transform: "translateY(6rem)", opacity: "0" },
-          to: { transform: "translateY(0rem)", opacity: "100" },
+        "loading-text": {
+          "0%": {
+            color: "#262626",
+          },
+          "25%": {
+            color: "#525252",
+          },
+          "50%": {
+            color: "#a3a3a3",
+          },
+          "75%": {
+            color: "#525252",
+          },
+          "100%": {
+            color: "#262626",
+          },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "clicked-heart": "clicked-heart 0.3s linear",
-        "watched-item": "watched-item 0.8s ease-out",
+        "loading-text": "loading-text 2.4s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addUtilities }: { addUtilities: any }) {
+      addUtilities(
+        {
+          "::selection": {
+            backgroundColor: "#000",
+            color: "#fff",
+          },
+          "::-webkit-selection": {
+            backgroundColor: "#000",
+            color: "#fff",
+          },
+        },
+        ["responsive", "hover"],
+      );
+    },
+  ],
 } satisfies Config;
 
 export default config;

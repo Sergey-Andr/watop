@@ -1,8 +1,15 @@
-import Api from "@/api/Api";
+import { ICake } from "@/service/fetchAllCakes";
 
-export async function updateCakes({ id, newCake }) {
-  const res = await Api.put(`api/cake/${id}`, {
-    ...newCake,
+interface IFetchUpdateCake {
+  id: number;
+  newCake: ICake;
+}
+
+export async function fetchUpdateCake({ id, newCake }: IFetchUpdateCake) {
+  const res = await fetch(`${process.env.NEXT_API_URL}/api/cake/${id}`, {
+    method: "GET",
+    body: JSON.stringify(newCake),
   });
-  return { data: res };
+  const cake = await res.json();
+  return { data: cake };
 }

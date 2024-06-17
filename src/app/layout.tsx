@@ -1,7 +1,14 @@
 "use server";
 import "./style.css";
-import Header from "@/components/Header";
 import ProdHead from "@/components/ProdHead";
+import { Metadata } from "next";
+import process from "process";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "WATOP",
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -14,11 +21,14 @@ export default async function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href={`/logo-circle.png`} rel="icon" type="image/svg+xml" />
-        <title>WATOP</title>
+        <script
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_GOOGLE_KEY}&libraries=places`}
+          async
+          defer
+        />
         <ProdHead />
       </head>
-      <body className="font-playfair text-black bg-white border-box w-4/5 m-auto overflow-x-hidden">
-        <Header />
+      <body className="font-playfair text-black bg-white border-box overflow-x-hidden m-auto">
         {children}
       </body>
     </html>

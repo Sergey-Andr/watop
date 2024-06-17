@@ -1,9 +1,9 @@
 "use client";
 import React, { memo, ReactElement, useEffect, useState } from "react";
-import EditView from "src/app/profile/components/settings/components/DeliveryAddress/components/EditView";
-import StaticView from "src/app/profile/components/settings/components/DeliveryAddress/components/StaticView";
+import EditView from "src/app/profile/settings/components/DeliveryAddress/components/EditView";
+import StaticView from "src/app/profile/settings/components/DeliveryAddress/components/StaticView";
 import { getEmail } from "@/features/getEmail";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 

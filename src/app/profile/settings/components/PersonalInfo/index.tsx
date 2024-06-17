@@ -2,8 +2,8 @@
 import { memo, ReactElement, useEffect, useState } from "react";
 import { getEmail } from "@/features/getEmail";
 import { fetchAllPersonalData } from "@/app/utils/profile/get/apihAllPersonalData";
-import StaticView from "src/app/profile/components/settings/components/PersonalInfo/components/StaticView";
-import EditView from "@/app/profile/components/settings/components/PersonalInfo/components/EditView";
+import StaticView from "src/app/profile/settings/components/PersonalInfo/components/StaticView";
+import EditView from "@/app/profile/settings/components/PersonalInfo/components/EditView";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 
 export type TErrors = (

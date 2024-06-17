@@ -1,7 +1,7 @@
 import { Dispatch, memo, ReactElement, SetStateAction } from "react";
-import BirthDate from "@/app/profile/components/settings/components/PersonalInfo/components/EditView/components/BirthDate";
-import Select from "@/app/profile/components/settings/components/PersonalInfo/components/EditView/components/Select";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
+import BirthDate from "@/app/profile/settings/components/PersonalInfo/components/EditView/components/BirthDate";
+import Select from "@/app/profile/settings/components/PersonalInfo/components/EditView/components/Select";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 
 interface IEditView {
   firstName: string;

@@ -1,6 +1,6 @@
 import { memo, ReactElement, useEffect, useState } from "react";
-import EditView from "src/app/checkout/components/ContactsInfo/components/ContactsInfo/components/EditView";
-import StaticView from "src/app/checkout/components/ContactsInfo/components/ContactsInfo/components/StaticView";
+import EditView from "@/app/checkout/components/ContactsInfo/components/СontactInfo/components/EditView";
+import StaticView from "@/app/checkout/components/ContactsInfo/components/СontactInfo/components/StaticView";
 import {
   IOrder,
   useSetCheckoutActions,

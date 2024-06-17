@@ -1,19 +1,20 @@
-import { cookies } from "next/headers";
+export const EMAIL = "email";
 
-export const getEmail = () => {
-  if (!document) {
-    return cookies().get("user")?.value ?? "something went wrong";
-  }
-
-  const docCookies = document.cookie.split(";");
-  for (let i = 0; i < docCookies.length; i++) {
-    let cookie = docCookies[i];
-    while (cookie.charAt(0) === " ")
+export const getEmail = (): string | null => {
+  const cookies = document.cookie.split(";");
+  for (let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i];
+    while (cookie.charAt(0) === " ") {
       cookie = cookie.substring(1, cookie.length);
-    if (cookie.indexOf("user=") === 0) {
-      return decodeURIComponent(
-        cookie.substring("user=".length, cookie.length),
+    }
+    if (cookie.indexOf(`${EMAIL}=`) === 0) {
+      let email = decodeURIComponent(
+        cookie.substring(`${EMAIL}=`.length, cookie.length),
       );
+      if (email.startsWith('"') && email.endsWith('"')) {
+        email = email.substring(1, email.length - 1);
+      }
+      return email;
     }
   }
   return null;

@@ -5,7 +5,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { TErrors } from "@/app/profile/components/settings/components/PersonalInfo";
+import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
 
 interface ICard {
   cardNumber: string;

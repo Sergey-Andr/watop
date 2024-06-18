@@ -69,7 +69,7 @@ const EditView: FC<IEditView> = ({ setIsInfoClicked }): ReactElement => {
             setOrder({ ...order, recipientEmail: e.target.value });
           }}
           value={order?.recipientEmail}
-          className={`mt-2 text-xl p-2 px-4 rounded-full border border-stone-300 w-full ${errors.includes("recipientEmail") ? "border-rose-600" : "border-stone-300"}`}
+          className={`text-xl p-2 px-4 rounded-full border border-stone-300 w-full ${errors.includes("recipientEmail") ? "border-rose-600" : "border-stone-300"}`}
         />
       </div>
       <button

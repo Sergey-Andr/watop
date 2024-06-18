@@ -4,9 +4,8 @@ import Link from "next/link";
 import ContactsInfo from "@/app/checkout/components/ContactsInfo";
 import Orders from "@/app/checkout/components/Orders";
 import Delivery from "@/app/checkout/components/Delivery";
-import Payment from "@/app/checkout/components/Payment";
 import Summary from "@/app/checkout/components/Summary";
-import SwiperCakes from "@/app/cake/[id]/components/Cake/components/Popover/components/Swiper";
+import Payment from "@/app/checkout/components/Payment";
 
 export default async function Checkout() {
   return (
@@ -34,7 +33,7 @@ export default async function Checkout() {
           </div>
           <Delivery />
           <Payment />
-          <SwiperCakes />
+          {/*<SwiperCakes />*/}
         </div>
         <aside className="w-1/4 h-fit border border-black rounded-xl sticky top-8">
           <Summary />

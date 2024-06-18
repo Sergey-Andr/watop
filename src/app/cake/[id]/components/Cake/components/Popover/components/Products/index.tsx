@@ -15,6 +15,7 @@ import Product from "@/app/cake/[id]/components/Cake/components/Popover/componen
 import NoCakes from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/NoCakes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import PagesLoader from "@/components/Loader";
 
 interface IProducts {
   setIsClicked: Dispatch<SetStateAction<boolean>>;
@@ -65,7 +66,7 @@ const Products: FC<IProducts> = ({ setIsClicked }): ReactElement => {
   }, [totalQuantity]);
 
   if (cakes.length === 0) {
-    return shoppingCart.length === 0 ? <NoCakes /> : <></>;
+    return shoppingCart.length === 0 ? <NoCakes /> : <PagesLoader />;
   }
 
   return (

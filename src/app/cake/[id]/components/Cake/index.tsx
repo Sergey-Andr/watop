@@ -26,11 +26,6 @@ const Cake = (): ReactElement => {
     })();
   }, []);
 
-  useEffect(() => {
-    if (isClicked) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
-  }, [isClicked]);
-
   const handleClicked = (e: any) => {
     e.preventDefault();
     setIsClicked(!isClicked);

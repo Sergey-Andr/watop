@@ -39,7 +39,7 @@ const Popover = (): ReactElement => {
                 +359
               </label>
               <input
-                className={`text-xl p-2 px-4 pl-16 rounded-full border font-sans w-1/2`}
+                className={`text-xl p-2 px-4 pl-16 rounded-full border font-sans w-3/4`}
                 placeholder="Телефонен номер"
                 type="tel"
                 maxLength={10}
@@ -47,7 +47,7 @@ const Popover = (): ReactElement => {
             </div>
             <p className="my-2">Или</p>
             <input
-              className={`text-xl p-2 px-4 rounded-full border font-sans w-1/2 text-black/60 mb-2`}
+              className={`text-xl p-2 px-4 rounded-full border font-sans w-3/4 text-black/60 mb-2`}
               value="watopbg@gmail.com"
               type="email"
               readOnly

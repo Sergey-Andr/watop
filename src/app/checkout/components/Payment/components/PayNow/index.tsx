@@ -1,4 +1,12 @@
-import React, { memo, ReactElement, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  FC,
+  memo,
+  ReactElement,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import Card from "src/app/profile/settings/components/LinkCard/components/EditView";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
@@ -10,7 +18,15 @@ import {
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 
-const PayNow = (): ReactElement => {
+interface IPayNow {
+  paymentMethod: string | null;
+  setPaymentMethod: Dispatch<SetStateAction<string | null>>;
+}
+
+const PayNow: FC<IPayNow> = ({
+  paymentMethod,
+  setPaymentMethod,
+}): ReactElement => {
   const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
@@ -19,39 +35,47 @@ const PayNow = (): ReactElement => {
   const [expirationMonth, setExpirationMonth] = useState("");
   const [cvv, setCvv] = useState("");
   const [errors, setErrors] = useState<TErrors>([]);
-  const [currentCard, setCurrentCard] = useState("");
+  const [currentCard, setCurrentCard] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
       const { status, data } = await fetchAllPersonalData(getEmail());
       if (status === 200 && data) {
-        setCurrentCard(formatCardNumber(data.card.cardNumber));
+        setCurrentCard(formatCardNumber(data?.card.cardNumber));
+      } else {
+        setPaymentMethod("online-new");
+        setOrder({ payment: "online-new" });
       }
     })();
   }, []);
-
+  console.log("online payment " + currentCard);
   return (
     <div className="p-4 pl-8 flex flex-col">
       <div className="mb-4">
         <input
+          disabled={!currentCard}
           type="radio"
           name="onlinePayment"
-          checked={order?.payment?.includes("current")}
+          checked={paymentMethod?.includes("current")}
           onChange={(e) => {
             e.stopPropagation();
+            setPaymentMethod("online-current");
             setOrder({ payment: "online-current" });
           }}
           className="mr-4 w-4 h-4 accent-rose-600"
         />
-        <label className="text-lg font-sans">{currentCard}</label>
+        <label className="text-lg font-sans">
+          {currentCard ?? "Няма карта"}
+        </label>
       </div>
       <div className="mb-8">
         <input
           type="radio"
           name="onlinePayment"
-          checked={order?.payment?.includes("new")}
+          checked={paymentMethod?.includes("new")}
           onChange={(e) => {
             e.stopPropagation();
+            setPaymentMethod("online-new");
             setOrder({ payment: "online-new" });
           }}
           className="mr-4 w-4 h-4 accent-rose-600"

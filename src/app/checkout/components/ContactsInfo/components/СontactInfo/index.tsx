@@ -12,7 +12,6 @@ const ContactsInfo = (): ReactElement => {
   const { setOrder } = useSetCheckoutActions();
 
   const [isInfoClicked, setIsInfoClicked] = useState(false);
-  const [isContactsFetched, setIsContactsFetched] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -26,8 +25,6 @@ const ContactsInfo = (): ReactElement => {
         };
 
         setOrder(temp);
-
-        setIsContactsFetched(data.firstName.length === 0);
       }
     })();
   }, []);
@@ -37,9 +34,9 @@ const ContactsInfo = (): ReactElement => {
       onClick={() => {
         setIsInfoClicked(!isInfoClicked);
       }}
-      className={`flex items-center justify-between border rounded-xl p-4 mb-4 cursor-pointer align-text-top ${isInfoClicked || isContactsFetched ? "h-60 border-rose-600" : "h-16"} overflow-hidden transition-all duration-300`}
+      className={`flex items-center justify-between border rounded-xl p-4 mb-4 cursor-pointer align-text-top ${isInfoClicked ? "h-60 border-rose-600" : "h-16"} overflow-hidden transition-all duration-300`}
     >
-      {isInfoClicked || isContactsFetched ? (
+      {isInfoClicked ? (
         <EditView setIsInfoClicked={setIsInfoClicked} />
       ) : (
         <StaticView setIsInfoClicked={setIsInfoClicked} />

@@ -1,5 +1,4 @@
 "use server";
-
 import { customInterceptor, IResponse } from "@/app/utils/api";
 
 interface IData {
@@ -36,12 +35,18 @@ export async function fetchAllPersonalData(
       method: "GET",
     });
 
+    const responseText = await response.text();
+
     if (!response.ok) {
-      const error = await response.text();
-      return { status: response.status, errors: error, data: null };
+      return { status: response.status, errors: responseText, data: null };
     }
 
-    const data = await response.json();
+    if (!responseText) {
+      return { status: 404, data: null };
+    }
+
+    const data = await JSON.parse(responseText);
+
     return {
       status: 200,
       data: data,

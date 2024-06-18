@@ -13,11 +13,17 @@ const StaticView: FC<IStaticView> = ({ setIsInfoClicked }): ReactElement => {
       <div className="flex items-center align-text-top">
         <GoPerson className="w-7 h-7 mr-4" />
         <h4 className="text-lg flex flex-col">
-          {order?.firstName} {order?.secondName}
-          <sub className="font-sans leading-4 text-gray-600">
-            <span>+359 {order?.phone}</span>{" "}
-            <span>{order?.recipientEmail}</span>
-          </sub>
+          {order?.firstName ? (
+            <>
+              {order?.firstName} {order?.secondName}
+              <sub className="font-sans leading-4 text-gray-600">
+                <span>+359 {order?.phone}</span>{" "}
+                <span>{order?.recipientEmail}</span>
+              </sub>
+            </>
+          ) : (
+            <p>Въведете вашите контактни данни</p>
+          )}
         </h4>
       </div>
       <button

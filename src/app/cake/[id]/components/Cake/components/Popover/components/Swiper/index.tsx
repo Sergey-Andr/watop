@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/navigation";
+import PagesLoader from "@/components/Loader";
 
 const SwiperCakes = (): ReactElement => {
   const shoppingCart = useSelectShoppingCart();
@@ -35,7 +36,7 @@ const SwiperCakes = (): ReactElement => {
   }, [shoppingCart]);
 
   if (relatedCakes.length === 0) {
-    return <></>;
+    return <PagesLoader />;
   }
   return (
     <section className="">

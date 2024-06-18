@@ -14,7 +14,6 @@ const CityInfo = (): ReactElement => {
   const { setOrder } = useSetCheckoutActions();
 
   const [isCityClicked, setIsCityClicked] = useState(false);
-  const [isCityFetched, setIsCityFetched] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -30,7 +29,6 @@ const CityInfo = (): ReactElement => {
         };
 
         setOrder(temp);
-        setIsCityFetched(data.deliveryAddress.city.length === 0);
       }
     })();
   }, []);
@@ -41,20 +39,24 @@ const CityInfo = (): ReactElement => {
         onClick={() => {
           setIsCityClicked(!isCityClicked);
         }}
-        className={`flex items-center justify-between border rounded-xl p-4 cursor-pointer ${isCityClicked || isCityFetched || order?.delivery?.city?.length === 0 ? "border-rose-600" : ""}`}
+        className={`flex items-center justify-between border rounded-xl p-4 cursor-pointer ${isCityClicked || order?.delivery?.city?.length === 0 ? "border-rose-600" : ""}`}
       >
         <div className="flex items-center">
           <HiOutlineLocationMarker className="w-7 h-7 mr-4" />
-          <h4 className="text-lg">{order?.delivery?.city}</h4>
+          <h4 className="text-lg">
+            {order?.delivery?.city ?? "Въведете вашия град"}
+          </h4>
         </div>
         <button
-          onClick={() => {}}
+          onClick={() => {
+            setIsCityClicked(!isCityClicked);
+          }}
           className="hover:text-rose-600 duration-300 hover:underline"
         >
           Промяна
         </button>
       </div>
-      {isCityClicked || isCityFetched ? (
+      {isCityClicked ? (
         <Popover
           isCityClicked={isCityClicked}
           setIsCityClicked={setIsCityClicked}

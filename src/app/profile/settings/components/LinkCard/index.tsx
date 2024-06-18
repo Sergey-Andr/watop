@@ -20,10 +20,10 @@ const LinkCard = (): ReactElement => {
       const { status, data } = await fetchAllPersonalData(getEmail());
 
       if (status === 200 && data?.card) {
-        setCardNumber(data.card.cardNumber);
-        setExpirationYear(data.card.expirationDate.split("/")[0]);
-        setExpirationMonth(data.card.expirationDate.split("/")[1]);
-        setCvv(data.card.cvv);
+        setCardNumber(data?.card?.cardNumber);
+        setExpirationYear(data?.card?.expirationDate.split("/")[0]);
+        setExpirationMonth(data?.card?.expirationDate.split("/")[1]);
+        setCvv(data?.card?.cvv);
       }
     })();
   }, []);

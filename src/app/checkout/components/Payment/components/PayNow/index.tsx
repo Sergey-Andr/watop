@@ -40,15 +40,15 @@ const PayNow: FC<IPayNow> = ({
   useEffect(() => {
     (async () => {
       const { status, data } = await fetchAllPersonalData(getEmail());
-      if (status === 200 && data) {
-        setCurrentCard(formatCardNumber(data?.card.cardNumber));
+      if (status === 200 && data?.card) {
+        setCurrentCard(formatCardNumber(data?.card?.cardNumber));
       } else {
         setPaymentMethod("online-new");
         setOrder({ payment: "online-new" });
       }
     })();
   }, []);
-  console.log("online payment " + currentCard);
+
   return (
     <div className="p-4 pl-8 flex flex-col">
       <div className="mb-4">

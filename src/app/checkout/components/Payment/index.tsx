@@ -22,9 +22,9 @@ const Payment = (): ReactElement => {
       if (status === 200 && data) {
         const temp: IOrder = {
           card: {
-            cardNumber: data?.card.cardNumber,
-            expirationDate: data?.card.expirationDate,
-            cvv: data?.card.cvv,
+            cardNumber: data?.card?.cardNumber,
+            expirationDate: data?.card?.expirationDate,
+            cvv: data?.card?.cvv,
           },
           payment: "receive",
         };

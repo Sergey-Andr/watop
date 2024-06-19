@@ -1,6 +1,7 @@
 "use client";
 import { memo, useState } from "react";
 import Link from "next/link";
+import process from "process";
 
 export const navigationHash = [
   { href: "", label: "Home", hash: "" },
@@ -18,12 +19,10 @@ const Navigation = () => {
         <Link
           key={link.href}
           onClick={() => {
-            if (!/webkit/i.test(navigator.userAgent)) {
-              window.location.hash = `${link.href}`;
-            } else {
-              window.location.href = `${link.href}`;
+            window.location.hash = link.href;
+            if (process.env.NODE_ENV === "production") {
+              window.history.pushState(null, "", link.href);
             }
-            // window.location.hash = `${link.href}`;
             setHash(link.href);
           }}
           href={`/${link.href}`}

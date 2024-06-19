@@ -47,9 +47,9 @@ const ProdHead = (): null => {
     const handleClick = (e: Event) => {
       try {
         const target = e.target as HTMLLinkElement;
-        const targetId = (target.getAttribute("href") as string).split("/#")[1];
+        const targetId = (target.getAttribute("href") as string).split("#")[1];
         const targetElement = document.getElementById(targetId);
-        console.log(target);
+
         if (targetElement) {
           e.preventDefault();
 
@@ -58,7 +58,7 @@ const ProdHead = (): null => {
         } else {
           setTimeout(() => {
             const targetId = (target.getAttribute("href") as string).split(
-              "/#",
+              "#",
             )[1];
             const targetElement = document.getElementById(
               targetId,
@@ -78,6 +78,7 @@ const ProdHead = (): null => {
         }
       }
     };
+
     const links = document.querySelectorAll("a.smooth-scroll");
     links.forEach((link) => {
       link.addEventListener("click", handleClick);

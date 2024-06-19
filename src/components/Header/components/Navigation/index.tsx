@@ -1,14 +1,13 @@
 "use client";
 import { memo, useState } from "react";
 import Link from "next/link";
-import process from "process";
 
 export const navigationHash = [
-  { href: "", label: "Home", hash: "" },
-  { href: "#catalog", label: "Catalog" },
-  { href: "#order", label: "How to order" },
-  { href: "#delivery", label: "Delivery" },
-  { href: "#contacts", label: "Contacts" },
+  { hash: "", label: "Home" },
+  { hash: "catalog", label: "Catalog" },
+  { hash: "order", label: "How to order" },
+  { hash: "delivery", label: "Delivery" },
+  { hash: "contacts", label: "Contacts" },
 ];
 
 const Navigation = () => {
@@ -17,16 +16,14 @@ const Navigation = () => {
     <>
       {navigationHash.map((link) => (
         <Link
-          key={link.href}
+          key={link.hash}
+          scroll={false}
           onClick={() => {
-            window.location.hash = link.href;
-            if (process.env.NODE_ENV === "production") {
-              window.history.pushState(null, "", link.href);
-            }
-            setHash(link.href);
+            // window.location.hash = link.hash;
+            setHash(link.hash);
           }}
-          href={`/${link.href}`}
-          className={`smooth-scroll cursor-pointer relative text-lg hover:text-black/50 duration-300 ${hash === link.href ? "after:absolute after:h-0.5 after:w-4/5 after:bg-red-600 after:translate-y-7 after:-translate-x-[110%]" : ""}`}
+          href={{ hash: `${link.hash}` }}
+          className={`smooth-scroll cursor-pointer relative text-lg hover:text-black/50 duration-300 ${hash === link.hash ? "after:absolute after:h-0.5 after:w-4/5 after:bg-red-600 after:translate-y-7 after:-translate-x-[110%]" : ""}`}
         >
           {link.label}
         </Link>

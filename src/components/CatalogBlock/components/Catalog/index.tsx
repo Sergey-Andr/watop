@@ -15,6 +15,7 @@ import { fetchAllCakes, ICake } from "@/service/fetchAllCakes";
 import Arrows from "@/components/CatalogBlock/components/Catalog/component/Arrows";
 import BigCart from "@/components/CatalogBlock/components/Catalog/component/BigCart";
 import SmallCart from "@/components/CatalogBlock/components/Catalog/component/SmallCart";
+import PagesLoader from "@/components/Loader";
 
 export const variants = {
   hidden: { opacity: 0 },
@@ -48,7 +49,7 @@ const Catalog = (): ReactElement => {
   const animationStart = useCallback(animation.start, [animation]);
 
   if (!cakes) {
-    return <></>;
+    return <PagesLoader />;
   }
 
   return (

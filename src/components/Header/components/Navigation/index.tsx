@@ -17,7 +17,10 @@ const Navigation = () => {
       {navigationHash.map((link) => (
         <Link
           key={link.href}
-          onClick={() => setHash(link.href)}
+          onClick={() => {
+            window.location.hash = `${link.href}`;
+            setHash(link.href);
+          }}
           href={`/${link.href}`}
           className={`smooth-scroll cursor-pointer relative text-lg hover:text-black/50 duration-300 ${hash === link.href ? "after:absolute after:h-0.5 after:w-4/5 after:bg-red-600 after:translate-y-7 after:-translate-x-[110%]" : ""}`}
         >

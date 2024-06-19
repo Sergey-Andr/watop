@@ -18,7 +18,12 @@ const Navigation = () => {
         <Link
           key={link.href}
           onClick={() => {
-            window.location.hash = `${link.href}`;
+            if (!/webkit/i.test(navigator.userAgent)) {
+              window.location.hash = `${link.href}`;
+            } else {
+              window.location.href = `${link.href}`;
+            }
+            // window.location.hash = `${link.href}`;
             setHash(link.href);
           }}
           href={`/${link.href}`}

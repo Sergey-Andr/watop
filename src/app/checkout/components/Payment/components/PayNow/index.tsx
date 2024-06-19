@@ -1,12 +1,4 @@
-import React, {
-  Dispatch,
-  FC,
-  memo,
-  ReactElement,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import React, { memo, ReactElement, useEffect, useState } from "react";
 import Card from "src/app/profile/settings/components/LinkCard/components/EditView";
 import { submitPersonalInfo } from "@/features/submitPersonalInfo";
 import { TErrors } from "@/app/profile/settings/components/PersonalInfo";
@@ -18,15 +10,7 @@ import {
   useSetCheckoutActions,
 } from "@/app/checkout/store/useCheckoutStore";
 
-interface IPayNow {
-  paymentMethod: string | null;
-  setPaymentMethod: Dispatch<SetStateAction<string | null>>;
-}
-
-const PayNow: FC<IPayNow> = ({
-  paymentMethod,
-  setPaymentMethod,
-}): ReactElement => {
+const PayNow = (): ReactElement => {
   const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
@@ -43,7 +27,6 @@ const PayNow: FC<IPayNow> = ({
       if (status === 200 && data?.card) {
         setCurrentCard(formatCardNumber(data?.card?.cardNumber));
       } else {
-        setPaymentMethod("online-new");
         setOrder({ payment: "online-new" });
       }
     })();
@@ -53,13 +36,12 @@ const PayNow: FC<IPayNow> = ({
     <div className="p-4 pl-8 flex flex-col">
       <div className="mb-4">
         <input
-          disabled={!currentCard}
+          disabled={!order?.card?.cardNumber}
           type="radio"
           name="onlinePayment"
-          checked={paymentMethod?.includes("current")}
+          checked={order?.payment?.includes("current")}
           onChange={(e) => {
             e.stopPropagation();
-            setPaymentMethod("online-current");
             setOrder({ payment: "online-current" });
           }}
           className="mr-4 w-4 h-4 accent-rose-600"
@@ -72,10 +54,9 @@ const PayNow: FC<IPayNow> = ({
         <input
           type="radio"
           name="onlinePayment"
-          checked={paymentMethod?.includes("new")}
+          defaultChecked={!order?.card?.cardNumber}
           onChange={(e) => {
             e.stopPropagation();
-            setPaymentMethod("online-new");
             setOrder({ payment: "online-new" });
           }}
           className="mr-4 w-4 h-4 accent-rose-600"
@@ -96,8 +77,9 @@ const PayNow: FC<IPayNow> = ({
             setCvv={setCvv}
           />
           <button
-            onClick={() => {
-              submitPersonalInfo({
+            onClick={async (e) => {
+              e.preventDefault();
+              const response = await submitPersonalInfo({
                 errors,
                 setErrors,
                 fields: [
@@ -108,12 +90,20 @@ const PayNow: FC<IPayNow> = ({
                   },
                   {
                     name: "expirationDate",
-                    value: `${expirationYear}/${expirationMonth}`,
+                    value: `${expirationYear}${expirationMonth}`,
                     parent: "card",
                   },
-                  { name: "cvv", value: cvv, parent: "card" },
+                  {
+                    name: "cvv",
+                    value: cvv,
+                    parent: "card",
+                  },
                 ],
               });
+
+              if (response?.status === 200) {
+                setOrder({ payment: "online-current" });
+              }
             }}
             className={`py-2 px-10 text-lg bg-rose-700 text-white rounded-full`}
           >

@@ -30,6 +30,12 @@ export const submitPersonalInfo = async ({
     if (field.parent) {
       if (!data[field.parent]) {
         data[field.parent] = {};
+
+        if (field.parent === "card") {
+          if (field.name === "cardNumber" && field.value.length !== 16) {
+            setErrors((prevState) => [...prevState, field.name]);
+          }
+        }
       }
       data[field.parent][field.name] = field?.value;
     } else {
@@ -40,7 +46,6 @@ export const submitPersonalInfo = async ({
       setErrors((prevState) => [...prevState, field.name]);
     }
   });
-
   if (errors.length === 0) {
     return await fetchPersonalInfo({ ...data, email: getEmail() });
   }

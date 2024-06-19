@@ -49,7 +49,7 @@ const ProdHead = (): null => {
         const target = e.target as HTMLLinkElement;
         const targetId = (target.getAttribute("href") as string).split("/#")[1];
         const targetElement = document.getElementById(targetId);
-
+        console.log(target);
         if (targetElement) {
           e.preventDefault();
 
@@ -88,7 +88,7 @@ const ProdHead = (): null => {
         link.removeEventListener("click", handleClick);
       });
     };
-  }, []);
+  });
 
   return null;
 };

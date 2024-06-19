@@ -71,7 +71,7 @@ const EditView: FC<ICard> = ({
         value={cardNumber}
       >
         <InputOTPGroup
-          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""}`}
+          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""} border rounded-md`}
         >
           <InputOTPSlot index={0} />
           <InputOTPSlot index={1} />
@@ -80,7 +80,7 @@ const EditView: FC<ICard> = ({
         </InputOTPGroup>
         <InputOTPSeparator />
         <InputOTPGroup
-          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""}`}
+          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""} border rounded-md`}
         >
           <InputOTPSlot index={4} />
           <InputOTPSlot index={5} />
@@ -89,7 +89,7 @@ const EditView: FC<ICard> = ({
         </InputOTPGroup>
         <InputOTPSeparator />
         <InputOTPGroup
-          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""}`}
+          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""} border rounded-md`}
         >
           <InputOTPSlot index={8} />
           <InputOTPSlot index={9} />
@@ -98,7 +98,7 @@ const EditView: FC<ICard> = ({
         </InputOTPGroup>
         <InputOTPSeparator />
         <InputOTPGroup
-          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""}`}
+          className={`${errors.includes("cardNumber") ? "border-rose-600" : ""} border rounded-md`}
         >
           <InputOTPSlot index={12} />
           <InputOTPSlot index={13} />
@@ -108,7 +108,7 @@ const EditView: FC<ICard> = ({
       </InputOTP>
       <div className="flex my-8">
         <div
-          className={`flex mr-12 font-sans border w-fit rounded-lg ${errors.includes("expirationDate") ? "border-rose-600" : ""}`}
+          className={`flex mr-12 font-sans border w-fit rounded-md ${errors.includes("expirationDate") ? "border-rose-600" : ""}`}
         >
           <input
             id="expirationYear"
@@ -143,7 +143,7 @@ const EditView: FC<ICard> = ({
           maxLength={3}
         >
           <InputOTPGroup
-            className={`${errors.includes("cvv") ? "border-rose-600" : ""}`}
+            className={`${errors.includes("cvv") ? "border-rose-600" : ""} border rounded-md`}
           >
             <InputOTPSlot index={0} />
             <InputOTPSlot index={1} />

@@ -6,6 +6,7 @@ import { fetchCakeById } from "@/service/fetchCakeById";
 import Link from "next/link";
 import Heart from "@/components/CatalogBlock/components/Catalog/component/Heart";
 import EmptyWishList from "@/app/profile/wish-list/components/EmptyWishList";
+import PagesLoader from "@/components/Loader";
 
 type TCake = { name: string; image: string; id: number };
 
@@ -25,7 +26,7 @@ const WishList = (): ReactElement => {
   }, [wishList]);
 
   if (cakes.length === 0) {
-    return <EmptyWishList />;
+    return wishList.length === 0 ? <EmptyWishList /> : <PagesLoader />;
   }
 
   return (

@@ -24,7 +24,7 @@ const Popover: FC<IPopover> = ({ isClicked, setIsClicked }): ReactElement => {
             className="fixed w-1/2 h-[90%] top-[5%] z-50 left-1/4 bg-white p-4 overflow-y-auto overflow-x-hidden"
           >
             <div className="w-full flex justify-between items-center border border-b-stone-300 pb-4 mb-4 border-t-transparent border-l-transparent border-r-transparent">
-              <h2 className="text-4xl">Cart</h2>
+              <h2 className="text-4xl">Кошница</h2>
               <RxCross2
                 onClick={() => setIsClicked(false)}
                 className="w-5 h-5 cursor-pointer hover:text-rose-600 duration-300"

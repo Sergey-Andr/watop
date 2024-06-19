@@ -92,7 +92,7 @@ const DeliveryTime = (): ReactElement => {
                     },
                   });
                 }}
-                className={`cursor-pointer leading-8 text-lg hover:text-rose-600 duration-300 rounded-md p-1 ${currentDay === day.date && isTimePass ? (Math.abs(moment().diff(moment(time, "HH:mm"), "hours")) < MAX_TIMEOUT || currentHours > time ? "text-black/60 cursor-default hover:none pointer-events-none" : "") : ""} ${order?.delivery?.time === day.date + time ? "outline outline-1 outline-rose-600 text-rose-600" : ""}`}
+                className={`cursor-pointer leading-8 text-lg hover:text-rose-600 duration-300 rounded-md p-1 ${currentDay === day.date && isTimePass ? (Math.abs(moment().diff(moment(time, "HH:mm"), "hours")) < MAX_TIMEOUT || currentHours > time ? "text-black/60 cursor-default hover:none pointer-events-none" : "") : ""} ${order?.delivery?.time === day.date + " " + time ? "outline outline-1 outline-rose-600 text-rose-600" : ""}`}
               >
                 {time}
               </td>

@@ -1,4 +1,3 @@
-import moment from "moment";
 import { TOrders } from "@/app/utils/profile/get/apiAllOrders";
 import Popover from "@/app/profile/my-orders/components/OrderDetails/Popover";
 
@@ -26,8 +25,6 @@ export default async function OrderDetails({ order }: { order: TOrders }) {
             в:{" "}
             <span className="text-rose-600">
               {order.deliveryAddress.time.split(" ")[0] +
-                " " +
-                moment().format("MM") +
                 " " +
                 order.deliveryAddress.time.split(" ")[1]}
             </span>

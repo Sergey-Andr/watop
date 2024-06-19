@@ -3,10 +3,12 @@ import { memo, ReactElement } from "react";
 const PagesLoader = (): ReactElement => {
   return (
     <div className="top-0 left-0 absolute bg-white w-full h-full z-50">
-      <div className="loader absolute translate-x-0 -translate-y-16 w-full h-full" />
-      <p className="absolute text-nowrap translate-x-[41%] translate-y-1/2 w-full h-full text-6xl tracking-wide font-medium animate-loading-text">
-        WE ARE TOP
-      </p>
+      <div className="absolute w-full h-full left-0 top-0 flex flex-col items-center justify-center">
+        <div className="loader w-16 h-16 mb-32" />
+        <p className="text-nowrap text-center w-full h-fit text-6xl tracking-wide font-medium animate-loading-text">
+          WE ARE TOP
+        </p>
+      </div>
     </div>
   );
 };

@@ -41,7 +41,9 @@ const ProdHead = (): null => {
         }
       }
     })();
+  }, []);
 
+  useEffect(() => {
     const handleClick = (e: Event) => {
       try {
         const target = e.target as HTMLLinkElement;

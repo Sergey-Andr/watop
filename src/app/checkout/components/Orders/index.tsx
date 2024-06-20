@@ -12,7 +12,7 @@ const Orders = (): ReactElement => {
   const shoppingCart = useSelectShoppingCart();
   const { setOrder } = useSetCheckoutActions();
 
-  if (shoppingCart.length === 0) {
+  if (shoppingCart.length === 0 && window) {
     window.location.href = "/";
   }
 

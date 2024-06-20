@@ -2,13 +2,15 @@
 import { cookies } from "next/headers";
 import { customInterceptor } from "@/app/utils/api";
 import { EMAIL } from "@/features/getEmail";
-import { redirect } from "next/navigation";
 
-export async function fetchRegistration(formData: FormData): Promise<any> {
+export async function fetchRegistration({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
   try {
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-
     const response = await customInterceptor({
       url: "/auth/registration",
       method: "POST",
@@ -40,8 +42,8 @@ export async function fetchRegistration(formData: FormData): Promise<any> {
       path: "/",
     });
 
-    redirect("/profile/my-orders");
+    return { status: 200 };
   } catch (error) {
-    return { status: 500, message: "Internal Server Error" };
+    return { status: 500, message: error };
   }
 }

@@ -3,13 +3,15 @@
 import { cookies } from "next/headers";
 import { customInterceptor } from "@/app/utils/api";
 import { EMAIL } from "@/features/getEmail";
-import { redirect } from "next/navigation";
 
-export async function fetchLogin(formData: FormData) {
+export async function fetchLogin({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
   try {
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
-
     const response = await customInterceptor({
       url: "/auth/login",
       method: "POST",
@@ -43,8 +45,8 @@ export async function fetchLogin(formData: FormData) {
       path: "/",
     });
 
-    redirect("/profile/my-orders");
+    return { status: response.status };
   } catch (error) {
-    return { status: 500, message: "Internal Server Error" };
+    return { status: 500, message: error };
   }
 }

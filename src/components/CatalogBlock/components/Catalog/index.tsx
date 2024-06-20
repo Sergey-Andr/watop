@@ -48,8 +48,12 @@ const Catalog = (): ReactElement => {
 
   const animationStart = useCallback(animation.start, [animation]);
 
-  if (!cakes) {
-    return <PagesLoader />;
+  if (cakes.length === 0) {
+    return (
+      <section className="w-full h-[56rem] mb-40 relative">
+        <PagesLoader />
+      </section>
+    );
   }
 
   return (

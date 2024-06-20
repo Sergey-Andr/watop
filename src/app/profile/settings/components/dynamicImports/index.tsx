@@ -31,18 +31,11 @@ export const dynamicImports = () => {
       loading: () => <p>Loading Link Card...</p>,
     },
   );
-  const Login = dynamic(
-    () => import("src/app/profile/settings/components/Login"),
-    {
-      loading: () => <p>Loading Login...</p>,
-    },
-  );
   return {
     PersonalInfo,
     OrdersRecipient,
     Contacts,
     DeliveryAddress,
     LinkCard,
-    Login,
   };
 };

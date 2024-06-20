@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import Link from "next/link";
 import { ICake } from "@/service/fetchAllCakes";
+import PagesLoader from "@/components/Loader";
 
 const CakesSwiper = (): ReactElement => {
   const { id } = useParams();
@@ -34,7 +35,11 @@ const CakesSwiper = (): ReactElement => {
   }, [cake]);
 
   if (!cake) {
-    return <></>;
+    return (
+      <section className="max-w-6xl w-full m-auto mb-40 relative">
+        <PagesLoader />
+      </section>
+    );
   }
 
   return (

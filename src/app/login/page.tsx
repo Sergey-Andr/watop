@@ -40,7 +40,7 @@ export default async function SignIn() {
             New to WATOP?{" "}
             <Link
               href="/registration"
-              className="text-rose-700 hover:text-rose-600 font-medium duration-300"
+              className="text-rose-600 hover:underline font-medium duration-300"
             >
               Create an account
             </Link>

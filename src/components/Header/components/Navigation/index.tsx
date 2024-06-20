@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export const navigationHash = [
   { hash: "", label: "Home" },
-  { hash: "catalog", label: "Catalog" },
-  { hash: "order", label: "How to order" },
-  { hash: "delivery", label: "Delivery" },
-  { hash: "contacts", label: "Contacts" },
+  { hash: "#catalog", label: "Catalog" },
+  { hash: "#order", label: "How to order" },
+  { hash: "#delivery", label: "Delivery" },
+  { hash: "#contacts", label: "Contacts" },
 ];
 
 const Navigation = () => {
@@ -22,7 +22,7 @@ const Navigation = () => {
             // window.location.hash = link.hash;
             setHash(link.hash);
           }}
-          href={{ hash: `${link.hash}` }}
+          href={`/${link.hash}`}
           className={`smooth-scroll cursor-pointer relative text-lg hover:text-black/50 duration-300 ${hash === link.hash ? "after:absolute after:h-0.5 after:w-4/5 after:bg-red-600 after:translate-y-7 after:-translate-x-[110%]" : ""}`}
         >
           {link.label}

@@ -21,13 +21,10 @@ export async function fetchLogout() {
       return { status: response.status, errors: error };
     }
 
-    cookies()
-      .getAll()
-      .map((cookie) => {
-        cookies().delete(cookie.name);
-      });
-    return response;
+    const data = response.json();
+
+    return { status: response.status, data: data };
   } catch (error) {
-    return { status: 500, message: "Internal Server Error" };
+    return { status: 500, message: error };
   }
 }

@@ -46,6 +46,8 @@ type TUrls =
   | "/auth/registration"
   | "/auth/login"
   | "/auth/logout"
+  | "/auth/requestPasswordReset"
+  | "/auth/updatePassword"
   | `/auth/activate/${string}`
   | "/auth/refresh"
   | "/auth/user"

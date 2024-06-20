@@ -38,7 +38,7 @@ const SmallCart: FC<ISmallCart> = ({ cake, animation }): ReactElement => {
           src={`${process.env.NEXT_API_URL}/${cake.image}`}
           alt={`${cake.name} cake`}
           itemProp="image"
-          className="w-full h-96 overflow-hidden "
+          className="w-full h-96 overflow-hidden"
         />
         <Heart
           fill={`${wishList.includes(cake.id) ? "#e11d48" : "transparent"}`}

@@ -1,5 +1,5 @@
 "use client";
-import { memo, ReactElement, useEffect, useState } from "react";
+import { FormEvent, memo, ReactElement, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { fetchRegistration } from "@/app/utils/auth/apiRegister";
 
@@ -17,10 +17,29 @@ const Form = (): ReactElement => {
     }
   }, [secondPass, firstPass]);
 
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const email = (
+      e.currentTarget.elements.namedItem("email") as HTMLInputElement
+    ).value;
+    const password = (
+      e.currentTarget.elements.namedItem("password") as HTMLInputElement
+    ).value;
+
+    const { status } = await fetchRegistration({
+      email,
+      password,
+    });
+
+    if (status === 200) {
+      window.location.href = "/profile/my-orders";
+    }
+  };
+
   return (
     <form
       className="flex flex-col w-96 bg-stone-50 border border-stone-200 rounded-xl p-4 mb-4"
-      action={fetchRegistration}
+      onSubmit={handleSubmit}
     >
       <label form="email">
         <h4 className="text-xl mb-4">Username or email address</h4>

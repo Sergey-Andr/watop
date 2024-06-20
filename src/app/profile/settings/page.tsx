@@ -1,9 +1,5 @@
 "use server";
-import {
-  MdLockOutline,
-  MdOutlineAccountCircle,
-  MdOutlineMessage,
-} from "react-icons/md";
+import { MdOutlineAccountCircle, MdOutlineMessage } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
 import { BsBoxSeam } from "react-icons/bs";
 import { CiCreditCard1 } from "react-icons/ci";
@@ -17,14 +13,8 @@ import {
 import Logout from "src/app/profile/settings/components/Logout";
 
 export default async function Settings() {
-  const {
-    OrdersRecipient,
-    Contacts,
-    DeliveryAddress,
-    PersonalInfo,
-    LinkCard,
-    Login,
-  } = dynamicImports();
+  const { OrdersRecipient, Contacts, DeliveryAddress, PersonalInfo, LinkCard } =
+    dynamicImports();
 
   return (
     <section>
@@ -83,17 +73,6 @@ export default async function Settings() {
           </AccordionTrigger>
           <AccordionContent>
             <LinkCard />
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem value="item-6">
-          <AccordionTrigger>
-            <span>
-              <MdLockOutline className="mr-4" />
-            </span>
-            <h3>Login</h3>
-          </AccordionTrigger>
-          <AccordionContent>
-            <Login />
           </AccordionContent>
         </AccordionItem>
       </Accordion>

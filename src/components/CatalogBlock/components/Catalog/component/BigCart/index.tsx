@@ -25,7 +25,7 @@ const BigCart: FC<IBigCart> = ({ cake, animation }): ReactElement => {
       <Link
         role="link"
         href={`/cake/${cake.id}`}
-        className="relative mb-4 group/cake"
+        className="relative group/cake"
       >
         <img
           src={`${process.env.NEXT_API_URL}/${cake.image}`}
@@ -40,7 +40,7 @@ const BigCart: FC<IBigCart> = ({ cake, animation }): ReactElement => {
           id={cake.id}
         />
       </Link>
-      <div className="font-sans w-full h-fit flex items-center justify-between px-2">
+      <div className="font-sans mt-4 w-full h-fit flex items-center justify-between px-2">
         <div>
           <h3 itemProp="name" className="font-bold">
             {cake.name}

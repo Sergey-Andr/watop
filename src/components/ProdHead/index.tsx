@@ -14,9 +14,7 @@ const ProdHead = (): null => {
   })();
 
   useEffect(() => {
-    cake.then(() => {
-      scrollTo({ top: 0, behavior: "instant" });
-    });
+    scrollTo({ top: 0, behavior: "instant" });
   }, [cake]);
 
   useEffect(() => {

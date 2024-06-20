@@ -2,14 +2,14 @@
 
 import { customInterceptor } from "@/app/utils/api";
 
-export async function fetchCheckAuth(token: string) {
+export async function apiRequestPasswordReset(email: string | null) {
   try {
     const response = await customInterceptor({
-      url: "/auth/refresh",
+      url: "/auth/requestPasswordReset",
       method: "POST",
-      body: { refreshToken: token },
+      body: { email },
     });
-
+    console.log(response.ok);
     if (!response.ok) {
       const error = await response.text();
       return { status: response.status, errors: error };

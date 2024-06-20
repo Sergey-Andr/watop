@@ -82,11 +82,11 @@ const Summary = (): ReactElement => {
               email: getEmail(),
             });
             if (status === 200) {
-              window ? (window.location.href = "/") : "";
+              typeof window !== "undefined" ? (window.location.href = "/") : "";
               setShoppingCart([]);
             }
           } else {
-            window ? (window.location.href = "/") : "";
+            typeof window !== "undefined" ? (window.location.href = "/") : "";
             setShoppingCart([]);
           }
         }}

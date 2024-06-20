@@ -14,7 +14,7 @@ export interface IOrder {
   recipientFullName?: string;
   recipientPhone?: string;
   recipientEmail?: string;
-  email: string | null;
+  email: string | null | undefined;
 }
 
 export interface IPersonalInfo {

@@ -70,17 +70,22 @@ const Summary = (): ReactElement => {
       </span>
       <button
         onClick={async () => {
-          const { status } = await fetchOrder({
-            recipientFullName: `${order?.firstName} ${order?.secondName}`,
-            recipientPhone: order?.phone,
-            recipientEmail: order?.recipientEmail,
-            deliveryAddress: order?.delivery,
-            id: order?.cakes,
-            payment: order?.payment,
-            email: getEmail(),
-          });
-
-          if (status === 200) {
+          const email = getEmail();
+          if (email) {
+            const { status } = await fetchOrder({
+              recipientFullName: `${order?.firstName} ${order?.secondName}`,
+              recipientPhone: order?.phone,
+              recipientEmail: order?.recipientEmail,
+              deliveryAddress: order?.delivery,
+              id: order?.cakes,
+              payment: order?.payment,
+              email: getEmail(),
+            });
+            if (status === 200) {
+              window.location.href = "/";
+              setShoppingCart([]);
+            }
+          } else {
             window.location.href = "/";
             setShoppingCart([]);
           }

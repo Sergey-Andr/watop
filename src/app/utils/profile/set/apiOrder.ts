@@ -25,6 +25,6 @@ export async function fetchOrder(orderData: IOrder) {
       data: data,
     };
   } catch (error) {
-    return { status: 500, message: "Internal Server Error" };
+    return { status: 500, message: error };
   }
 }

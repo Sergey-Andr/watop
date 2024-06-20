@@ -26,6 +26,8 @@ const Payment = (): ReactElement => {
           payment: "receive",
         };
         setOrder(temp);
+      } else {
+        setOrder({ payment: "receive" });
       }
     })();
   }, []);

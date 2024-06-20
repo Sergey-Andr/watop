@@ -5,15 +5,16 @@ import { fetchCakeById } from "@/service/fetchCakeById";
 import { ICake } from "@/service/fetchAllCakes";
 import process from "process";
 import Popover from "@/app/cake/[id]/components/Cake/components/Popover";
-import {
-  useSelectCheckout,
-  useSetCheckoutActions,
-} from "@/app/checkout/store/useCheckoutStore";
+import { useSetCheckoutActions } from "@/app/checkout/store/useCheckoutStore";
+import PagesLoader from "@/components/Loader";
 
 const Orders = (): ReactElement => {
   const shoppingCart = useSelectShoppingCart();
-  const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
+
+  if (shoppingCart.length === 0) {
+    window.location.href = "/";
+  }
 
   const [cakes, setCakes] = useState<ICake[]>([]);
   const [totalCost, setTotalCost] = useState<number>(0);
@@ -41,7 +42,7 @@ const Orders = (): ReactElement => {
   }, [shoppingCart]);
 
   if (cakes.length === 0) {
-    return <></>;
+    return <PagesLoader />;
   }
 
   return (
@@ -71,10 +72,10 @@ const Orders = (): ReactElement => {
             </div>
             <div>
               <span className="text-xl w-28 mr-40">
-                {cake.price} лв <small>x</small> {shoppingCart[i].quantity} ед.
+                {cake.price} лв <small>x</small> {shoppingCart[i]?.quantity} ед.
               </span>
               <strong className="font-sans text-xl mr-4">
-                {cake.price * shoppingCart[i].quantity} лв
+                {cake.price * shoppingCart[i]?.quantity} лв
               </strong>
             </div>
             <button

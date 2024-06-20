@@ -1,4 +1,11 @@
-import React, { memo, ReactElement, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  memo,
+  ReactElement,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import moment from "moment/moment";
 import {
   useSelectCheckout,
@@ -13,11 +20,37 @@ const time = ["10:00-15:00", "15:00-23:00"];
 const MAX_TIMEOUT = 5;
 const MULTIPLIER = 2;
 
+const generateDeliveryDates = ({
+  isSameDay,
+  setFiveDays,
+}: {
+  isSameDay: boolean;
+  setFiveDays: Dispatch<SetStateAction<TFiveDays>>;
+}) => {
+  const tempFiveDays = [];
+  for (let i = 0; i < 5; i++) {
+    const dayParts = moment()
+      .add(isSameDay ? i : i + MULTIPLIER, "days")
+      .format("D-MMMM-dd")
+      .split("-");
+    const day = {
+      date: dayParts[0],
+      month: dayParts[1].charAt(0).toUpperCase() + dayParts[1].slice(1),
+      dayOfWeek: dayParts[2].charAt(0).toUpperCase() + dayParts[2].slice(1),
+    };
+    tempFiveDays.push(day);
+  }
+
+  setFiveDays(tempFiveDays);
+};
+
 const DeliveryTime = (): ReactElement => {
   const order = useSelectCheckout();
   const { setOrder } = useSetCheckoutActions();
 
   const [fiveDays, setFiveDays] = useState<TFiveDays>([]);
+
+  moment.locale("bg");
 
   useEffect(() => {
     (async () => {
@@ -37,23 +70,9 @@ const DeliveryTime = (): ReactElement => {
         const isSameDay = data.deliveryAddress.city
           .split(" ")
           .includes("София");
-
-        moment.locale("bg");
-        const tempFiveDays = [];
-        for (let i = 0; i < 5; i++) {
-          const dayParts = moment()
-            .add(isSameDay ? i : i + MULTIPLIER, "days")
-            .format("D-MMMM-dd")
-            .split("-");
-          const day = {
-            date: dayParts[0],
-            month: dayParts[1].charAt(0).toUpperCase() + dayParts[1].slice(1),
-            dayOfWeek:
-              dayParts[2].charAt(0).toUpperCase() + dayParts[2].slice(1),
-          };
-          tempFiveDays.push(day);
-        }
-        setFiveDays(tempFiveDays);
+        generateDeliveryDates({ isSameDay, setFiveDays });
+      } else {
+        generateDeliveryDates({ isSameDay: false, setFiveDays });
       }
     })();
   }, []);
@@ -62,6 +81,7 @@ const DeliveryTime = (): ReactElement => {
     Math.abs(moment().diff(moment("15:00", "HH:mm"), "hours")) < MAX_TIMEOUT;
   const currentDay = moment().format("D");
   const currentHours = moment().format("HH:mm");
+
   return (
     <table className="w-full">
       <thead className="flex justify-between w-full font-sans">

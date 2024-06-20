@@ -3,6 +3,8 @@ import Cake from "@/app/cake/[id]/components/Cake";
 
 import type { Metadata, ResolvingMetadata } from "next";
 import { fetchCakeById } from "@/service/fetchCakeById";
+import { Suspense } from "react";
+import PagesLoader from "@/components/Loader";
 
 type Props = {
   params: { id: string };
@@ -24,8 +26,10 @@ export async function generateMetadata(
 export default async function CakeInfo() {
   return (
     <section>
-      <Cake />
-      <CakesSwiper />
+      <Suspense fallback={<PagesLoader />}>
+        <Cake />
+        <CakesSwiper />
+      </Suspense>
     </section>
   );
 }

@@ -42,7 +42,7 @@ const Form = (): ReactElement => {
       onSubmit={handleSubmit}
     >
       <label form="email">
-        <h4 className="text-xl mb-4">Username or email address</h4>
+        <h4 className="text-xl mb-4">Електронна поща</h4>
         <input
           type="email"
           name="email"
@@ -55,10 +55,12 @@ const Form = (): ReactElement => {
 
       <div className="relative w-full">
         <label form="password" className="text-xl mb-4">
-          <h4 className="text-xl mb-4">Password</h4>
+          <h4 className="text-xl mb-4">Парола</h4>
           <input
             type={`${isHidden ? "password" : "text"}`}
             name="password"
+            minLength={6}
+            placeholder="минимум 6 символа"
             autoComplete="new-password"
             required
             className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
@@ -78,11 +80,12 @@ const Form = (): ReactElement => {
         </div>
       </div>
       <label className="text-xl mb-4">
-        <h4 className="text-xl mb-4">Confirm password</h4>
-
+        <h4 className="text-xl mb-4">Промени парола</h4>
         <input
           type={`${isHidden ? "password" : "text"}`}
           name="password"
+          minLength={6}
+          placeholder="минимум 6 символа"
           autoComplete="new-password"
           required
           className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
@@ -95,7 +98,7 @@ const Form = (): ReactElement => {
       <span
         className={`text-rose-600 ${isEqual ? "hidden" : "block"} relative -top-6`}
       >
-        Passwords is not equal
+        Паролите не съвпадат
       </span>
 
       <input

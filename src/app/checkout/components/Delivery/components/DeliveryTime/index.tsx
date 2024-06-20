@@ -77,10 +77,9 @@ const DeliveryTime = (): ReactElement => {
     })();
   }, []);
 
-  const isTimePass =
-    Math.abs(moment().diff(moment("15:00", "HH:mm"), "hours")) < MAX_TIMEOUT;
+  const isTimePass = moment().hour() >= 15;
   const currentDay = moment().format("D");
-  const currentHours = moment().format("HH:mm");
+  const currentHour = moment().hour();
 
   return (
     <table className="w-full">
@@ -101,22 +100,39 @@ const DeliveryTime = (): ReactElement => {
       >
         {fiveDays.map((day, index) => (
           <tr key={index} className="flex flex-col w-fit">
-            {time.map((time, timeIndex) => (
-              <td
-                key={timeIndex}
-                onClick={() => {
-                  setOrder({
-                    delivery: {
-                      ...order?.delivery,
-                      time: day.date + " " + time,
-                    },
-                  });
-                }}
-                className={`cursor-pointer leading-8 text-lg hover:text-rose-600 duration-300 rounded-md p-1 ${currentDay === day.date && isTimePass ? (Math.abs(moment().diff(moment(time, "HH:mm"), "hours")) < MAX_TIMEOUT || currentHours > time ? "text-black/60 cursor-default hover:none pointer-events-none" : "") : ""} ${order?.delivery?.time === day.date + " " + time ? "outline outline-1 outline-rose-600 text-rose-600" : ""}`}
-              >
-                {time}
-              </td>
-            ))}
+            {time.map((time, timeIndex) => {
+              const timeHour = parseInt(time.split("-")[1]);
+              const isDisabled =
+                currentDay === day.date &&
+                ((timeHour === 15 && currentHour >= 15) ||
+                  (timeHour === 23 && currentHour >= 23));
+              return (
+                <td
+                  key={timeIndex}
+                  onClick={() => {
+                    if (!isDisabled) {
+                      setOrder({
+                        delivery: {
+                          ...order?.delivery,
+                          time: day.date + " " + time,
+                        },
+                      });
+                    }
+                  }}
+                  className={`cursor-pointer leading-8 text-lg hover:text-rose-600 duration-300 rounded-md p-1 ${
+                    isDisabled
+                      ? "text-black/60 cursor-default pointer-events-none"
+                      : ""
+                  } ${
+                    order?.delivery?.time === day.date + " " + time
+                      ? "outline outline-1 outline-rose-600 text-rose-600"
+                      : ""
+                  }`}
+                >
+                  {time}
+                </td>
+              );
+            })}
           </tr>
         ))}
       </tbody>

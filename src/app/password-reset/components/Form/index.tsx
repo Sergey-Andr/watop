@@ -1,5 +1,6 @@
 "use client";
 import { FormEvent, memo, ReactElement, useState } from "react";
+import { apiRequestPasswordReset } from "@/app/utils/auth/apiRequestPasswordReset";
 
 const Form = (): ReactElement => {
   const [isClicked, setIsClicked] = useState(false);
@@ -11,7 +12,7 @@ const Form = (): ReactElement => {
 
     localStorage.setItem("email", email);
 
-    // await apiRequestPasswordReset(email);
+    await apiRequestPasswordReset(email);
   };
 
   return (

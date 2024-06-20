@@ -19,11 +19,11 @@ export default function Page() {
     ).value;
 
     const { status } = await apiUpdatePassword({
-      email: "andrievskiysergey000@gmail.com",
+      email: email,
       password,
     });
-    console.log(status);
-    // localStorage.removeItem("email");
+
+    localStorage.removeItem("email");
     if (status === 200) {
       window.location.href = "/";
     }
@@ -53,6 +53,8 @@ export default function Page() {
             <input
               type={`${isHidden ? "password" : "name"}`}
               name="password"
+              minLength={6}
+              placeholder="минимум 6 символа"
               autoComplete="current-password"
               autoFocus
               required
@@ -74,6 +76,8 @@ export default function Page() {
           <input
             type={`${isHidden ? "password" : "name"}`}
             name="password"
+            minLength={6}
+            placeholder="минимум 6 символа"
             autoComplete="current-password"
             required
             onChange={(e) => {

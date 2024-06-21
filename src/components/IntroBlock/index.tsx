@@ -1,3 +1,4 @@
+"use client";
 import { memo, ReactElement } from "react";
 import Image from "next/image";
 import mainCake from "../../../public/main-cake.jpg";
@@ -23,7 +24,7 @@ const IntroBlock = (): ReactElement => {
         </h1>
         <Link
           aria-label="Shop now"
-          href="#catalog"
+          href="/#catalog"
           className="py-4 px-14 bg-rose-700 hover:bg-rose-800 duration-300 text-white rounded-full text-sm"
         >
           Shop now

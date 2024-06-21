@@ -23,8 +23,10 @@ const Form = (): ReactElement => {
       e.currentTarget.elements.namedItem("email") as HTMLInputElement
     ).value;
     const password = (
-      e.currentTarget.elements.namedItem("password") as HTMLInputElement
-    ).value;
+      e.currentTarget.elements.namedItem(
+        "password",
+      ) as unknown as HTMLInputElement[]
+    )[0].value;
 
     const { status } = await fetchRegistration({
       email,

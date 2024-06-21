@@ -9,7 +9,7 @@ export async function apiRequestPasswordReset(email: string | null) {
       method: "POST",
       body: { email },
     });
-    console.log(response.ok);
+
     if (!response.ok) {
       const error = await response.text();
       return { status: response.status, errors: error };

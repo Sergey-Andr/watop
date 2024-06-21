@@ -12,13 +12,13 @@ export async function fetchCheckAuth(token: string) {
 
     if (!response.ok) {
       const error = await response.text();
-      return { status: response.status, errors: error };
+      return { status: response.status, errors: error, data: {} };
     }
 
     const data = await response.json();
 
     return { status: 200, data: data };
   } catch (error) {
-    return { status: 500, message: error };
+    return { status: 500, message: error, data: {} };
   }
 }

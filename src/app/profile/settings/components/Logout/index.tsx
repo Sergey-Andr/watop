@@ -6,7 +6,7 @@ import { fetchLogout } from "@/app/utils/auth/apiLogout";
 const Logout = () => {
   const handleLogout = async () => {
     const result = await fetchLogout();
-    console.log(result);
+
     if (result.status === 200) {
       const cookies = document.cookie.split(";");
 

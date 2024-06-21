@@ -27,17 +27,17 @@ const ProdHead = (): null => {
         ?.slice(13);
 
       if (refreshToken) {
-        const response = await fetchCheckAuth(refreshToken);
+        const { status, data } = await fetchCheckAuth(refreshToken);
 
-        if (response.data) {
+        if (status === 200 && data) {
           const month = new Date().setTime(
             new Date().getTime() + 30 * 24 * 60 * 60 * 1000,
           );
           const hour = new Date().setTime(
             new Date().getTime() + 60 * 60 * 1000,
           );
-          document.cookie = `refreshToken=${response.data.refreshToken}; expires=${new Date(month).toUTCString()}; path=/; SameSite=Strict"`;
-          document.cookie = `accessToken=${response.data.accessToken}; expires=${new Date(hour).toUTCString()}; path=/; SameSite=Strict"`;
+          document.cookie = `refreshToken=${data.refreshToken}; expires=${new Date(month).toUTCString()}; path=/; SameSite=Strict"`;
+          document.cookie = `accessToken=${data.accessToken}; expires=${new Date(hour).toUTCString()}; path=/; SameSite=Strict"`;
         }
       }
     })();

@@ -19,7 +19,6 @@ const Navigation = () => {
           key={link.hash}
           scroll={false}
           onClick={() => {
-            // window.location.hash = link.hash;
             setHash(link.hash);
           }}
           href={`/${link.hash}`}

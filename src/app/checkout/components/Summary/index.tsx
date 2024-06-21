@@ -107,7 +107,6 @@ const Summary = (): ReactElement => {
               }
             }
           }}
-          // disabled={!isBtnDisabled}
           className={`w-full py-4 px-8 mb-4 rounded-full ${!isBtnDisabled ? "cursor-default" : "hover:bg-rose-700"} hover:bg-rose-700 cursor-pointer bg-rose-600 duration-300 text-white text-xl text-nowrap`}
         >
           Потвърждавам поръчката

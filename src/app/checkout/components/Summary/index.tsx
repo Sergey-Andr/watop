@@ -17,6 +17,7 @@ const Summary = (): ReactElement => {
   const { setShoppingCart } = useSetShoppingCartActions();
 
   const [cost, setTotalCost] = useState<number>(0);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -68,33 +69,50 @@ const Summary = (): ReactElement => {
           {cost + DELIVERY_COST} лв
         </span>
       </span>
-      <button
-        onClick={async () => {
-          const email = getEmail();
-          if (email) {
-            const { status } = await fetchOrder({
-              recipientFullName: `${order?.firstName} ${order?.secondName}`,
-              recipientPhone: order?.phone,
-              recipientEmail: order?.recipientEmail,
-              deliveryAddress: order?.delivery,
-              id: order?.cakes,
-              payment: order?.payment,
-              email: getEmail(),
-            });
-            if (status === 200) {
-              typeof window !== "undefined" ? (window.location.href = "/") : "";
-              setShoppingCart([]);
+      <div className="relative">
+        {isClicked ? (
+          <p className="text-rose-600 leading-none mb-4 font-sans">
+            Вие не сте попълнили всички полета!
+          </p>
+        ) : (
+          <></>
+        )}
+
+        <button
+          onClick={async () => {
+            setIsClicked(!isClicked);
+            if (isBtnDisabled) {
+              const email = getEmail();
+              if (email) {
+                const { status } = await fetchOrder({
+                  recipientFullName: `${order?.firstName} ${order?.secondName}`,
+                  recipientPhone: order?.phone,
+                  recipientEmail: order?.recipientEmail,
+                  deliveryAddress: order?.delivery,
+                  id: order?.cakes,
+                  payment: order?.payment,
+                  email: getEmail(),
+                });
+                if (status === 200) {
+                  typeof window !== "undefined"
+                    ? (window.location.href = "/")
+                    : "";
+                  setShoppingCart([]);
+                }
+              } else {
+                typeof window !== "undefined"
+                  ? (window.location.href = "/")
+                  : "";
+                setShoppingCart([]);
+              }
             }
-          } else {
-            typeof window !== "undefined" ? (window.location.href = "/") : "";
-            setShoppingCart([]);
-          }
-        }}
-        disabled={!isBtnDisabled}
-        className={`w-full py-4 px-8 mb-4 rounded-full ${!isBtnDisabled ? "cursor-default" : "hover:bg-rose-700"} bg-rose-600 duration-300 text-white text-xl text-nowrap`}
-      >
-        Потвърждавам поръчката
-      </button>
+          }}
+          // disabled={!isBtnDisabled}
+          className={`w-full py-4 px-8 mb-4 rounded-full ${!isBtnDisabled ? "cursor-default" : "hover:bg-rose-700"} hover:bg-rose-700 cursor-pointer bg-rose-600 duration-300 text-white text-xl text-nowrap`}
+        >
+          Потвърждавам поръчката
+        </button>
+      </div>
       <p className="mb-2 text-sm text-gray-600 ">
         Потвърждавайки поръчката, аз приемам условията:
       </p>

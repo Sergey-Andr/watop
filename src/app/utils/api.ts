@@ -50,6 +50,7 @@ type TUrls =
   | "/auth/updatePassword"
   | `/auth/activate/${string}`
   | "/auth/refresh"
+  | "/auth/checkEmail"
   | "/auth/user"
   | "/profile/personalInfo"
   | "/profile/order"

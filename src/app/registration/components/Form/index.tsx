@@ -3,6 +3,8 @@ import { FormEvent, memo, ReactElement, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { fetchRegistration } from "@/app/utils/auth/apiRegister";
 import PagesLoader from "@/components/Loader";
+import { fetchCheckEmail } from "@/app/utils/auth/apiCheckEmail";
+import { debounce as _debounce } from "lodash";
 
 const Form = (): ReactElement => {
   const [firstPass, setFirstPass] = useState("");
@@ -10,6 +12,7 @@ const Form = (): ReactElement => {
   const [isEqual, setIsEqual] = useState(true);
   const [isHidden, setIsHidden] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSameEmail, setIsSameEmail] = useState(false);
 
   useEffect(() => {
     if (firstPass === secondPass) {
@@ -38,9 +41,22 @@ const Form = (): ReactElement => {
     });
 
     if (status === 200) {
+      setIsLoading(false);
       window.location.href = "/profile/my-orders";
+    } else if (status === 409) {
+      setIsLoading(false);
+      setIsSameEmail(true);
     }
   };
+
+  const handleEmailChange = _debounce(async (value) => {
+    const { status, data } = await fetchCheckEmail(value);
+    if (status === 200 && data) {
+      setIsSameEmail(true);
+    } else {
+      setIsSameEmail(false);
+    }
+  }, 300);
 
   return (
     <form
@@ -49,16 +65,25 @@ const Form = (): ReactElement => {
     >
       <label form="email">
         <h4 className="text-xl mb-4">Електронна поща</h4>
-        <input
-          type="email"
-          name="email"
-          autoComplete="email"
-          autoFocus
-          required
-          className="bg-stone-100 border border-stone-300 py-2 px-4 mb-4 rounded-full w-full"
-        />
       </label>
-
+      <input
+        type="email"
+        name="email"
+        autoComplete="email"
+        autoFocus
+        required
+        onChange={(e) => {
+          handleEmailChange(e.target.value);
+        }}
+        className={`bg-stone-100 border border-stone-300 py-2 px-4 ${isSameEmail ? "" : "mb-4"} rounded-full w-full`}
+      />
+      {isSameEmail ? (
+        <sub className="mb-4 text-base text-rose-600">
+          Такъв имейл вече съществува!
+        </sub>
+      ) : (
+        <></>
+      )}
       <div className="relative w-full">
         <label form="password" className="text-xl mb-4">
           <h4 className="text-xl mb-4">Парола</h4>
@@ -107,10 +132,10 @@ const Form = (): ReactElement => {
         Паролите не съвпадат
       </span>
       <input
-        disabled={!isEqual}
+        disabled={!isEqual || isSameEmail}
         type="submit"
         value="Sign in"
-        className="py-2 bg-rose-700 hover:bg-rose-800 text-white rounded-full cursor-pointer font-sans duration-300"
+        className={`py-2 ${isSameEmail || isEqual ? "cursor-default" : "cursor-pointer hover:bg-rose-800"} bg-rose-700 text-white rounded-full font-sans duration-300`}
       />
       {isLoading ? <PagesLoader /> : <></>}
     </form>

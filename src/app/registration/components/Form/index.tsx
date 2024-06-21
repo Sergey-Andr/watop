@@ -2,12 +2,14 @@
 import { FormEvent, memo, ReactElement, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { fetchRegistration } from "@/app/utils/auth/apiRegister";
+import PagesLoader from "@/components/Loader";
 
 const Form = (): ReactElement => {
   const [firstPass, setFirstPass] = useState("");
   const [secondPass, setSecondPass] = useState("");
   const [isEqual, setIsEqual] = useState(true);
   const [isHidden, setIsHidden] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (firstPass === secondPass) {
@@ -19,6 +21,8 @@ const Form = (): ReactElement => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
+
     const email = (
       e.currentTarget.elements.namedItem("email") as HTMLInputElement
     ).value;
@@ -102,13 +106,13 @@ const Form = (): ReactElement => {
       >
         Паролите не съвпадат
       </span>
-
       <input
         disabled={!isEqual}
         type="submit"
         value="Sign in"
         className="py-2 bg-rose-700 hover:bg-rose-800 text-white rounded-full cursor-pointer font-sans duration-300"
       />
+      {isLoading ? <PagesLoader /> : <></>}
     </form>
   );
 };

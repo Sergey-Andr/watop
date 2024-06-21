@@ -22,7 +22,7 @@ const StaticView: FC<IStaticView> = ({ setIsInfoClicked }): ReactElement => {
               </sub>
             </>
           ) : (
-            <p>Въведете вашите контактни данни</p>
+            <p className="text-rose-600">Въведете вашите контактни данни</p>
           )}
         </h4>
       </div>

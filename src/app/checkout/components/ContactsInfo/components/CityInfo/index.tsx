@@ -43,7 +43,9 @@ const CityInfo = (): ReactElement => {
       >
         <div className="flex items-center">
           <HiOutlineLocationMarker className="w-7 h-7 mr-4" />
-          <h4 className="text-lg">
+          <h4
+            className={`text-lg ${order?.delivery?.city ? "" : "text-rose-600"}`}
+          >
             {order?.delivery?.city ?? "Въведете вашия град"}
           </h4>
         </div>

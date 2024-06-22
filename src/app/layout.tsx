@@ -26,6 +26,10 @@ export default async function RootLayout({
           async
           defer
         />
+        <meta
+          name="google-site-verification"
+          content="xabuFThnzUvomzslN4oDvdyvBKzWhRyUs0_GyVzKK1g"
+        />
         <ProdHead />
       </head>
       <body className="font-playfair text-black bg-white border-box overflow-x-hidden m-auto">

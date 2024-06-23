@@ -25,7 +25,7 @@ const NavLink = ({
           href="/profile/my-orders"
           className={`group-hover/orders:text-rose-600 duration-300 ${pathname.includes(path) ? "text-rose-600" : ""}`}
         >
-          My orders
+          {text}
         </Link>
       </>
     );
@@ -55,7 +55,7 @@ const NavLink = ({
           href="/profile/wish-list"
           className={`group-hover/wish:text-rose-600 duration-300 ${pathname.includes(path) ? "text-rose-600" : ""}`}
         >
-          Wish list
+          {text}
         </Link>
       </>
     );

@@ -3,11 +3,11 @@ import { memo, useState } from "react";
 import Link from "next/link";
 
 export const navigationHash = [
-  { hash: "", label: "Home" },
-  { hash: "#catalog", label: "Catalog" },
-  { hash: "#order", label: "How to order" },
-  { hash: "#delivery", label: "Delivery" },
-  { hash: "#contacts", label: "Contacts" },
+  { hash: "", label: "Начало" },
+  { hash: "#catalog", label: "Каталог" },
+  { hash: "#order", label: "Как да поръчате" },
+  { hash: "#delivery", label: "Доставка" },
+  { hash: "#contacts", label: "Контакти" },
 ];
 
 const Navigation = () => {

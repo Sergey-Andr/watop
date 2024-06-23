@@ -15,14 +15,14 @@ export default async function FooterBlock() {
         <SocialMedia />
       </div>
       <div className="font-sans">
-        <h2 aria-label="Navigation menu" className="text-4xl mb-10">
-          Menu
+        <h2 aria-label="Меню за навигация" className="text-4xl mb-10">
+          Меню
         </h2>
         <Navigation />
       </div>
       <div className="font-sans">
-        <h2 aria-label="Contact us" className="text-4xl mb-10">
-          Contacts
+        <h2 aria-label="Свържете се с нас" className="text-4xl mb-10">
+          Контакти
         </h2>
         <Contacts />
       </div>

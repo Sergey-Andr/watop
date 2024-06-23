@@ -1,6 +1,23 @@
 import Image from "next/image";
 import logo from "@/../public/logo.jpg";
 import Form from "@/app/registration/components/Form";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Регистрация - WATOP",
+  description:
+    "Създайте акаунт на нашия сайт и получете достъп до ексклузивни възможности",
+  openGraph: {
+    title: "Регистрация - WATOP",
+    description:
+      "Създайте акаунт на нашия сайт и получете достъп до ексклузивни възможности",
+    type: "website",
+    url: "https://watop.vercel.app/registration",
+  },
+  alternates: {
+    canonical: "https://watop.vercel.app/registration",
+  },
+};
 
 export default async function Registration() {
   return (

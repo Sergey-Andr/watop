@@ -3,23 +3,24 @@ import { memo, ReactElement } from "react";
 const Tersm = (): ReactElement => {
   return (
     <article className="h-fit">
-      <h2 className="text-7xl mb-12">Delivery terms</h2>
+      <h2 className="text-5xl mb-8">Условия за доставка</h2>
       <ul className="max-w-lg w-full text-lg font-sans font-medium text-black/60">
         <li className="mb-4">
-          — We use the <strong>speediest delivery</strong> methods to ensure
-          your goodies arrive in perfect condition to devour
+          —Използваме най-бързите <strong>методи на доставка</strong>, за да
+          гарантираме, че вашите вкусотии ще пристигнат в перфектно състояние,
+          готови за консумация
         </li>
         <li className="mb-4">
-          — Please allow between <strong>2-3 working</strong> days from placing
-          your order
+          — Моля, отделете между <strong>2 и 3 работни</strong> дни след
+          поставянето на вашата поръчка
         </li>
         <li className="mb-4">
-          — All of our celebration cakes will be delivered to you{" "}
-          <strong>on your chosen date</strong>
+          — Всички наши торти за празненства ще бъдат доставени{" "}
+          <strong>на избраната от вас дата</strong>
         </li>
         <li>
-          — Cakes can be stored in the fridge <strong>for 5 days</strong> and up
-          to two weeks in the freezer
+          — Тортите могат да се съхраняват в хладилника{" "}
+          <strong>до 5 дни</strong> и до две седмици във фризер
         </li>
       </ul>
     </article>

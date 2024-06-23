@@ -84,7 +84,7 @@ const Contacts = (): ReactElement => {
           }}
           className={`py-2 px-10 ${isEdit ? "block" : "hidden"} bg-rose-700 text-white text-base rounded-full`}
         >
-          Save
+          Запази
         </button>
         <button
           onClick={() => {
@@ -92,7 +92,7 @@ const Contacts = (): ReactElement => {
           }}
           className={`py-2 px-10 ${isEdit ? "text-lg hover:underline" : "bg-rose-700 text-white"} text-base rounded-full`}
         >
-          {isEdit ? "Cancel" : "Edit"}
+          {isEdit ? "Отмени " : "Редактирай"}
         </button>
       </div>
     </section>

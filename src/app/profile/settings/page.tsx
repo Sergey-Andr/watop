@@ -18,14 +18,14 @@ export default async function Settings() {
 
   return (
     <section>
-      <h2 className="text-5xl mb-4">Personal info</h2>
+      <h2 className="text-5xl mb-4">Лична информация</h2>
       <Accordion type="single" collapsible className="text-xl mb-8">
         <AccordionItem value="item-1">
           <AccordionTrigger>
             <span>
               <MdOutlineAccountCircle className="mr-4" />
             </span>
-            <h3>Personal info</h3>
+            <h3>Лична информация</h3>
           </AccordionTrigger>
           <AccordionContent>
             <PersonalInfo />
@@ -36,7 +36,7 @@ export default async function Settings() {
             <span>
               <BsBoxSeam className="mr-4" />
             </span>
-            <h3>My order recipient</h3>
+            <h3>Моят получателен ред</h3>
           </AccordionTrigger>
           <AccordionContent>
             <OrdersRecipient />
@@ -47,7 +47,7 @@ export default async function Settings() {
             <span>
               <MdOutlineMessage className="mr-4" />
             </span>
-            <h3>Contacts</h3>
+            <h3>Контакти</h3>
           </AccordionTrigger>
           <AccordionContent>
             <Contacts />
@@ -58,7 +58,7 @@ export default async function Settings() {
             <span>
               <TbTruckDelivery className="mr-4" />
             </span>
-            <h3>Delivery address</h3>
+            <h3>Адрес за доставка</h3>
           </AccordionTrigger>
           <AccordionContent>
             <DeliveryAddress />
@@ -69,7 +69,7 @@ export default async function Settings() {
             <span>
               <CiCreditCard1 className="mr-4" />
             </span>
-            <h3>Link a card</h3>
+            <h3>Свързване на карта</h3>
           </AccordionTrigger>
           <AccordionContent>
             <LinkCard />

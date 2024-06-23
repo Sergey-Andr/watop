@@ -1,4 +1,3 @@
-"use server";
 import Image from "next/image";
 import logo from "@/../public/logo.jpg";
 import Error from "@/app/login/components/Error";
@@ -6,11 +5,21 @@ import type { Metadata } from "next";
 import Form from "@/app/login/components/Form";
 import Link from "next/link";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Sign in to WATOP",
-  };
-}
+export const metadata: Metadata = {
+  title: "Вход - WATOP",
+  description:
+    "Влезте в акаунта си на нашия сайт и получете достъп до всички функции.",
+  openGraph: {
+    title: "Вход - WATOP",
+    description:
+      "Влезте в акаунта си на нашия сайт и получете достъп до всички функции.",
+    type: "website",
+    url: "https://watop.vercel.app/login",
+  },
+  alternates: {
+    canonical: "https://watop.vercel.app/login",
+  },
+};
 
 export default async function SignIn() {
   return (

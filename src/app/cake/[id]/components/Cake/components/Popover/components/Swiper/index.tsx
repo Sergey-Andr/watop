@@ -63,15 +63,17 @@ const SwiperCakes = (): ReactElement => {
                   />
                 </div>
               </Link>
-              <div className="font-sans w-full h-fit flex items-center justify-between px-2 select-none">
+              <div className="font-sans w-full h-fit flex items-center justify-between px-2 select-none  text-start">
                 <div>
-                  <h3 itemProp="name" className="font-bold">
+                  <h3 itemProp="name" className="font-bold line-clamp-2">
                     {cake.name}
                   </h3>
                   <p>{cake.taste}</p>
                 </div>
                 <strong itemProp="offers" className="font-sans">
-                  <span itemProp="price">{cake.price} лв</span>
+                  <span itemProp="price" className="text-nowrap">
+                    {cake.price} лв
+                  </span>
                   <meta itemProp="priceCurrency" content="USD" />
                 </strong>
               </div>

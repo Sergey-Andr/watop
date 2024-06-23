@@ -27,10 +27,10 @@ const Logout = () => {
     <div className="w-full relative">
       <button
         onClick={handleLogout}
-        aria-label="logout from the account"
+        aria-label="Излез от акаунта"
         className="absolute right-0 py-2 px-8 bg-rose-700 hover:bg-rose-800 duration-300 rounded-full text-white font-sans"
       >
-        Logout
+        Изход
       </button>
     </div>
   );

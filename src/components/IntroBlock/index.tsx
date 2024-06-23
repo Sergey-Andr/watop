@@ -19,15 +19,15 @@ const IntroBlock = (): ReactElement => {
           Confectionery
           <br />& bakery shop
           <sub className="text-2xl text-black/60 mt-6">
-            Same day cake delivery in Kyiv
+            Доставка на торта в София в същия ден
           </sub>
         </h1>
         <Link
-          aria-label="Shop now"
+          aria-label="Пазарувай сега"
           href="/#catalog"
-          className="py-4 px-14 bg-rose-700 hover:bg-rose-800 duration-300 text-white rounded-full text-sm"
+          className="py-4 px-12 bg-rose-700 hover:bg-rose-800 duration-300 text-white rounded-full text-base"
         >
-          Shop now
+          Пазарувай сега
         </Link>
         <SocialMedia />
       </div>

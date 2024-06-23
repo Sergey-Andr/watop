@@ -63,11 +63,12 @@ const Form = (): ReactElement => {
       className="flex flex-col w-96 bg-stone-50 border border-stone-200 rounded-xl p-4 mb-4"
       onSubmit={handleSubmit}
     >
-      <label form="email">
-        <h4 className="text-xl mb-4">Електронна поща</h4>
+      <label form="email" htmlFor="email" className="text-xl mb-4">
+        Електронна поща
       </label>
       <input
         type="email"
+        id="email"
         name="email"
         autoComplete="email"
         autoFocus
@@ -85,22 +86,23 @@ const Form = (): ReactElement => {
         <></>
       )}
       <div className="relative w-full">
-        <label form="password" className="text-xl mb-4">
-          <h4 className="text-xl mb-4">Парола</h4>
-          <input
-            type={`${isHidden ? "password" : "text"}`}
-            name="password"
-            minLength={6}
-            placeholder="минимум 6 символа"
-            autoComplete="new-password"
-            required
-            className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
-            onChange={(e) => {
-              setFirstPass(e.target.value);
-            }}
-            value={firstPass}
-          />
+        <label form="password" htmlFor="password" className="text-xl mb-4">
+          Парола
         </label>
+        <input
+          type={`${isHidden ? "password" : "text"}`}
+          name="password"
+          id="password"
+          minLength={6}
+          placeholder="минимум 6 символа"
+          autoComplete="new-password"
+          required
+          className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
+          onChange={(e) => {
+            setFirstPass(e.target.value);
+          }}
+          value={firstPass}
+        />
         <div
           onClick={() => {
             setIsHidden(!isHidden);
@@ -110,22 +112,23 @@ const Form = (): ReactElement => {
           {isHidden ? <FaEyeSlash /> : <FaEye />}
         </div>
       </div>
-      <label className="text-xl mb-4">
-        <h4 className="text-xl mb-4">Промени парола</h4>
-        <input
-          type={`${isHidden ? "password" : "text"}`}
-          name="password"
-          minLength={6}
-          placeholder="минимум 6 символа"
-          autoComplete="new-password"
-          required
-          className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
-          onChange={(e) => {
-            setSecondPass(e.target.value);
-          }}
-          value={secondPass}
-        />
+      <label form="password" htmlFor="password" className="text-xl mb-4">
+        Промени парола
       </label>
+      <input
+        type={`${isHidden ? "password" : "text"}`}
+        name="password"
+        id="password"
+        minLength={6}
+        placeholder="минимум 6 символа"
+        autoComplete="new-password"
+        required
+        className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
+        onChange={(e) => {
+          setSecondPass(e.target.value);
+        }}
+        value={secondPass}
+      />
       <span
         className={`text-rose-600 ${isEqual ? "hidden" : "block"} relative -top-6`}
       >

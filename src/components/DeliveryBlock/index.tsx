@@ -10,7 +10,7 @@ export default async function DeliveryBlock() {
         <Image
           height={800}
           src={delivery}
-          alt="Our delivery terms"
+          alt="Наши условия за доставка"
           className="w-full rotate-90"
         />
       </div>

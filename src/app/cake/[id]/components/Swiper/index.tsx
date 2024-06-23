@@ -43,7 +43,7 @@ const CakesSwiper = (): ReactElement => {
   }
 
   return (
-    <section className="max-w-6xl w-full m-auto mb-40">
+    <section className="max-w-6xl w-full m-auto mb-12">
       <Swiper
         modules={[Autoplay, Navigation]}
         spaceBetween={0}

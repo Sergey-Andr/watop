@@ -28,7 +28,9 @@ const Form = (): ReactElement => {
       className="flex flex-col w-96 bg-stone-50 border border-stone-200 rounded-xl p-4 mb-4"
       onSubmit={handleSubmit}
     >
-      <label className="text-xl mb-4">Email address</label>
+      <label htmlFor="email" className="text-xl mb-4">
+        Email address
+      </label>
       <input
         type="email"
         name="email"
@@ -37,7 +39,10 @@ const Form = (): ReactElement => {
         required
         className="bg-stone-100 border border-stone-300 py-2 px-4 mb-4 rounded-full"
       />
-      <label className="text-xl mb-4 flex items-center justify-between">
+      <label
+        htmlFor="password"
+        className="text-xl mb-4 flex items-center justify-between"
+      >
         Password
         <Link
           href="/password-reset"

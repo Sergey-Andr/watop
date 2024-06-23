@@ -89,8 +89,8 @@ const SearchCakes = (): ReactElement => {
             <div className="relative w-full h-fit">
               <input
                 type="text"
-                placeholder="Cake name"
-                aria-label="Enter a wanted name cake"
+                placeholder="Име на тортата"
+                aria-label="Въведете желаното име на тортата"
                 className="placeholder:text-black placeholder:font-sans w-full p-4 bg-black/5 rounded-full mb-4 border border-black"
                 onChange={(e) => {
                   setCakeName(e.target.value);

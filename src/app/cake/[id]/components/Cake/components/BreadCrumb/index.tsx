@@ -15,13 +15,13 @@ const BreadCrumb = ({ name }: { name: string }): ReactElement => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/" role="link">
-            Home
+            Начало
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <Link href={"/#catalog"} className="smooth-scroll" role="link">
-            Catalog
+            Каталог
           </Link>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

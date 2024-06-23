@@ -1,4 +1,3 @@
-"use server";
 import Header from "@/components/Header";
 import { ReactNode } from "react";
 import ShoppingCart from "src/app/profile/shopping-cart";
@@ -6,6 +5,23 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { EMAIL } from "@/features/getEmail";
 import NavLink from "@/app/profile/components/NavLink";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Личный кабинет - WATOP",
+  description:
+    "Управлявайте своя акаунт, преглеждайте историята на поръчките и настройките",
+  openGraph: {
+    title: "Личный кабинет - WATOP",
+    description:
+      "Управлявайте своя акаунт, преглеждайте историята на поръчките и настройките",
+    type: "website",
+    url: "https://watop.vercel.app/profile",
+  },
+  alternates: {
+    canonical: "https://watop.vercel.app/profile",
+  },
+};
 
 export default async function Layout({ children }: { children: ReactNode }) {
   const token = cookies().get("accessToken");
@@ -13,7 +29,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
     redirect("/login");
   }
 
-  const email = cookies().get(EMAIL)?.value ?? "something went wrong";
+  const email = cookies().get(EMAIL)?.value ?? "Нещо се обърка";
 
   return (
     <section className="w-4/5 m-auto">
@@ -26,13 +42,13 @@ export default async function Layout({ children }: { children: ReactNode }) {
           <hr className="border-stone-200 my-4" />
           <ul>
             <li className="flex items-center mb-6 group/orders text-gray-600">
-              <NavLink text="My orders" path="my-orders" />
+              <NavLink text="Моите поръчки" path="my-orders" />
             </li>
             <li className="flex items-center mb-6 group/cart text-gray-600">
               <ShoppingCart />
             </li>
             <li className="flex items-center group/wish text-gray-600">
-              <NavLink text="Wish list" path="wish-list" />
+              <NavLink text="Cписък с желания" path="wish-list" />
             </li>
           </ul>
         </aside>

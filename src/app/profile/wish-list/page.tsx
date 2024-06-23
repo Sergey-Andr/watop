@@ -1,5 +1,4 @@
 "use client";
-
 import { memo, ReactElement, useEffect, useState } from "react";
 import { useSelectWishList } from "@/components/CatalogBlock/store/useWishListStore";
 import { fetchCakeById } from "@/service/fetchCakeById";

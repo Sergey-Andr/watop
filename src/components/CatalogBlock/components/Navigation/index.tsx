@@ -12,11 +12,11 @@ interface INavigationItem {
 }
 
 const navigation: INavigationItem[] = [
-  { label: "Popular service", category: "popular" },
-  { label: "Celebration service", category: "celebration" },
-  { label: "Baby service", category: "baby" },
-  { label: "Wedding service", category: "wedding" },
-  { label: "Special service", category: "special" },
+  { label: "Популярна торти", category: "popular" },
+  { label: "Празненства торти", category: "celebration" },
+  { label: "Бебета торти", category: "baby" },
+  { label: "Сватбена торти", category: "wedding" },
+  { label: "Специална торти", category: "special" },
 ];
 
 const Navigation = () => {

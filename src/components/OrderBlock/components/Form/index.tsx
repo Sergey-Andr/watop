@@ -5,14 +5,14 @@ const Form = (): ReactElement => {
     <form autoComplete="on">
       <input
         type="text"
-        placeholder="Name"
-        aria-label="Write your name"
+        placeholder="Име"
+        aria-label="Напишете вашето име"
         className="placeholder:text-black placeholder:font-sans w-full p-4 bg-black/5 rounded-full mb-4"
       />
       <input
         type="tel"
-        placeholder="Phone"
-        aria-label="Write your phone number"
+        placeholder="Телефонен номер"
+        aria-label="Напишете вашия телефонен номер"
         className="placeholder:text-black placeholder:font-sans w-full p-4 bg-black/5 rounded-full mb-4"
       />
       <button

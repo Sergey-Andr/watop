@@ -1,4 +1,3 @@
-"use server";
 import { fetchAllOrders } from "@/app/utils/profile/get/apiAllOrders";
 import { EMAIL } from "@/features/getEmail";
 import { cookies } from "next/headers";
@@ -15,6 +14,21 @@ import moment from "moment/moment";
 import OrderDetails from "@/app/profile/my-orders/components/OrderDetails";
 import CakesOrderDetails from "@/app/profile/my-orders/components/CakesOrderDetails";
 import NoCakes from "@/app/cake/[id]/components/Cake/components/Popover/components/Products/components/NoCakes";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Моите поръчки - WATOP",
+  description: "Преглед на всички вашите поръчки и детайли за тях във WATOP.",
+  openGraph: {
+    title: "Моите поръчки - WATOP",
+    description: "Преглед на всички вашите поръчки и детайли за тях във WATOP.",
+    type: "website",
+    url: "https://watop.vercel.app/profile/my-orders",
+  },
+  alternates: {
+    canonical: "https://watop.vercel.app/profile/my-orders",
+  },
+};
 
 export default async function MyOrders() {
   const { data } = await fetchAllOrders(cookies().get(EMAIL)?.value || null);

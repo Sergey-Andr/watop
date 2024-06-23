@@ -14,7 +14,7 @@ const ShoppingCart = (): ReactElement => {
         }}
         className="group-hover/cart:text-rose-600 duration-300"
       >
-        Shopping cart
+        Пазарска количка
       </button>
       <Popover isClicked={isClicked} setIsClicked={setIsClicked} />
     </>

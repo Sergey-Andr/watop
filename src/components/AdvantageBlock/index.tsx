@@ -6,26 +6,26 @@ import Article from "@/components/AdvantageBlock/components/Article";
 export default async function AdvantageBlock() {
   return (
     <section className="flex flex-col items-center w-full mb-40">
-      <h2 className="text-6xl mb-24">Our advantages</h2>
+      <h2 className="text-6xl mb-24">Наши предимущества</h2>
       <div className="flex items-end font-sans">
         <Article
-          text="High quality"
+          text="Високо качество"
           image={quality}
-          alt="High quality ingredients and handmade cake preparation"
-          subText="Handmade cake & natural ingredients"
+          alt="Висококачествени съставки и ръчна подготовка на торта"
+          subText="Ръчно изработена торта и естествени съставки"
         />
         <Article
-          text="Sweet gift"
+          text="Сладък подарък"
           image={gift}
-          alt="Sweet gift in the form of a delicious macaron box"
-          subText="Delicious macaron gift box for each client"
+          alt="Сладък подарък във формата на вкусна кутия с макарони"
+          subText="Вкусна кутия с макарони за всеки клиент"
           isMain={true}
         />
         <Article
-          text="Fast delivery"
+          text="Бърза доставка"
           image={delivery}
-          alt="Fast delivery ensuring same-day cake delivery in Kyiv"
-          subText="Same-day cake delivery in Kyiv"
+          alt="Бърза доставка, гарантираща доставка на торта в същия ден в София"
+          subText="Доставка на торти в същия ден в София осигурява удобство"
         />
       </div>
     </section>

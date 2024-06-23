@@ -26,9 +26,9 @@ const Article: FC<IArticle> = ({
         alt={alt}
         className={`rounded-full ${isMain ? "w-56 h-56" : "w-48 h-48"} mb-8`}
       />
-      <h4 className="text-2xl text-center w-36">
-        {text}{" "}
-        <sub className="text-xx block leading-5 text-black/60 font-medium">
+      <h4 className="text-2xl w-36 text-nowrap text-center relative -left-4">
+        {text}
+        <sub className="text-xx block leading-5 text-black/60 font-medium text-wrap relative left-4">
           {subText}
         </sub>
       </h4>

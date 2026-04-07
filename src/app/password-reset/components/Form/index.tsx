@@ -20,7 +20,7 @@ const Form = (): ReactElement => {
       className="flex flex-col w-96 bg-stone-50 border border-stone-200 rounded-xl p-4 mb-4"
       onSubmit={handleSubmit}
     >
-      <label className="text-xl mb-4">Електронна поща</label>
+      <label className="text-xl mb-4">Електронна пошта</label>
       <input
         type="email"
         name="email"
@@ -30,14 +30,14 @@ const Form = (): ReactElement => {
         className="bg-stone-100 border border-stone-300 py-2 px-4 mb-4 rounded-full"
       />
       {isClicked ? (
-        <p className="mb-4 text-lg">Проверете вашата електронна поща</p>
+        <p className="mb-4 text-lg">Перевірте вашу електронну пошту</p>
       ) : (
         <></>
       )}
 
       <input
         type="submit"
-        value="Изпрати"
+        value="Надіслати"
         onClick={() => {
           setIsClicked(true);
         }}

@@ -16,19 +16,19 @@ const StaticView: FC<IStaticView> = ({
   return (
     <div className="flex mb-8">
       <h3 className="text-xl flex flex-col justify-center font-sans mr-8">
-        <sub className="mb-4 text-black/60">Город</sub>
+        <sub className="mb-4 text-black/60">Місто</sub>
         {city}
       </h3>
       <h3 className="text-xl flex flex-col justify-center font-sans mr-8">
-        <sub className="mb-4 text-black/60">Улица</sub>
+        <sub className="mb-4 text-black/60">Вулиця</sub>
         {street}
       </h3>
       <h3 className="text-xl flex flex-col justify-center font-sans mr-8">
-        <sub className="mb-4 text-black/60">Дом</sub>
+        <sub className="mb-4 text-black/60">Будинок</sub>
         {house}
       </h3>
       <h3 className="text-xl flex flex-col justify-center font-sans">
-        <sub className="mb-4 text-black/60">Етаж</sub>
+        <sub className="mb-4 text-black/60">Поверх</sub>
         {floor}
       </h3>
     </div>

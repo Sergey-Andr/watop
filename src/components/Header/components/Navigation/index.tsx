@@ -3,9 +3,9 @@ import { memo, useState } from "react";
 import Link from "next/link";
 
 export const navigationHash = [
-  { hash: "", label: "Начало" },
+  { hash: "", label: "Початок" },
   { hash: "#catalog", label: "Каталог" },
-  { hash: "#order", label: "Как да поръчате" },
+  { hash: "#order", label: "Як замовити" },
   { hash: "#delivery", label: "Доставка" },
   { hash: "#contacts", label: "Контакти" },
 ];

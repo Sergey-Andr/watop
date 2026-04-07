@@ -52,19 +52,19 @@ const Summary = (): ReactElement => {
 
   return (
     <div className="p-4">
-      <h2 className="text-4xl font-bold">Общо</h2>
+      <h2 className="text-4xl font-bold">Загалом</h2>
       <div className="my-4 pb-4 border-b border-b-gray-300 outline-gray-300">
         <span className="text-lg flex justify-between mb-4 text-gray-600">
-          {shoppingCart.length} стока на обща стойност
+          {shoppingCart.length} товар на загальну суму
           <span className="font-sans font-medium">{cost} лв</span>
         </span>
         <span className="text-lg flex justify-between text-gray-600">
-          Цена на доставка
+          Вартість доставки
           <span className="font-sans font-medium">{DELIVERY_COST} лв</span>
         </span>
       </div>
       <span className="my-4 mb-8 pb-4 border-b border-b-gray-300 outline-gray-300 text-lg flex justify-between">
-        Дължима сума
+        Сума до сплати
         <span className="font-sans font-medium text-2xl">
           {cost + DELIVERY_COST} лв
         </span>
@@ -72,7 +72,7 @@ const Summary = (): ReactElement => {
       <div className="relative">
         {isClicked ? (
           <p className="text-rose-600 leading-none mb-4 font-sans">
-            Вие не сте попълнили всички полета!
+            Ви не заповнили всі поля!
           </p>
         ) : (
           <></>
@@ -109,18 +109,18 @@ const Summary = (): ReactElement => {
           }}
           className={`w-full py-4 px-8 mb-4 rounded-full ${!isBtnDisabled ? "cursor-default" : "hover:bg-rose-700"} hover:bg-rose-700 cursor-pointer bg-rose-600 duration-300 text-white text-xl text-nowrap`}
         >
-          Потвърждавам поръчката
+          Підтверджую замовлення
         </button>
       </div>
       <p className="mb-2 text-sm text-gray-600 ">
-        Потвърждавайки поръчката, аз приемам условията:
+        Підтверджуючи замовлення, я приймаю умови:
       </p>
       <ul className="text-sm text-gray-600 list-disc text-wrap pl-4">
         <li className="mb-2 underline underline-offset-2 cursor-pointer">
-          положението за обработка и защита на личните данни
+          положення про обробку та захист персональних даних
         </li>
         <li className=" underline underline-offset-2 cursor-pointer">
-          потребителското споразумение
+          користувальницьку угоду
         </li>
       </ul>
     </div>

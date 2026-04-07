@@ -74,7 +74,7 @@ const Product: FC<IProduct> = ({
       <div className="flex relative">
         <img
           src={`${process.env.NEXT_API_URL}/${cake.image}`}
-          alt={`${cake.name} cake`}
+          alt={`Торт ${cake.name}`}
           itemProp="image"
           className="w-40 h-56 overflow-hidden mr-8"
         />
@@ -130,7 +130,7 @@ const Product: FC<IProduct> = ({
         >
           <FaRegTrashAlt className="group-hover/delete:text-rose-600 mr-2 duration-300" />
           <h4 className="group-hover/delete:text-rose-600 duration-300">
-            Изтриване
+            Видалення
           </h4>
         </PopoverContent>
       </Popover>

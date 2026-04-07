@@ -24,7 +24,7 @@ const EditView: FC<IEditView> = ({
           setFullName(e.target.value);
         }}
         value={fullName}
-        placeholder="Пълно име"
+        placeholder="Повне ім'я"
         type="text"
       />
       <div className="relative inline">
@@ -37,7 +37,7 @@ const EditView: FC<IEditView> = ({
             setPhone(e.target.value);
           }}
           value={phone}
-          placeholder="Телефонен номер"
+          placeholder="Номер телефону"
           type="tel"
           maxLength={10}
         />

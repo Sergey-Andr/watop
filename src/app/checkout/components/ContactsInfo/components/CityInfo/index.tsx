@@ -46,7 +46,7 @@ const CityInfo = (): ReactElement => {
           <h4
             className={`text-lg ${order?.delivery?.city ? "" : "text-rose-600"}`}
           >
-            {order?.delivery?.city ?? "Въведете вашия град"}
+            {order?.delivery?.city ?? "Введіть ваше місто"}
           </h4>
         </div>
         <button
@@ -55,7 +55,7 @@ const CityInfo = (): ReactElement => {
           }}
           className="hover:text-rose-600 duration-300 hover:underline"
         >
-          Промяна
+          Змінити
         </button>
       </div>
       {isCityClicked ? (

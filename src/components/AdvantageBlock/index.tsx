@@ -1,31 +1,31 @@
-import quality from "@/../public/advantage-quality.jpg";
-import gift from "@/../public/advantage-gift.jpg";
-import delivery from "@/../public/advantage-delivery.jpg";
+import quality from "@/../public/advantage-quality.webp";
+import gift from "@/../public/advantage-gift.webp";
+import delivery from "@/../public/advantage-delivery.webp";
 import Article from "@/components/AdvantageBlock/components/Article";
 
 export default async function AdvantageBlock() {
   return (
     <section className="flex flex-col items-center w-full mb-40">
-      <h2 className="text-6xl mb-24">Наши предимущества</h2>
+      <h2 className="text-6xl mb-24">Наші переваги</h2>
       <div className="flex items-end font-sans">
         <Article
-          text="Високо качество"
+          text="Висока якість"
           image={quality}
-          alt="Висококачествени съставки и ръчна подготовка на торта"
-          subText="Ръчно изработена торта и естествени съставки"
+          alt="Високоякісні інгредієнти та ручне приготування торта"
+          subText="Торт ручної роботи та натуральні інгредієнти"
         />
         <Article
-          text="Сладък подарък"
+          text="Солодкий подарунок"
           image={gift}
-          alt="Сладък подарък във формата на вкусна кутия с макарони"
-          subText="Вкусна кутия с макарони за всеки клиент"
+          alt="Солодкий подарунок у формі смачної коробки з макарунами"
+          subText="Смачна коробка з макарунами для кожного клієнта"
           isMain={true}
         />
         <Article
-          text="Бърза доставка"
+          text="Швидка доставка"
           image={delivery}
-          alt="Бърза доставка, гарантираща доставка на торта в същия ден в София"
-          subText="Доставка на торти в същия ден в София осигурява удобство"
+          alt="Швидка доставка, що гарантує доставку торта в той же день у Софії"
+          subText="Доставка тортів в той же день у Софії забезпечує зручність"
         />
       </div>
     </section>

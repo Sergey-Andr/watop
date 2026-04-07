@@ -48,9 +48,9 @@ const Orders = (): ReactElement => {
   return (
     <section className="mb-16">
       <h3 className="text-2xl font-medium mb-4 flex justify-between">
-        Поръчка
+        Замовлення
         <sub>
-          На стойност: <strong className="font-sans">{totalCost} лв</strong>
+          На суму: <strong className="font-sans">{totalCost} лв</strong>
         </sub>
       </h3>
       <ul>
@@ -62,7 +62,7 @@ const Orders = (): ReactElement => {
             <div className="flex relative">
               <img
                 src={`${process.env.NEXT_API_URL}/${cake.image}`}
-                alt={`${cake.name} cake`}
+                alt={`Торт ${cake.name}`}
                 itemProp="image"
                 className="w-40 h-56 overflow-hidden mr-8"
               />
@@ -72,7 +72,7 @@ const Orders = (): ReactElement => {
             </div>
             <div>
               <span className="text-xl w-28 mr-40">
-                {cake.price} лв <small>x</small> {shoppingCart[i]?.quantity} ед.
+                {cake.price} лв <small>x</small> {shoppingCart[i]?.quantity} шт.
               </span>
               <strong className="font-sans text-xl mr-4">
                 {cake.price * shoppingCart[i]?.quantity} лв
@@ -84,7 +84,7 @@ const Orders = (): ReactElement => {
               }}
               className="absolute right-4 bottom-4 text-lg hover:text-rose-600 hover:underline duration-300"
             >
-              Редактиране на продукти
+              Редагування продуктів
             </button>
             {isEdit ? (
               <Popover isClicked={isEdit} setIsClicked={setIsEdit} />

@@ -34,7 +34,7 @@ const Payment = (): ReactElement => {
 
   return (
     <section className="mb-16">
-      <h3 className="text-2xl font-medium mb-4">Плащане</h3>
+      <h3 className="text-2xl font-medium mb-4">Оплата</h3>
       <div>
         <div
           className={`py-2 px-4 mb-4 cursor-pointer ${order?.payment === "receive" ? "outline outline-1 outline-rose-600 rounded-xl" : ""}`}
@@ -48,7 +48,7 @@ const Payment = (): ReactElement => {
             }}
             className="mr-4 w-4 h-4 accent-rose-600"
           />
-          <label className="text-lg">Плащане при получаване на стоката</label>
+          <label className="text-lg">Оплата при отриманні товару</label>
         </div>
         <div
           className={`py-2 px-4 cursor-pointer ${order?.payment?.includes("online") ? "outline outline-1 outline-rose-600 rounded-xl" : ""}`}
@@ -61,7 +61,7 @@ const Payment = (): ReactElement => {
             }}
             className="mr-4 w-4 h-4 accent-rose-600"
           />
-          <label className="text-lg">Плати сега</label>
+          <label className="text-lg">Оплатити зараз</label>
           {order?.payment?.includes("online") ? <PayNow /> : <></>}
         </div>
       </div>

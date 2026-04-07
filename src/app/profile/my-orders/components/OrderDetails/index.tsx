@@ -5,24 +5,24 @@ export default async function OrderDetails({ order }: { order: TOrders }) {
   return (
     <div className="w-fit mt-4">
       <div>
-        <label className="mb-2 block">Адрес за доставка</label>
+        <label className="mb-2 block">Адреса доставки</label>
         <p className="flex flex-col text-sm font-sans">
           <span className="text-black/60">
-            Улица:{" "}
+            Вулиця:{" "}
             <span className="text-rose-600">
               {order.deliveryAddress.street}
             </span>
           </span>
           <span className="text-black/60">
-            Къща:{" "}
+            Будинок:{" "}
             <span className="text-rose-600">{order.deliveryAddress.house}</span>
           </span>
           <span className="text-black/60">
-            Eтаж:{" "}
+            Поверх:{" "}
             <span className="text-rose-600">{order.deliveryAddress.floor}</span>
           </span>
           <span className="text-black/60">
-            в:{" "}
+            о:{" "}
             <span className="text-rose-600">
               {order.deliveryAddress.time.split(" ")[0] +
                 " " +
@@ -33,7 +33,7 @@ export default async function OrderDetails({ order }: { order: TOrders }) {
       </div>
       <hr className="my-2 border-stone-300" />
       <div>
-        <label>Работно време</label>
+        <label>Робочий час</label>
         <p className="flex flex-col font-sans text-black/60 text-sm leading-6">
           <span>
             Пн-Пт: <span className="text-rose-600">08:00-23:00</span>
@@ -45,7 +45,7 @@ export default async function OrderDetails({ order }: { order: TOrders }) {
       </div>
       <hr className="my-2 border-stone-300" />
       <div>
-        <label>Получател на поръчката</label>
+        <label>Отримувач замовлення</label>
         <p className="flex flex-col font-sans text-black/60 text-sm leading-6">
           <span>{order.recipientFullName}</span>
           <span>+359 {order.recipientPhone}</span>

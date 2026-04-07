@@ -17,7 +17,6 @@ import { getEmail } from "@/features/getEmail";
 type TFiveDays = { date: string; month: string; dayOfWeek: string }[];
 
 const time = ["10:00-15:00", "15:00-23:00"];
-const MAX_TIMEOUT = 5;
 const MULTIPLIER = 2;
 
 const generateDeliveryDates = ({
@@ -77,7 +76,6 @@ const DeliveryTime = (): ReactElement => {
     })();
   }, []);
 
-  const isTimePass = moment().hour() >= 15;
   const currentDay = moment().format("D");
   const currentHour = moment().hour();
 

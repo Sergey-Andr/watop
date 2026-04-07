@@ -64,7 +64,7 @@ const Form = (): ReactElement => {
       onSubmit={handleSubmit}
     >
       <label form="email" htmlFor="email" className="text-xl mb-4">
-        Електронна поща
+        Електронна пошта
       </label>
       <input
         type="email"
@@ -80,21 +80,21 @@ const Form = (): ReactElement => {
       />
       {isSameEmail ? (
         <sub className="mb-4 text-base text-rose-600">
-          Такъв имейл вече съществува!
+          Такий email вже існує!
         </sub>
       ) : (
         <></>
       )}
       <div className="relative w-full">
         <label form="password" htmlFor="password" className="text-xl mb-4">
-          Парола
+          Пароль
         </label>
         <input
           type={`${isHidden ? "password" : "text"}`}
           name="password"
           id="password"
           minLength={6}
-          placeholder="минимум 6 символа"
+          placeholder="мінімум 6 символів"
           autoComplete="new-password"
           required
           className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
@@ -113,14 +113,14 @@ const Form = (): ReactElement => {
         </div>
       </div>
       <label form="password" htmlFor="password" className="text-xl mb-4">
-        Промени парола
+        Підтвердіть пароль
       </label>
       <input
         type={`${isHidden ? "password" : "text"}`}
         name="password"
         id="password"
         minLength={6}
-        placeholder="минимум 6 символа"
+        placeholder="мінімум 6 символів"
         autoComplete="new-password"
         required
         className="bg-stone-100 border border-stone-300 py-2 px-4 rounded-full mb-8 w-full"
@@ -132,12 +132,12 @@ const Form = (): ReactElement => {
       <span
         className={`text-rose-600 ${isEqual ? "hidden" : "block"} relative -top-6`}
       >
-        Паролите не съвпадат
+        Паролі не збігаються
       </span>
       <input
         disabled={!isEqual || isSameEmail}
         type="submit"
-        value="Sign in"
+        value="Увійти"
         className={`py-2 ${isSameEmail || isEqual ? "cursor-default" : "cursor-pointer hover:bg-rose-800"} bg-rose-700 text-white rounded-full font-sans duration-300`}
       />
       {isLoading ? <PagesLoader /> : <></>}

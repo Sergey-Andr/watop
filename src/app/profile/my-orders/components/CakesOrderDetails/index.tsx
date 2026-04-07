@@ -11,7 +11,7 @@ export default async function CakesOrderDetails({ order }: { order: TOrders }) {
           <div className="relative">
             <img
               src={`${process.env.NEXT_API_URL}/${cake.image}`}
-              alt={`${cake.name} торта`}
+              alt={`${cake.name} торт`}
               className="w-24 h-30"
             />
             <h3 className="absolute left-[110%] top-0 text-nowrap">

@@ -98,7 +98,7 @@ const LinkCard = (): ReactElement => {
           }}
           className={`py-2 px-10 ${isEdit ? "block" : "hidden"} bg-rose-700 text-white text-base rounded-full relative`}
         >
-          Запази
+          Зберегти
         </button>
         <button
           onClick={() => {
@@ -106,7 +106,7 @@ const LinkCard = (): ReactElement => {
           }}
           className={`py-2 px-10 ${isEdit ? "text-lg hover:underline" : "bg-rose-700 text-white"} text-base rounded-full`}
         >
-          {isEdit ? "Отмени " : "Редактирай"}
+          {isEdit ? "Скасувати " : "Редагувати"}
         </button>
       </div>
     </section>

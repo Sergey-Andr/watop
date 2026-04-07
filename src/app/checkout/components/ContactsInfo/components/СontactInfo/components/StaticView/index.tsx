@@ -22,7 +22,7 @@ const StaticView: FC<IStaticView> = ({ setIsInfoClicked }): ReactElement => {
               </sub>
             </>
           ) : (
-            <p className="text-rose-600">Въведете вашите контактни данни</p>
+            <p className="text-rose-600">Введіть ваші контактні дані</p>
           )}
         </h4>
       </div>
@@ -32,7 +32,7 @@ const StaticView: FC<IStaticView> = ({ setIsInfoClicked }): ReactElement => {
         }}
         className="hover:text-rose-600 duration-300 hover:underline"
       >
-        Промяна
+        Змінити
       </button>
     </>
   );

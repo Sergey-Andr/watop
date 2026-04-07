@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../../public/logo.jpg";
+import logo from "../../../public/logo.webp";
 import Form from "@/app/password-reset/components/Form";
 
 export default async function Page() {
@@ -9,12 +9,12 @@ export default async function Page() {
         <a href="/" className="mt-16 mb-4">
           <Image
             src={logo}
-            alt="WATOP logo"
+            alt="Логотип WATOP"
             className="rounded-full w-16 h-16"
           />
         </a>
-        <h1 aria-label="Sign in to WATOP" className="text-3xl mb-8">
-          Промени парола
+        <h1 aria-label="Увійдіть у WATOP" className="text-3xl mb-8">
+          Змінити пароль
         </h1>
       </header>
       <main>

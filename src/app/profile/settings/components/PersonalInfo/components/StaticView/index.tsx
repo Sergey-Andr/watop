@@ -19,19 +19,19 @@ const StaticView: FC<IStaticView> = ({
     <ul className="grid grid-cols-2 font-sans mb-8">
       <li className="max-w-96 w-full mb-8">
         <h4 className="flex flex-col">
-          Име
+          Ім'я
           <sub className="text-xl">{firstName}</sub>
         </h4>
       </li>
       <li className="max-w-96 w-full mb-8">
         <h4 className="flex flex-col">
-          Дата на раждане
+          Дата народження
           <sub className="text-xl">{birthDate ? date : ""}</sub>
         </h4>
       </li>
       <li className="max-w-96 w-full ">
         <h4 className="flex flex-col">
-          Фамилия
+          Прізвище
           <sub className="text-xl">{secondName}</sub>
         </h4>
       </li>

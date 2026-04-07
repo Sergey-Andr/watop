@@ -29,7 +29,7 @@ const Form = (): ReactElement => {
       onSubmit={handleSubmit}
     >
       <label htmlFor="email" className="text-xl mb-4">
-        Email address
+        Адреса електронної пошти
       </label>
       <input
         type="email"
@@ -43,12 +43,12 @@ const Form = (): ReactElement => {
         htmlFor="password"
         className="text-xl mb-4 flex items-center justify-between"
       >
-        Password
+        Пароль
         <Link
           href="/password-reset"
           className="text-rose-600 text-base font-medium hover:underline cursor-pointer"
         >
-          Forgot password?
+          Забули пароль?
         </Link>
       </label>
       <input
@@ -60,7 +60,7 @@ const Form = (): ReactElement => {
       />
       <input
         type="submit"
-        value="Sign in"
+        value="Увійти"
         className="py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-full cursor-pointer font-sans duration-300"
       />
     </form>

@@ -12,7 +12,7 @@ const AddressInputs = (): ReactElement => {
   return (
     <div className="flex my-4 border-b pb-4 border-gray-300">
       <div className="flex flex-col w-1/2 mr-8">
-        <label className="text-gray-600">Улица</label>
+        <label className="text-gray-600">Вулиця</label>
         <ReactGoogleAutocomplete
           libraries={["places"]}
           apiKey={process.env.NEXT_GOOGLE_KEY}
@@ -32,7 +32,7 @@ const AddressInputs = (): ReactElement => {
         />
       </div>
       <div className="flex flex-col w-1/4 mr-4">
-        <label className="text-gray-600">Къща</label>
+        <label className="text-gray-600">Будинок</label>
         <input
           type="text"
           value={order?.delivery?.house ?? ""}
@@ -49,7 +49,7 @@ const AddressInputs = (): ReactElement => {
         />
       </div>
       <div className="flex flex-col w-1/4">
-        <label className="text-gray-600">Етаж</label>
+        <label className="text-gray-600">Поверх</label>
         <input
           type="text"
           value={order?.delivery?.floor ?? ""}

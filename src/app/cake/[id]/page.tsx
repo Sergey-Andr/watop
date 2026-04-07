@@ -19,7 +19,7 @@ export async function generateMetadata(
   const { data } = await fetchCakeById(+id);
   return {
     title: `${data.name} | WATOP`,
-    description: `delicious ${data.name ?? ""} cakes and much more. The widest selection and fast delivery`,
+    description: `смачні ${data.name ?? ""} торти та багато іншого. Найширший вибір та швидка доставка`,
   };
 }
 

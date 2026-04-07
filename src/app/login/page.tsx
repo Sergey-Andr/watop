@@ -1,18 +1,18 @@
 import Image from "next/image";
-import logo from "@/../public/logo.jpg";
+import logo from "@/../public/logo.webp";
 import Error from "@/app/login/components/Error";
 import type { Metadata } from "next";
 import Form from "@/app/login/components/Form";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Вход - WATOP",
+  title: "Увійти - WATOP",
   description:
-    "Влезте в акаунта си на нашия сайт и получете достъп до всички функции.",
+    "Увійдіть до свого облікового запису на нашому сайті та отримайте доступ до всіх функцій.",
   openGraph: {
-    title: "Вход - WATOP",
+    title: "Увійти - WATOP",
     description:
-      "Влезте в акаунта си на нашия сайт и получете достъп до всички функции.",
+      "Увійдіть до свого облікового запису на нашому сайті та отримайте доступ до всіх функцій.",
     type: "website",
     url: "https://watop.vercel.app/login",
   },
@@ -28,12 +28,12 @@ export default async function SignIn() {
         <a href="/" className="mt-16 mb-4">
           <Image
             src={logo}
-            alt="WATOP logo"
+            alt="Логотип WATOP"
             className="rounded-full w-16 h-16"
           />
         </a>
-        <h1 aria-label="Sign in to WATOP" className="text-3xl mb-8">
-          Sign in to WATOP
+        <h1 aria-label="Увійдіть у WATOP" className="text-3xl mb-8">
+          Увійдіть у WATOP
         </h1>
       </header>
       <main>
@@ -46,12 +46,12 @@ export default async function SignIn() {
           className="w-96 p-4 rounded-xl h-16 bg-stone-50 border border-stone-200"
         >
           <h3 className="text-lg">
-            New to WATOP?{" "}
+            Новий у WATOP?{" "}
             <Link
               href="/registration"
               className="text-rose-600 hover:underline font-medium duration-300"
             >
-              Create an account
+              Створити акаунт
             </Link>
           </h3>
         </div>

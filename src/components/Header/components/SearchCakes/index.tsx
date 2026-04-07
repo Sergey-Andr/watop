@@ -79,7 +79,7 @@ const SearchCakes = (): ReactElement => {
         >
           <Image
             src={search}
-            alt="Search cakes"
+            alt="Пошук тортів"
             className="w-7 h-7 cursor-pointer"
           />
           <span className="w-full h-7 absolute bg-black/10 rounded-full scale-125 opacity-0 group-hover/search:opacity-100 duration-300 -translate-y-full -translate-x-1/2" />
@@ -89,8 +89,8 @@ const SearchCakes = (): ReactElement => {
             <div className="relative w-full h-fit">
               <input
                 type="text"
-                placeholder="Име на тортата"
-                aria-label="Въведете желаното име на тортата"
+                placeholder="Назва торта"
+                aria-label="Введіть бажану назву торта"
                 className="placeholder:text-black placeholder:font-sans w-full p-4 bg-black/5 rounded-full mb-4 border border-black"
                 onChange={(e) => {
                   setCakeName(e.target.value);
@@ -100,7 +100,7 @@ const SearchCakes = (): ReactElement => {
               />
               <Image
                 src={search}
-                alt="Search for a cakes"
+                alt="Пошук торта"
                 className="absolute top-1/4 right-5 w-6 h-6"
               />
             </div>
@@ -118,7 +118,7 @@ const SearchCakes = (): ReactElement => {
                     >
                       <img
                         src={`${process.env.NEXT_API_URL}/${cake.image}`}
-                        alt={`${cake.name} торта`}
+                        alt={`${cake.name} торт`}
                         className="hover:scale-110 duration-300 w-52 h-64"
                       />
                     </Link>

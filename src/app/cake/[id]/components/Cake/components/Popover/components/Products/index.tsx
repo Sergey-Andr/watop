@@ -88,7 +88,7 @@ const Products: FC<IProducts> = ({ setIsClicked }): ReactElement => {
           onClick={() => setIsClicked(false)}
           className="py-2 px-4 h-fit text-sky-600 border rounded-xl font-sans"
         >
-          Продължи с пазаруването
+          Продовжити покупки
         </button>
         <nav className="px-8 py-4 flex items-center border border-rose-500 bg-rose-200 w-fit">
           <span className="text-3xl pb-1 mr-8 font-sans">{totalPrice} лв</span>
@@ -99,14 +99,14 @@ const Products: FC<IProducts> = ({ setIsClicked }): ReactElement => {
               }}
               className="bg-rose-600 text-xl text-white rounded-xl py-4 px-8 font-sans"
             >
-              Оформи поръчката
+              Оформити замовлення
             </button>
           ) : (
             <Link
               href="/checkout"
               className="bg-rose-600 text-xl text-white rounded-xl py-4 px-8 font-sans"
             >
-              Оформи поръчката
+              Оформити замовлення
             </Link>
           )}
         </nav>

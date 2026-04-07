@@ -39,7 +39,7 @@ const SwiperCakes = (): ReactElement => {
   }
   return (
     <section className="">
-      <h2 className="text-2xl font-medium mb-8">Също така препоръчваме</h2>
+      <h2 className="text-2xl font-medium mb-8">Також рекомендуємо</h2>
       <Swiper
         modules={[Navigation]}
         spaceBetween={0}
@@ -58,7 +58,7 @@ const SwiperCakes = (): ReactElement => {
                 <div className="overflow-hidden">
                   <img
                     src={`${process.env.NEXT_API_URL}/${cake.image}`}
-                    alt={`${cake.name} cake`}
+                    alt={`Торт ${cake.name}`}
                     className="mb-4 w-40 h-56 overflow-hidden select-none hover:scale-110 duration-300"
                   />
                 </div>

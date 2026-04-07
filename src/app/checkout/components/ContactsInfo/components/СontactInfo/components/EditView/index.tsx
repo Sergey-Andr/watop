@@ -31,7 +31,7 @@ const EditView: FC<IEditView> = ({ setIsInfoClicked }): ReactElement => {
       <div className="grid grid-cols-2 gap-4 mb-8 w-full">
         <input
           type="text"
-          placeholder="Име"
+          placeholder="Ім'я"
           onChange={(e) => {
             setOrder({ ...order, firstName: e.target.value });
           }}
@@ -40,7 +40,7 @@ const EditView: FC<IEditView> = ({ setIsInfoClicked }): ReactElement => {
         />
         <input
           type="text"
-          placeholder="Фимилия"
+          placeholder="Прізвище"
           onChange={(e) => {
             setOrder({ ...order, secondName: e.target.value });
           }}
@@ -57,14 +57,14 @@ const EditView: FC<IEditView> = ({ setIsInfoClicked }): ReactElement => {
               setOrder({ ...order, phone: e.target.value });
             }}
             value={order?.phone}
-            placeholder="Телефонен номер"
+            placeholder="Номер телефону"
             type="tel"
             maxLength={10}
           />
         </div>
         <input
           type="email"
-          placeholder="Електронна поща"
+          placeholder="Електронна пошта"
           onChange={(e) => {
             setOrder({ ...order, recipientEmail: e.target.value });
           }}
@@ -88,7 +88,7 @@ const EditView: FC<IEditView> = ({ setIsInfoClicked }): ReactElement => {
         }}
         className={`py-2 px-8 bg-rose-700 text-white rounded-full font-sans`}
       >
-        Запази
+        Зберегти
       </button>
     </div>
   );

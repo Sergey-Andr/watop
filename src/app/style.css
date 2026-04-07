@@ -44,6 +44,40 @@ input[type=number] {
     animation: cubic-second 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
 }
 
+.swiper-slide {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #00000099 !important;
+    background-color: transparent !important;
+    padding: 16px 20px !important;
+    border: 1px solid #00000080 !important;
+    border-radius: 50% !important;
+    transition: all 0.1s ease-in !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    box-shadow: 0px 0px 12px 1px rgba(0, 0, 0, 0.3) !important
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 24px !important;
+    font-weight: bold !important;
+}
+
+.swiper-button-next {
+    right: 0px !important;
+}
+
+.swiper-button-prev {
+    left: 0px !important
+}
+
 @keyframes cubic-first {
     0%, 100% {
         transform: none;
@@ -111,6 +145,8 @@ input[type=number] {
         --ring: 222.2 84% 4.9%;
 
         --radius: 0.5rem;
+
+        --swiper-navigation-color: #00000099;
     }
 
     .dark {

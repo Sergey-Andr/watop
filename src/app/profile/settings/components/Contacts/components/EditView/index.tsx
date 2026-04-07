@@ -28,7 +28,7 @@ const EditView: FC<IEditView> = ({
           setEmail(e.target.value);
         }}
         value={email}
-        placeholder="Имайл"
+        placeholder="Пошта"
         type="email"
       />
       <div className="relative inline">
@@ -41,7 +41,7 @@ const EditView: FC<IEditView> = ({
             setPhone(e.target.value);
           }}
           value={phone}
-          placeholder="Телефонен номер"
+          placeholder="Номер телефону"
           type="tel"
           maxLength={10}
         />

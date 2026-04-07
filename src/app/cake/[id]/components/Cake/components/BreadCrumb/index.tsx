@@ -15,7 +15,7 @@ const BreadCrumb = ({ name }: { name: string }): ReactElement => {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/" role="link">
-            Начало
+            Початок
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />

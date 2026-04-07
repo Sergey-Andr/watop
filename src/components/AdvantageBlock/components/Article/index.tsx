@@ -19,16 +19,16 @@ const Article: FC<IArticle> = ({
   return (
     <article
       aria-label={text}
-      className="flex flex-col items-center mr-28 last:mr-0"
+      className={`flex flex-col items-center ${isMain ? "w-56" : "w-48"} mr-28 last:mr-0`}
     >
       <Image
         src={image}
         alt={alt}
         className={`rounded-full ${isMain ? "w-56 h-56" : "w-48 h-48"} mb-8`}
       />
-      <h4 className="text-2xl w-36 text-nowrap text-center relative -left-4">
+      <h4 className="text-2xl w-full text-wrap text-center">
         {text}
-        <sub className="text-xx block leading-5 text-black/60 font-medium text-wrap relative left-4">
+        <sub className="text-xx block leading-5 text-black/60 font-medium text-wrap relative">
           {subText}
         </sub>
       </h4>

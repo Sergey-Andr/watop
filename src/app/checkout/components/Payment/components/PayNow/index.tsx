@@ -47,7 +47,7 @@ const PayNow = (): ReactElement => {
           className="mr-4 w-4 h-4 accent-rose-600"
         />
         <label className="text-lg font-sans">
-          {currentCard ?? "Няма карта"}
+          {currentCard ?? "Немає карти"}
         </label>
       </div>
       <div className="mb-8">
@@ -61,7 +61,7 @@ const PayNow = (): ReactElement => {
           }}
           className="mr-4 w-4 h-4 accent-rose-600"
         />
-        <label className="text-lg">Добавяне на карта</label>
+        <label className="text-lg">Додавання карти</label>
       </div>
       {order?.payment?.includes("new") ? (
         <div>
@@ -107,7 +107,7 @@ const PayNow = (): ReactElement => {
             }}
             className={`py-2 px-10 text-lg bg-rose-700 text-white rounded-full`}
           >
-            Добави
+            Додати
           </button>
         </div>
       ) : (

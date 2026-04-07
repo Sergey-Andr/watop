@@ -30,7 +30,7 @@ const BirthDate = ({
           date
         ) : (
           <sub className="text-zinc-500 relative top-0 font-playfair">
-            Дата на раждане
+            Дата народження
           </sub>
         )}
       </button>

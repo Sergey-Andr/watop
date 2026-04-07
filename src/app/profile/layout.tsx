@@ -8,13 +8,13 @@ import NavLink from "@/app/profile/components/NavLink";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Личный кабинет - WATOP",
+  title: "Особистий кабінет - WATOP",
   description:
-    "Управлявайте своя акаунт, преглеждайте историята на поръчките и настройките",
+    "Керуйте своїм акаунтом, переглядайте історію замовлень та налаштування",
   openGraph: {
-    title: "Личный кабинет - WATOP",
+    title: "Особистий кабінет - WATOP",
     description:
-      "Управлявайте своя акаунт, преглеждайте историята на поръчките и настройките",
+      "Керуйте своїм акаунтом, переглядайте історію замовлень та налаштування",
     type: "website",
     url: "https://watop.vercel.app/profile",
   },
@@ -29,7 +29,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
     redirect("/login");
   }
 
-  const email = cookies().get(EMAIL)?.value ?? "Нещо се обърка";
+  const email = cookies().get(EMAIL)?.value ?? "Щось пішло не так";
 
   return (
     <section className="w-4/5 m-auto">
@@ -42,13 +42,13 @@ export default async function Layout({ children }: { children: ReactNode }) {
           <hr className="border-stone-200 my-4" />
           <ul>
             <li className="flex items-center mb-6 group/orders text-gray-600">
-              <NavLink text="Моите поръчки" path="my-orders" />
+              <NavLink text="Мої замовлення" path="my-orders" />
             </li>
             <li className="flex items-center mb-6 group/cart text-gray-600">
               <ShoppingCart />
             </li>
             <li className="flex items-center group/wish text-gray-600">
-              <NavLink text="Cписък с желания" path="wish-list" />
+              <NavLink text="Список бажань" path="wish-list" />
             </li>
           </ul>
         </aside>

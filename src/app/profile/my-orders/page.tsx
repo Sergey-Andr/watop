@@ -17,11 +17,11 @@ import NoCakes from "@/app/cake/[id]/components/Cake/components/Popover/componen
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Моите поръчки - WATOP",
-  description: "Преглед на всички вашите поръчки и детайли за тях във WATOP.",
+  title: "Мої замовлення - WATOP",
+  description: "Огляд усіх ваших замовлень та деталей до них у WATOP.",
   openGraph: {
-    title: "Моите поръчки - WATOP",
-    description: "Преглед на всички вашите поръчки и детайли за тях във WATOP.",
+    title: "Мої замовлення - WATOP",
+    description: "Огляд усіх ваших замовлень та деталей до них у WATOP.",
     type: "website",
     url: "https://watop.vercel.app/profile/my-orders",
   },
@@ -41,7 +41,7 @@ export default async function MyOrders() {
   return (
     <Suspense fallback={<Loading />}>
       <section>
-        <h2 className="text-5xl mb-4">Моите поръчки</h2>
+        <h2 className="text-5xl mb-4">Мої замовлення</h2>
         <Accordion type="single" collapsible className="text-xl mb-8">
           {data?.map((order, i) => (
             <AccordionItem
@@ -54,11 +54,11 @@ export default async function MyOrders() {
                   <strong className="font-sans text-base flex items-center h-fit ">
                     № {order.orderId}{" "}
                     <sub className="pl-2 pb-1 text-black/60">
-                      от {order.date}
+                      від {order.date}
                     </sub>
                   </strong>
                   <strong className="text-emerald-500 font-sans text-base">
-                    Изпълнено
+                    Виконано
                   </strong>
                 </div>
                 <div className="flex">
@@ -66,14 +66,14 @@ export default async function MyOrders() {
                     <img
                       key={cake.image}
                       src={`${process.env.NEXT_API_URL}/${cake.image}`}
-                      alt={`${cake.name} cake`}
+                      alt={`Торт ${cake.name}`}
                       itemProp="image"
                       className="w-16 h-20 mr-2 last:mr-0"
                     />
                   ))}
                 </div>
                 <div className="flex flex-col">
-                  <label>Платено</label>
+                  <label>Сплачено</label>
                   <strong className="font-sans text-rose-600 group-hover/order:underline">
                     {order.totalCost} лв
                   </strong>

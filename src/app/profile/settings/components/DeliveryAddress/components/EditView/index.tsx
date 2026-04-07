@@ -50,7 +50,7 @@ const EditView: FC<IEditView> = ({
           componentRestrictions: { country: "bg" },
         }}
         defaultValue={city}
-        placeholder="Город"
+        placeholder="Місто"
         className={`text-xl p-2 px-4 rounded-full border ${errors.includes("city") ? "border-rose-600" : "border-stone-300"} max-w-96`}
       />
       <ReactGoogleAutocomplete
@@ -66,7 +66,7 @@ const EditView: FC<IEditView> = ({
           },
         }}
         defaultValue={street}
-        placeholder="Улица"
+        placeholder="Вулиця"
         className={`text-xl p-2 px-4 rounded-full border ${errors.includes("street") ? "border-rose-600" : "border-stone-300"} max-w-96`}
       />
       <input
@@ -74,7 +74,7 @@ const EditView: FC<IEditView> = ({
           setHouse(e.target.value);
         }}
         value={house}
-        placeholder="Дом"
+        placeholder="Будинок"
         type="text"
         maxLength={3}
         className={`text-xl p-2 px-4 rounded-full border ${errors.includes("house") ? "border-rose-600" : "border-stone-300"} max-w-96`}
@@ -84,7 +84,7 @@ const EditView: FC<IEditView> = ({
           setFloor(e.target.value);
         }}
         value={floor}
-        placeholder="Етаж"
+        placeholder="Поверх"
         type="text"
         maxLength={2}
         className={`text-xl p-2 px-4 rounded-full border ${errors.includes("floor") ? "border-rose-600" : "border-stone-300"} max-w-96`}

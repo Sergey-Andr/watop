@@ -3,7 +3,6 @@ import { memo, ReactElement, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import "swiper/css";
 import "swiper/css/navigation";
-import "./custom-arrows.css";
 import { fetchCakeById } from "@/service/fetchCakeById";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -62,7 +61,7 @@ const CakesSwiper = (): ReactElement => {
               <Link role="link" href={`/cake/${cake.id}`}>
                 <img
                   src={`${process.env.NEXT_API_URL}/${cake.image}`}
-                  alt={`${cake.name} cake`}
+                  alt={`${cake.name} торт`}
                   className="mb-4 w-72 h-96 overflow-hidden select-none"
                 />
               </Link>

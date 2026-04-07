@@ -29,9 +29,9 @@ const BigCart: FC<IBigCart> = ({ cake, animation }): ReactElement => {
       >
         <img
           src={`${process.env.NEXT_API_URL}/${cake.image}`}
-          alt={`${cake.name} cake`}
+          alt={`Торт ${cake.name}`}
           itemProp="image"
-          className="max-w-xl w-full h-[864px]"
+          className="max-w-xl w-full h-[864px] object-fit"
         />
         <Heart
           fill={`${wishList.includes(cake.id) ? "#e11d48" : "transparent"}`}

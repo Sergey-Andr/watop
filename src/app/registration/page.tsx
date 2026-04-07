@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "@/../public/logo.jpg";
+import logo from "@/../public/logo.webp";
 import Form from "@/app/registration/components/Form";
 import { Metadata } from "next";
 
@@ -26,14 +26,14 @@ export default async function Registration() {
         <a href="/" className="mb-4">
           <Image
             src={logo}
-            alt="WATOP logo"
+            alt="Логотип WATOP"
             className="rounded-full w-16 h-16"
           />
         </a>
-        <h3 aria-label="Already have an account?" className="text-2xl mb-8">
-          Already have an account?{" "}
+        <h3 aria-label="Вже маєте акаунт?" className="text-2xl mb-8">
+          Вже маєте акаунт?{" "}
           <a href="/login" className="hover:underline text-rose-600">
-            Sign in
+            Увійти
           </a>
         </h3>
       </header>

@@ -29,7 +29,7 @@ const PersonalInfo = (): ReactElement => {
   const [isEdit, setIsEdit] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [secondName, setSecondName] = useState("");
-  const [gender, setGender] = useState("Не посочвайте");
+  const [gender, setGender] = useState("Не вказувати");
   const [birthDate, setBirthDate] = useState<Date | undefined>();
   const [errors, setErrors] = useState<TErrors>([]);
 
@@ -108,7 +108,7 @@ const PersonalInfo = (): ReactElement => {
           }}
           className={`py-2 px-10 ${isEdit ? "block" : "hidden"} bg-rose-700 text-white text-base rounded-full`}
         >
-          Запази
+          Зберегти
         </button>
         <button
           onClick={() => {
@@ -116,7 +116,7 @@ const PersonalInfo = (): ReactElement => {
           }}
           className={`py-2 px-10 ${isEdit ? "text-lg hover:underline" : "bg-rose-700 text-white"} rounded-full`}
         >
-          {isEdit ? "Отмени" : "Редактирай"}
+          {isEdit ? "Скасувати" : "Редагувати"}
         </button>
       </div>
     </section>

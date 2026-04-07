@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import logo from "../../../../public/logo.jpg";
+import logo from "../../../../public/logo.webp";
 import { FormEvent, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { apiUpdatePassword } from "@/app/utils/auth/apiUpdatePassword";
@@ -35,12 +35,12 @@ export default function Page() {
         <a href="/" className="mt-16 mb-4">
           <Image
             src={logo}
-            alt="WATOP logo"
+            alt="Логотип WATOP"
             className="rounded-full w-16 h-16"
           />
         </a>
-        <h1 aria-label="Sign in to WATOP" className="text-3xl mb-8 text-center">
-          Промени парола за <br /> {localStorage.getItem("email")}
+        <h1 aria-label="Увійдіть у WATOP" className="text-3xl mb-8 text-center">
+          Змінити пароль для <br /> {localStorage.getItem("email")}
         </h1>
       </header>
       <main>
@@ -48,13 +48,13 @@ export default function Page() {
           className="flex flex-col w-96 bg-stone-50 border border-stone-200 rounded-xl p-4 mb-4"
           onSubmit={handleSubmit}
         >
-          <label className="text-xl mb-4">Парола</label>
+          <label className="text-xl mb-4">Пароль</label>
           <div className="relative w-full">
             <input
-              type={`${isHidden ? "password" : "name"}`}
+              type={`${isHidden ? "password" : "text"}`}
               name="password"
               minLength={6}
-              placeholder="минимум 6 символа"
+              placeholder="мінімум 6 символів"
               autoComplete="current-password"
               autoFocus
               required
@@ -72,12 +72,12 @@ export default function Page() {
               {isHidden ? <FaEyeSlash /> : <FaEye />}
             </div>
           </div>
-          <label className="text-xl mb-4">Потвърди парола</label>
+          <label className="text-xl mb-4">Підтвердіть пароль</label>
           <input
-            type={`${isHidden ? "password" : "name"}`}
+            type={`${isHidden ? "password" : "text"}`}
             name="password"
             minLength={6}
-            placeholder="минимум 6 символа"
+            placeholder="мінімум 6 символів"
             autoComplete="current-password"
             required
             onChange={(e) => {
@@ -88,7 +88,7 @@ export default function Page() {
           <input
             disabled={isDisabled}
             type="submit"
-            value="Потвърди парола"
+            value="Підтвердити пароль"
             className={`py-2 bg-rose-600 text-white rounded-full font-sans duration-300 ${isDisabled ? "" : "hover:bg-rose-700 cursor-pointer"}`}
           />
         </form>

@@ -15,7 +15,7 @@ const Popover = (): ReactElement => {
         onClick={() => setIsOpen(true)}
         className="w-80 bg-rose-600 rounded-full text-white text-xl p-4 py-2 hover:bg-rose-800 duration-300"
       >
-        Докладване за проблем
+        Повідомити про проблему
       </button>
       {isOpen ? (
         <div
@@ -31,8 +31,8 @@ const Popover = (): ReactElement => {
             className="w-1/3 h-fit bg-white absolute top-1/3 left-1/3 rounded-xl p-8"
           >
             <h2 className="mb-2 text-black">
-              Ако се сблъскате с проблем, просто ни се обадете! Ще ви отговорим
-              в рамките на 20 минути.
+              Якщо ви зіткнулися з проблемою, просто зателефонуйте нам! Ми
+              відповімо протягом 20 хвилин.
             </h2>
             <div className="relative inline w-full">
               <label className="text-lg absolute font-sans text-black/60 left-4 -top-0.5">
@@ -40,12 +40,12 @@ const Popover = (): ReactElement => {
               </label>
               <input
                 className={`text-xl p-2 px-4 pl-16 rounded-full border font-sans w-3/4`}
-                placeholder="Телефонен номер"
+                placeholder="Номер телефону"
                 type="tel"
                 maxLength={10}
               />
             </div>
-            <p className="my-2">Или</p>
+            <p className="my-2">Або</p>
             <input
               className={`text-xl p-2 px-4 rounded-full border font-sans w-3/4 text-black/60 mb-2`}
               value="watopbg@gmail.com"
@@ -53,8 +53,8 @@ const Popover = (): ReactElement => {
               readOnly
             />
             <p className="mb-4">
-              Пишете ни на имейл и ние ще се постараем да ви отговорим в рамките
-              на 2 работни дни.
+              Напишіть нам на електронну пошту, і ми постараємося відповісти
+              протягом 2 робочих днів.
             </p>
             <div className="w-full flex justify-end">
               <button
@@ -63,7 +63,7 @@ const Popover = (): ReactElement => {
                 }}
                 className="px-4 py-2 rounded-full hover:underline hover:text-rose-600 duration-300"
               >
-                Отмяна
+                Скасувати
               </button>
               <button
                 onClick={() => {

@@ -14,11 +14,11 @@ const StaticView: FC<IStaticView> = ({
   return (
     <>
       <h3 className="mr-16 flex flex-col">
-        <sub className="mb-4 text-black/60">Имайл</sub>
+        <sub className="mb-4 text-black/60">Пошта</sub>
         {email}
       </h3>
       <h3 className="mr-16 flex flex-col font-sans">
-        <sub className="mb-4 text-black/60 font-playfair">Телефонен номер</sub>
+        <sub className="mb-4 text-black/60 font-playfair">Номер телефону</sub>
         +359 {phone}
       </h3>
       <h3 className="mr-16 flex flex-col">

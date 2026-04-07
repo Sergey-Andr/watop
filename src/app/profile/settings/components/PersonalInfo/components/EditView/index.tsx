@@ -31,10 +31,10 @@ const EditView = ({
       <li className="max-w-96 w-full mb-8">
         <input
           type="text"
-          aria-label="enter your first name"
+          aria-label="введіть своє ім'я"
           className={`mt-2 text-xl p-2 px-4 rounded-full border max-w-96 w-full ${errors.includes("firstName") ? "border-rose-600" : "border-stone-300"}`}
           value={firstName}
-          placeholder="Име"
+          placeholder="Ім'я"
           onChange={(e) => {
             setFirstName(e.target.value);
           }}
@@ -50,10 +50,10 @@ const EditView = ({
       <li className="max-w-96 w-full ">
         <input
           type="text"
-          aria-label="enter your second name"
+          aria-label="введіть своє прізвище"
           className={`mt-2 text-xl p-2 px-4 rounded-full border max-w-96 w-full ${errors.includes("secondName") ? "border-rose-600" : "border-stone-300"}`}
           value={secondName}
-          placeholder="Фамилия"
+          placeholder="Прізвище"
           onChange={(e) => {
             setSecondName(e.target.value);
           }}

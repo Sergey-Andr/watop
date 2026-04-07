@@ -53,7 +53,7 @@ const Cake = (): ReactElement => {
           width={576}
           height={928}
           src={`${process.env.NEXT_API_URL}/${cake.image}`}
-          alt={`${cake.name} cake`}
+          alt={`Торт ${cake.name}`}
           className="mr-40"
         />
         <div>
@@ -77,16 +77,16 @@ const Cake = (): ReactElement => {
             >
               <TbShoppingCartCopy className="w-6 h-6 mr-4 text-rose-600 duration-300" />
               <p className="border border-dashed border-rose-600 border-t-transparent border-r-transparent border-l-transparent">
-                In the cart
+                У кошику
               </p>
             </button>
           ) : (
             <button
-              aria-label="Buy now"
+              aria-label="Купити зараз"
               className="py-4 px-14 bg-rose-700 text-white rounded-full text-sm font-sans"
               onClick={handleClicked}
             >
-              Buy now
+              Купити зараз
             </button>
           )}
         </div>

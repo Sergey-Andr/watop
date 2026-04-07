@@ -1,5 +1,5 @@
 import Image from "next/image";
-import delivery from "@/../public/delivery-block.jpg";
+import delivery from "@/../public/delivery-block.webp";
 import Tersm from "@/components/DeliveryBlock/Terms";
 
 export default async function DeliveryBlock() {
@@ -10,7 +10,7 @@ export default async function DeliveryBlock() {
         <Image
           height={800}
           src={delivery}
-          alt="Наши условия за доставка"
+          alt="Наші умови доставки"
           className="w-full rotate-90"
         />
       </div>

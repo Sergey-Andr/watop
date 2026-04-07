@@ -25,7 +25,7 @@ const Arrows: FC<IArrows> = ({
   return (
     <div className="absolute right-0 -bottom-12">
       <button
-        aria-label="Previous cakes"
+        aria-label="Попередні торти"
         disabled={isArrowPrevDisabled}
         onClick={async () => {
           await animationStart("exit");
@@ -40,7 +40,7 @@ const Arrows: FC<IArrows> = ({
         <span className="absolute w-8 h-8 rounded-full scale-150 border border-black/50 -translate-x-1/2 -translate-y-full shadow-2xl" />
       </button>
       <button
-        aria-label="Next cakes"
+        aria-label="Наступні торти"
         disabled={isArrowNextDisabled}
         onClick={async () => {
           await animationStart("exit");

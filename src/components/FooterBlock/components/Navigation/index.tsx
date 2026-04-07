@@ -7,14 +7,14 @@ const Navigation = (): ReactElement => {
         href="/#"
         className="text-lg mr-4 hover:text-black/40 duration-300 cursor-pointer font-medium text-black/80"
       >
-        Начало
+        Початок
       </a>
 
       <a
         href="/#order"
         className="text-lg mr-4 hover:text-black/40 duration-300 cursor-pointer font-medium text-black/80"
       >
-        Как да поръчате
+        Як замовити
       </a>
 
       <a

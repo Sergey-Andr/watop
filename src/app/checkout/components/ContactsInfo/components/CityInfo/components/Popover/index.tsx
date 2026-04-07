@@ -55,10 +55,10 @@ const Popover: FC<IPopover> = ({
         className="w-1/3 h-fit relative top-1/4 left-1/3 bg-white p-4 rounded-lg"
       >
         <h2 className="text-2xl mb-8">
-          Укажете своя град.
+          Вкажіть своє місто.
           <sub className="flex items-center mt-8 text-lg text-black/60">
             <TbTruckDelivery className="mr-4 w-6 h-6 stroke-black/40" />
-            Доставям поръчки в цялата България!
+            Доставляю замовлення по всій Болгарії!
           </sub>
         </h2>
         <ul
@@ -83,7 +83,7 @@ const Popover: FC<IPopover> = ({
         </ul>
         <div className="mb-8">
           <label className="text-black/60">
-            Укажете населеното място в България
+            Вкажіть населений пункт в Болгарії
           </label>
           <ReactGoogleAutocomplete
             libraries={["places"]}
@@ -125,13 +125,13 @@ const Popover: FC<IPopover> = ({
             }}
             className="py-2 px-8 bg-rose-700 text-white rounded-full font-sans"
           >
-            Приложи
+            Застосувати
           </button>
         </div>
         <p className="text-sm">
-          Изборът на град ще ви помогне да получите актуална информация за
-          наличността на стоките, техните цени и методите на доставка във вашия
-          град! Това ще ви помогне да спестите повече свободно време!
+          Вибір міста допоможе вам отримати актуальну інформацію про наявність
+          товарів, їх ціни та методи доставки у вашому місті! Це допоможе вам
+          заощадити більше вільного часу!
         </p>
       </div>
     </div>

@@ -20,7 +20,7 @@ const Select = ({ gender, setGender, errors }: ISelect): ReactElement => {
         {gender.charAt(0).toUpperCase() + gender.slice(1)}
       </button>
       <ul
-        aria-label="choose your gender"
+        aria-label="оберіть вашу стать"
         className={`w-full mt-2 text-xl absolute z-50 rounded-xl border border-stone-300 cursor-pointer appearance-none ${isOpenSelect ? "block" : "hidden"}`}
       >
         <li
@@ -28,30 +28,30 @@ const Select = ({ gender, setGender, errors }: ISelect): ReactElement => {
             setGender(e.target.dataset.option);
             setIsOpenSelect(false);
           }}
-          data-option="Мъжки"
+          data-option="Чоловік"
           className="cursor-pointer hover:bg-black hover:text-white rounded-t-xl p-2 px-4"
         >
-          Мъжки
+          Чоловік
         </li>
         <li
           onClick={(e: any) => {
             setGender(e.target.dataset.option);
             setIsOpenSelect(false);
           }}
-          data-option="Женски"
+          data-option="Жінка"
           className="cursor-pointer hover:bg-black hover:text-white p-2 px-4"
         >
-          Женски
+          Жінка
         </li>
         <li
           onClick={(e: any) => {
             setGender(e.target.dataset.option);
             setIsOpenSelect(false);
           }}
-          data-option="Не посочвайте"
+          data-option="Не вказувати"
           className="cursor-pointer hover:bg-black hover:text-white rounded-b-xl p-2 px-4"
         >
-          Не посочвайте
+          Не вказувати
         </li>
       </ul>
       <FaAngleDown

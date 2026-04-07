@@ -90,7 +90,7 @@ const OrdersRecipient = () => {
           }}
           className={`py-2 px-10 ${isEdit ? "text-lg hover:underline" : "bg-rose-700 text-white"} rounded-full`}
         >
-          {isEdit ? "Отмени " : "Редактирай"}
+          {isEdit ? "Скасувати " : "Редагувати"}
         </button>
       </div>
     </section>

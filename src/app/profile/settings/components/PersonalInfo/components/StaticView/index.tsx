@@ -19,7 +19,7 @@ const StaticView: FC<IStaticView> = ({
     <ul className="grid grid-cols-2 font-sans mb-8">
       <li className="max-w-96 w-full mb-8">
         <h4 className="flex flex-col">
-          Ім'я
+          Ім&apos;я
           <sub className="text-xl">{firstName}</sub>
         </h4>
       </li>

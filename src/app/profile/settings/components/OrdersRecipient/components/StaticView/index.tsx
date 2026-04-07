@@ -9,7 +9,7 @@ const StaticView: FC<IStaticView> = ({ fullName, phone }): ReactElement => {
   return (
     <div className="flex">
       <h3 className="text-xl flex flex-col justify-center font-sans mb-8 mr-8">
-        <sub className="mb-4 text-black/60">Повне ім'я</sub>
+        <sub className="mb-4 text-black/60">Повне ім&apos;я</sub>
         {fullName}
       </h3>
       <h3 className="text-xl flex flex-col justify-center font-sans mb-8">

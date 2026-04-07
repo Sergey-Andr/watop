@@ -39,7 +39,7 @@ const Delivery = (): ReactElement => {
           className="mr-4 w-4 h-4 accent-rose-600"
           defaultChecked
         />
-        <label className="text-lg">Кур'єр до вашої адреси</label>
+        <label className="text-lg">Кур&apos;єр до вашої адреси</label>
         <span className="font-semibold font-sans absolute text-lg top-4 right-4">
           {DELIVERY_COST} лв
         </span>

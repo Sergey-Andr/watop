@@ -69,7 +69,7 @@ export default async function Settings() {
             <span>
               <CiCreditCard1 className="mr-4" />
             </span>
-            <h3>Прив'язка карти</h3>
+            <h3>Прив&apos;язка карти</h3>
           </AccordionTrigger>
           <AccordionContent>
             <LinkCard />

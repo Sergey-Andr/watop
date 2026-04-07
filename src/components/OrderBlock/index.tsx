@@ -10,8 +10,8 @@ export default async function OrderBlock() {
         <h2 className="text-5xl flex flex-col">
           Як замовити
           <sub className="text-lg leading-6 font-medium text-black/60 w-80 my-8 tracking-tight">
-            Будь ласка, залиште вашу контактну інформацію, і ми зв'яжемося з
-            вами протягом 20 хвилин.
+            Будь ласка, залиште вашу контактну інформацію, і ми зв&apos;яжемося
+            з вами протягом 20 хвилин.
           </sub>
         </h2>
         <Form />
